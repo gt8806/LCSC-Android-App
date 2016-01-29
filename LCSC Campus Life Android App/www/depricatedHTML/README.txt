@@ -1,0 +1,1 @@
+﻿In Cordova applications there should only be one index.html file in the www directory. These none applicable *.html files are stored here for reference. ~MK 1/27/2016
