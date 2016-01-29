@@ -13,11 +13,10 @@
 			navigator.splashscreen.show();
 		}
 	</script>
-
-<link href='js/agendalist.css' rel='stylesheet' />
-<script src='js/moment.min.js'></script>
-<script src='js/agendalist.js'></script>
-<script type='text/javascript' src='js/gcal.js'></script>
+    <link href='js/agendalist.css' rel='stylesheet' />
+    <script src='js/moment.min.js'></script>
+    <script src='js/agendalist.js'></script>
+    <script type='text/javascript' src='js/gcal.js'></script>
 <script>
 
 $(document).ready(function() {
@@ -52,7 +51,6 @@ $(".eventsources").on('click', '.resident_life_hidden', function() {
 	 $('.resident-life-event').css("display","");     	 	
 	 $('.resident_life_hidden').removeClass("resident_life_hidden");
 });
-
 
 $(".eventsources").on('click', '.entertainment_add', function() {	
 	$('.entertainment-event').css("display","none");
@@ -132,6 +130,7 @@ $('#calendar').fullCalendar({
         ],
     });
 });
+
 function AllEvents(){
     $("#calendar").addClass("show");
     $("#calendar").removeClass("hide");
@@ -155,7 +154,6 @@ function FullCalendar() {
     $("#fullCalendar").removeClass("hide");
     $(".eventsources").addClass("show");
     $(".eventsources").removeClass("hide");
-
 }
 function Resources(){
     $("#calendar").addClass("hide");
@@ -168,7 +166,6 @@ function Resources(){
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
-
 }
 function Emergency(){
     $("#calendar").addClass("hide");
@@ -353,10 +350,22 @@ div.header{
 <div id="footer" style="display:table; width:100%;">
     <nav class="Navigation">
         <ul >
-        <li class="AllEvents" ><a onclick="AllEvents();">All Events</a></li>
-        <li class="FullCalendar"><a onclick="FullCalendar();">Calendar</a></li>
-        <li class="Athletics"><a onclick="Resources();">Resources</a></li>
-        <li class="Emergency"><a onclick="Emergency();">Emergency</a></li>
+        <li class="AllEvents">
+            <a onclick="AllEvents();">All Events
+            </a>
+        </li>
+        <li class="FullCalendar">
+            <a onclick="FullCalendar();">Calendar
+            </a>
+        </li>
+        <li class="Athletics">
+            <a onclick="Resources();">Resources
+            </a>
+        </li>
+        <li class="Emergency">
+            <a onclick="Emergency();">Emergency
+            </a>
+        </li>
 	    </ul>
     </nav>
 </div>
