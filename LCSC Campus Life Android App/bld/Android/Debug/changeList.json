@@ -250,7 +250,6 @@
     "plugins\\cordova-plugin-splashscreen\\tests\\ios\\CDVSplashScreenTest\\CDVSplashScreenLibTests\\Info.plist",
     "plugins\\fetch.json",
     "plugins\\cordova-plugin-statusbar\\doc\\es\\index.md",
-    "config.xml",
     "plugins\\cordova-plugin-file\\www\\fileSystems.js",
     "plugins\\cordova-plugin-media\\doc\\de\\index.md",
     "plugins\\cordova-plugin-statusbar\\doc\\ja\\README.md",
@@ -654,7 +653,8 @@
     "www\\depricatedHTML\\emer.html",
     "www\\depricatedHTML\\lcsc.html",
     "www\\depricatedHTML\\month.html",
-    "www\\depricatedHTML\\README.txt"
+    "www\\depricatedHTML\\README.txt",
+    "config.xml"
   ],
   "deletedFilesIos": [
     "www\\athl.html",
@@ -664,7 +664,9 @@
   ],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
-  "changedFiles": [],
+  "changedFiles": [
+    "www\\index.html"
+  ],
   "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []
