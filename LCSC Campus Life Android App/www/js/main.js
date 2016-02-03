@@ -141,19 +141,19 @@ $('#calendar').fullCalendar({
             }
         ],
 });
-$('#fullCalendar').fullCalendar({
-    googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
-    eventSources: [
-        {
-            googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
-            className: ' academic-event'
-        },
-        {
-            googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
-            className: 'student-activity-event'
-        }
-    ]
-});
+//$('#fullCalendar').fullCalendar({
+//    googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
+//    eventSources: [
+//        {
+//            googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
+//            className: ' academic-event'
+//        },
+//        {
+//            googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
+//            className: 'student-activity-event'
+//        }
+//    ]
+//});
 });
 function AllEvents(){
     $("#calendar").addClass("show");
