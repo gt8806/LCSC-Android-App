@@ -1,77 +1,74 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lewis-Clark State College</title>	
-	<link href="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.css" rel="stylesheet" />
-	<script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" charset="utf-8">
-		document.addEventListener("deviceready", onDeviceReady, false);
-		function onDeviceReady() {
-			navigator.splashscreen.show();
-		}
-	</script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lewis-Clark State College</title>	
+    <link href="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+  		document.addEventListener("deviceready", onDeviceReady, false);
+    	function onDeviceReady() {
+    		navigator.splashscreen.show();
+    	}
+    </script>
     <link href='css/agendalist.css' rel='stylesheet' />
     <script src='js/moment.min.js'></script>
     <script src='js/agendalist.js'></script>
     <script src='js/gcal.js'></script>
     <script src='js/main.js'></script>
     <link rel="stylesheet" href="css/main.css"/>
-</head>
-<body >
-<div class="header">
-<nav class="eventsources">
-    <a href="#" id="menu-icon"></a>
-<ul>
-    <li><p class="academics_add">Academics</p></li>
-    <li><p class="entertainment_add">Entertainment</p></li>
-    <li><p class="student_activites_add">Student Activites</p></li>
-    <li><p class="campus_rec_add">Campus Rec</p></li>
-    <li><p class="resident_life_add">Resident Life</p></li>
-    <li><p class="warrior_athletics_add">Warrior Athletics</p></li>
+  </head>
+  <body >
+    <div class="header">
+      <nav class="eventsources">
+        <a href="#" id="menu-icon"></a>
+        <ul>
+          <li><p class="academics_add">Academics</p></li>
+          <li><p class="entertainment_add">Entertainment</p></li>
+          <li><p class="student_activites_add">Student Activites</p></li>
+          <li><p class="campus_rec_add">Campus Rec</p></li>
+          <li><p class="resident_life_add">Resident Life</p></li>
+          <li><p class="warrior_athletics_add">Warrior Athletics</p></li>
         </ul>
-    </nav>
-</div>
-<div id='calendar' class="show"></div>
-<div id="emergency" class="ui-body hide"><h2 style="text-align:center">Emergency</h2>
-    <a href="tel:911" data-role="button" data-icon="phone" rel="external" style="text-align:left">Emergency Services</a>
-	<a href="tel:2087922226" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Office</a>
-	<a href="tel:2087922815" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Mobile</a>
-	</div> 		
-<div id="resource" class="ui-body hide">
-    <h2 style="text-align:center">Resources</h2>
-	    <a href="http://www.lcsc.edu/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">LCSC</a>
-		<a href="http://www.lcwarriors.com/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Athletics</a>
-		<a href="http://www.lcsc.edu/news/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Campus News</a>
-        <a href="http://www.lcsc.edu/lcmail" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">LCMail</a>
-        <a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Warrior Web</a>
-		</div>		
-<div id="fullCalendar" class="ui-body hide">
-    <h2 style="text-align:center">LCSC - Calendar</h2>
+      </nav>
+    </div>
+    <div id='calendar' class="show"></div>
+    <div id="emergency" class="ui-body hide">
+      <h2 style="text-align:center">Emergency</h2>
+      <a href="tel:911" data-role="button" data-icon="phone" rel="external" style="text-align:left">Emergency Services</a>
+  	  <a href="tel:2087922226" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Office</a>
+  	  <a href="tel:2087922815" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Mobile</a>
+  	</div> 		
+    <div id="resource" class="ui-body hide">
+      <h2 style="text-align:center">Resources</h2>
+  	  <a href="http://www.lcsc.edu/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">LCSC</a>
+  		<a href="http://www.lcwarriors.com/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Athletics</a>
+  		<a href="http://www.lcsc.edu/news/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Campus News</a>
+      <a href="http://www.lcsc.edu/lcmail" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">LCMail</a>
+      <a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Warrior Web</a>
+  	</div>		
+    <div id="fullCalendar" class="ui-body hide">
+      <h2 style="text-align:center">LCSC - Calendar</h2>
     </div>	
-<div id="footer" style="display:table; width:100%;">
-    <nav class="Navigation">
+    <div id="footer" style="display:table; width:100%;">
+      <nav class="Navigation">
         <ul >
-        <li class="AllEvents">
-            <a onclick="AllEvents();">All Events
-            </a>
-        </li>
-        <li class="FullCalendar">
-            <a onclick="FullCalendar();">Calendar
-            </a>
-        </li>
-        <li class="Athletics">
-            <a onclick="Resources();">Resources
-            </a>
-        </li>
-        <li class="Emergency">
-            <a onclick="Emergency();">Emergency
-            </a>
-        </li>
-	    </ul>
-    </nav>
-</div>
-</body>
+          <li class="AllEvents">
+            <a onclick="AllEvents();">All Events</a>
+          </li>
+          <li class="FullCalendar">
+            <a onclick="FullCalendar();">Calendar</a>
+          </li>
+          <li class="Athletics">
+            <a onclick="Resources();">Resources</a>
+          </li>
+          <li class="Emergency">
+            <a onclick="Emergency();">Emergency</a>
+          </li>
+  	    </ul>
+      </nav>
+    </div>
+  </body>
 </html>
