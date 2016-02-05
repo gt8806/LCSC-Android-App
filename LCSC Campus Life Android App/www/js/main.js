@@ -141,19 +141,36 @@ $('#calendar').fullCalendar({
             }
         ],
 });
-//$('#fullCalendar').fullCalendar({
-//    googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
-//    eventSources: [
-//        {
-//            googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
-//            className: ' academic-event'
-//        },
-//        {
-//            googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
-//            className: 'student-activity-event'
-//        }
-//    ]
-//});
+
+$(".eventsources").on('click', '.warrior_athletics_add', function () {
+    $('#calendar').fullCalendar('removeEventSource', 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com');
+    $('.warrior-athletic-event').css("display", "none");
+    $('.warrior_athletics_add').addClass("warrior_athletics_hidden");
+});
+
+$(".eventsources").on('click', '.warrior_athletics_hidden', function () {
+    $('#calendar').fullCalendar('addEventSource', {
+        googleCalendarId: 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com',
+        className: ' warrior-athletic-event'
+    });
+    $('.warrior-athletic-event').css("display", "");
+    $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
+});
+
+$('#fullCalendar').fullCalendar({
+    googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
+    eventSources: [
+        {
+            googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
+            className: ' academic-event'
+        },
+        {
+            googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
+            className: 'student-activity-event'
+        }
+    ]
+});
+
 });
 function AllEvents(){
     $("#calendar").addClass("show");

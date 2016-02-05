@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v2.3.1 Stylesheet
+ * FullCalendar v2.6.0 Stylesheet
  * Docs & License: http://fullcalendar.io/
  * (c) 2015 Adam Shaw
  */
@@ -79,7 +79,15 @@ body .fc { /* extra precedence to overcome jqui */
 	text-align: center;
 	overflow: hidden;
 	font-family: "Courier New", Courier, monospace;
-}
+
+	/* don't allow browser text-selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	}
 
 /*
 Acceptable font-family overrides for individual icons:
@@ -549,25 +557,24 @@ temporary rendered events).
 --------------------------------------------------------------------------------------------------*/
 
 /* events that are continuing to/from another week. kill rounded corners and butt up against edge */
-/*
+
 .fc-ltr .fc-h-event.fc-not-start,
 .fc-rtl .fc-h-event.fc-not-end {
 	margin-left: 0;
 	border-left-width: 0;
-	padding-left: 1px; 
+	padding-left: 1px; /* replace the border with padding */
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
 
 .fc-ltr .fc-h-event.fc-not-end,
-.fc-rtl .fc-h-event {
+.fc-rtl .fc-h-event.fc-not-start {
 	margin-right: 0;
 	border-right-width: 0;
-	padding-right: 1px; 
+	padding-right: 1px; /* replace the border with padding */
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
-*/
 
 /* resizer */
 
@@ -663,6 +670,15 @@ a.fc-more:hover {
 
 .fc-more-popover .fc-event-container {
 	padding: 10px;
+}
+
+
+/* Now Indicator
+--------------------------------------------------------------------------------------------------*/
+
+.fc-now-indicator {
+	position: absolute;
+	border: 0 solid red;
 }
 
 /* Toolbar
@@ -805,10 +821,7 @@ a.fc-more:hover {
 .fc-rtl .fc-basic-view .fc-day-number {
 	text-align: left;
 }
-.fc-other-month
-{
-	background-color:#f3f2f2;
-}
+
 .fc-day-number.fc-other-month {
 	opacity: 0.3;
 	filter: alpha(opacity=30); /* for IE */
@@ -884,27 +897,46 @@ a.fc-more:hover {
 	z-index: 2;
 }
 
-.fc-time-grid .fc-bgevent-skeleton,
+.fc-time-grid .fc-content-col {
+	position: relative; /* because now-indicator lives directly inside */
+}
+
 .fc-time-grid .fc-content-skeleton {
 	position: absolute;
+	z-index: 3;
 	top: 0;
 	left: 0;
 	right: 0;
 }
 
-.fc-time-grid .fc-bgevent-skeleton {
+/* divs within a cell within the fc-content-skeleton */
+
+.fc-time-grid .fc-business-container {
+	position: relative;
+	z-index: 1;
+}
+
+.fc-time-grid .fc-bgevent-container {
+	position: relative;
+	z-index: 2;
+}
+
+.fc-time-grid .fc-highlight-container {
+	position: relative;
 	z-index: 3;
 }
 
-.fc-time-grid .fc-highlight-skeleton {
+.fc-time-grid .fc-event-container {
+	position: relative;
 	z-index: 4;
 }
 
-.fc-time-grid .fc-content-skeleton {
+.fc-time-grid .fc-now-indicator-line {
 	z-index: 5;
 }
 
-.fc-time-grid .fc-helper-skeleton {
+.fc-time-grid .fc-helper-container { /* also is fc-event-container */
+	position: relative;
 	z-index: 6;
 }
 
@@ -943,11 +975,6 @@ a.fc-more:hover {
 
 /* TimeGrid Event Containment
 --------------------------------------------------------------------------------------------------*/
-
-.fc-time-grid .fc-event-container, /* a div within a cell within the fc-content-skeleton */
-.fc-time-grid .fc-bgevent-container { /* a div within a cell within the fc-bgevent-skeleton */
-	position: relative;
-}
 
 .fc-ltr .fc-time-grid .fc-event-container { /* space on the sides of events for LTR (default) */
 	margin: 0 2.5% 0 2px;
@@ -1063,260 +1090,35 @@ be a descendant of the grid when it is being dragged.
 .fc-time-grid-event .fc-resizer:after {
 	content: "=";
 }
-.pop-up-content
-{
-
-	padding:10px;
-	 padding-top:25px;
-	 padding-bottom:100px;
-	 
-}
-.event-day
-{
-	text-align:center;
-	margin-left:-25px;
-	margin-top:-25px;
-}
-
-.tr
-{
-	border-bottom:1px solid silver;
-	padding:5px;
-	padding-bottom:10px;
-	display:block;
-	overflow:hidden;
-	
-}
 
 
+/* Now Indicator
+--------------------------------------------------------------------------------------------------*/
 
-.pop-up-content div 
-{
-	width:100%;
-	height:100%;
-
-
-}
-.icon
-{
-	width:30px;
-	float:left;
-	opacity:0.8;
-	height:auto;
-	
-	margin-right:10px;
-	margin-left:-10px;
-}
-.aarow
-{
-	margin-top:-7px;
-	margin-left:-5px;
-}
-.pop-up-close
-{
-font-size:16px; font-weight:900; width:25px; float:left
-}
-.pop-up-header-container
-{
-background-color:#E8E8E8; 
-border-bottom:1px solid #CCC;
- height:25px;
- width:100%; padding:10px;"
-}
-#pop-up
-{
-	background-color:white; 
-	position:fixed; 
-	top:0; 
-	bottom: 0; 
-	left:0; 
-	right:0;  
-	width:100%; 
-	height:100% 
-	z-index:999999999;
-	overflow-y: scroll;
+.fc-time-grid .fc-now-indicator-line {
+	border-top-width: 1px;
+	left: 0;
+	right: 0;
 }
 
-.academic-event, .student-activity-event,.warrior-athletic-event,
-.entertainment-event, .resident-life-event, .campus-rec-event
-{
-	text-shadow:none;
-	font-weight:100;
-	font-size:12px;
-	padding-top:2px;
-	padding-bottom:2px;
-	color:white !important;
+/* arrow on axis */
+
+.fc-time-grid .fc-now-indicator-arrow {
+	margin-top: -5px; /* vertically center on top coordinate */
 }
 
-.academic-event
-{
-	background-color:#666;		
-	border:1px solid #666;			
+.fc-ltr .fc-time-grid .fc-now-indicator-arrow {
+	left: 0;
+	/* triangle pointing right... */
+	border-width: 5px 0 5px 6px;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
 }
 
-.student-activity-event
-{
-	background-color:#F93;	
-	border:1px solid #F93;
+.fc-rtl .fc-time-grid .fc-now-indicator-arrow {
+	right: 0;
+	/* triangle pointing left... */
+	border-width: 5px 6px 5px 0;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
 }
-
-.warrior-athletic-event
-{
-	background-color:#069;	
-	border:1px solid #069;
-}
-
-.entertainment-event
-{
-	background-color:#900;	
-	border:1px solid #900;
-}
-
-.resident-life-event
-{	
-	background-color:#0CC;	
-	border:1px solid #0CC;
-}
-
-.campus-rec-event
-{	
-	background-color:#093;	
-	border:1px solid #093;
-}
-
-@media(max-width: 700px)
-{
-.academic-event, .student-activity-event,.warrior-athletic-event,
-.entertainment-event, .resident-life-event, .campus-rec-event
-{	
-	width:6px;
-	height:4px;
-
-	border-radius:6px;
-	font-size:0px;
-}
-
-
-}
-.active
-{
-	background-color:purple !important;
-}
-.fc-past, .fc-future
-{
-	background-color:white;
-	border-top:1px solid #CCC;
-	border-right:1px solid #CCC;
-	
-}
-.fc-other-month 
-{
-	background-color:#E9E9E9;
-}
-.fc-day-header, .fc-widget-header
-{
-	border:none !important;
-	font-weight:300;
-	
-	3001
-	
-	
-}
-.fc-more
-{
-	font-size:12px !important;
-	text-shadow:none !important;
-	font-weight:100 !important;
-}
-	#container
-	{
-		padding-top:10px;
-		background-color:white !important;
-	}
-	.fc-toolbar
-	{
-		padding-top:10px;
-		padding-left:10px;
-		padding-right:10px;
-		
-	}
-/*
-
-	#body {
-		
-		padding-top:10px;
-		top: 0px;
-		left: 0px;
-		bottom: 36px;
-		max-height:800px;
-		width: 100%;
-		background: white;
-	} */
-
-
-	#footer {
-	    position:fixed;
-	    bottom:0;
-		width:100%;
-	    height:36px;   /* Height of the footer */
-	    background:#f6f6f6;
-	}
-
-	.event_sources
-	{
-		margin:10px;
-		width:100%;
-	}
-	@media(max-width: 360px)
-{
-	.event_sources
-	{
-		font-size:12px !important;
-	}
-	h2
-	{
-		font-size:16px;
-		padding-top:10px;
-	}
-	.fc-more
-{
-	font-size:10px !important;
-	text-shadow:none !important;
-	font-weight:100 !important;
-}
-}
-
-
-.academics_add
-{
-	color:#666;
-}
-
-.entertainment_add
-{
-	color:#900;
-}
-.student_activites_add
-{
-	color:#F93;
-}
-.campus_rec_add
-{
-	color:#093;
-}
-.resident_life_add
-{
-	color:#0CC;
-}
-.warrior_athletics_add
-{
-	color:#069;	
-}
-.academics_hidden, .campus_rec_hidden, .entertainment_hidden,
-.student_activites_hidden, .resident_life_hidden, .warrior_athletics_hidden
-{
-	color:#CCC !important;
-}
-
-
-
