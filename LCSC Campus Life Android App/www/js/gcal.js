@@ -52,7 +52,7 @@ FC.sourceNormalizers.push(function(sourceOptions) {
 	if (googleCalendarId) { // is this a Google Calendar?
 
 		// make each Google Calendar source uneditable by default
-		if (sourceOptions.editable == null) {
+		if (sourceOptions.editable === null) {
 			sourceOptions.editable = false;
 		}
 
