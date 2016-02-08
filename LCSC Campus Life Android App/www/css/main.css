@@ -48,16 +48,20 @@ nav.eventsources{
 	padding: 20px;
 	margin-top:-20px;
 }
+
 nav.eventsources #menu-icon{
-	display: none;
-	width: 40px;
-	height: 40px;
-	background: url(images/filter.png) center;
-	background-image:url('images/filter.png');
-	background-size:20px;
-	background-repeat:no-repeat;
+	display:inline-block;
+    background-color:#003865;
+    border: none !important;
+    margin-right: 10px;
+    margin-top: 10px;
 }
- nav.eventsources li a{
+
+.fa-calendar-plus-o {
+   color: white;    
+}
+
+nav.eventsources li a{
     padding:0px;
 }
 nav.eventsources ul {
@@ -70,9 +74,7 @@ nav.eventsources li {
 nav.eventsources .current {
 	color: #2262AD;
 }
-nav.eventsources #menu-icon {
-	display:inline-block;
-}
+
 nav.eventsources ul, nav.eventsources:active ul{
 	display: none;
 	position: absolute;
