@@ -334,43 +334,44 @@ border-bottom:1px solid #CCC;
 }
 }
 
+.filter li {
+    opacity: 0.5;
+    font-weight: bolder;
+    font-size: 15px;
+    
+}
+
 
 .academics_add
 {
 	color:white;
     background-color: #666;
-    opacity: 0.5;
 }
 
 .entertainment_add
 {
     color: white;
 	background-color:#900;
-    opacity: 0.5;	
 }
 .student_activites_add
 {
     color: white;
 	background-color:#F93;
-    opacity: 0.5;	
 }
 .campus_rec_add
 {
     color: white;
 	background-color:#093;
-    opacity: 0.5;	
 }
 .resident_life_add
 {
     color: white;
 	background-color:#0CC;
-    opacity: 0.5;	
 }
 .warrior_athletics_add
 {
     color: white;
 	background-color:#069;
-    opacity: 0.5;	
 }
 
 /* .academics_hidden, .campus_rec_hidden, .entertainment_hidden,
