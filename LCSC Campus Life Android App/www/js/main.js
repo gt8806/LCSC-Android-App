@@ -166,21 +166,6 @@ $('#calendar').fullCalendar({
         ],
 });
 
-$(".eventsources").on('click', '.warrior_athletics_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com');
-    $('.warrior-athletic-event').css("display", "none");
-    $('.warrior_athletics_add').addClass("warrior_athletics_hidden");
-});
-
-$(".eventsources").on('click', '.warrior_athletics_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com',
-        className: ' warrior-athletic-event'
-    });
-    $('.warrior-athletic-event').css("display", "");
-    $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
-});
-
 $('#fullCalendar').fullCalendar({
     googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
     eventSources: [
