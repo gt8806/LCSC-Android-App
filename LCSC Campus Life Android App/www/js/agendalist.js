@@ -13,7 +13,7 @@
 	}
 })(function($, moment) {
 
-;;
+
 
 var defaults = {
 
@@ -100,7 +100,7 @@ var defaults = {
 		nextYear: 'seek-next'
 	},
 
-	dragOpacity: .75,
+	dragOpacity: 0.75,
 	dragRevertDuration: 500,
 	dragScroll: true,
 	
@@ -172,7 +172,7 @@ var rtlDefaults = {
 	}
 };
 
-;;
+
 
 var fc = $.fullCalendar = { version: "2.1.1" };
 var fcViews = fc.views = {};
@@ -252,7 +252,7 @@ function isForcedAtomicOption(name) {
 // FIX: find a different solution for view-option-hashes and have a whitelist
 // for options that can be recursively merged.
 
-;;
+
 
 //var langOptionHash = {}; // initialized in defaults.js
 fc.langs = langOptionHash; // expose
@@ -325,7 +325,7 @@ fc.lang = function(langCode, options) {
 	// set it as the default language for FullCalendar
 	defaults.lang = langCode;
 };
-;;
+
 
  
 function Calendar(element, instanceOptions) {
@@ -417,7 +417,7 @@ function Calendar(element, instanceOptions) {
 	if (options.dayNamesShort) {
 		localeData._weekdaysShort = options.dayNamesShort;
 	}
-	if (options.firstDay != null) {
+	if (options.firstDay !== null) {
 		var _week = createObject(localeData._week); // _week: { dow: # }
 		_week.dow = options.firstDay;
 		localeData._week = _week;
@@ -598,7 +598,7 @@ function Calendar(element, instanceOptions) {
 	// -----------------------------------------------------------------------------------
 
 
-	if (options.defaultDate != null) {
+	if (options.defaultDate !== null) {
 		date = t.moment(options.defaultDate);
 	}
 	else {
@@ -789,7 +789,7 @@ function Calendar(element, instanceOptions) {
 			suggestedViewHeight = options.height - (headerElement ? headerElement.outerHeight(true) : 0);
 		}
 		else {
-			suggestedViewHeight = Math.round(content.width() / Math.max(options.aspectRatio, .5));
+			suggestedViewHeight = Math.round(content.width() / Math.max(options.aspectRatio, 0.5));
 		}
 	}
 	
@@ -1052,7 +1052,7 @@ function Calendar(element, instanceOptions) {
 
 }
 
-;;
+
 
 /* Top toolbar area with buttons and title
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -1278,7 +1278,7 @@ function Header(calendar, options) {
 
 }
 
-;;
+
 
 fc.sourceNormalizers = [];
 fc.sourceFetchers = [];
@@ -1660,7 +1660,7 @@ function EventManager(options) { // assumed to be a calendar
 		var eventID;
 		var i;
 
-		if (filter == null) { // null or undefined. remove all events
+		if (filter === null) { // null or undefined. remove all events
 			filter = function() { return true; }; // will always match
 		}
 		else if (!$.isFunction(filter)) { // an event ID
@@ -1690,7 +1690,7 @@ function EventManager(options) { // assumed to be a calendar
 		if ($.isFunction(filter)) {
 			return $.grep(cache, filter);
 		}
-		else if (filter != null) { // not null, not undefined. an event ID
+		else if (filter !== null) { // not null, not undefined. an event ID
 			filter += '';
 			return $.grep(cache, function(e) {
 				return e._id == filter;
@@ -1930,7 +1930,7 @@ function EventManager(options) { // assumed to be a calendar
 			var oldAllDay = event._allDay;
 			var oldStart = event._start;
 			var oldEnd = event._end;
-			var newAllDay = forceAllDay != null ? forceAllDay : oldAllDay;
+			var newAllDay = forceAllDay !== null ? forceAllDay : oldAllDay;
 			var newStart = oldStart.clone();
 			var newEnd = (!clearEnd && oldEnd) ? oldEnd.clone() : null;
 
@@ -2005,7 +2005,7 @@ function backupEventDates(event) {
 	event._end = event.end ? event.end.clone() : null;
 }
 
-;;
+
 
 /* FullCalendar-specific DOM Utilities
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -2371,8 +2371,6 @@ function debounce(func, wait) {
 	};
 }
 
-;;
-
 var ambigDateOfMonthRegex = /^\s*\d{4}-\d\d$/;
 var ambigTimeOrZoneRegex =
 	/^\s*\d{4}-(?:(\d\d-\d\d)|(W\d\d$)|(W\d\d-\d)|(\d\d\d))((T| )(\d\d(:\d\d(:\d\d(\.\d+)?)?)?)?)?$/;
@@ -2510,7 +2508,7 @@ FCMoment.prototype.clone = function() {
 // You can supply a Duration, a Moment, or a Duration-like argument.
 // When setting the time, and the moment has an ambiguous time, it then becomes unambiguous.
 FCMoment.prototype.time = function(time) {
-	if (time == null) { // getter
+	if (time === null) { // getter
 		return moment.duration({
 			hours: this.hours(),
 			minutes: this.minutes(),
@@ -2613,7 +2611,7 @@ FCMoment.prototype.hasZone = function() {
 // this method implicitly marks a zone
 FCMoment.prototype.zone = function(tzo) {
 
-	if (tzo != null) {
+	if (tzo !== null) {
 		// FYI, the delete statements need to be before the .zone() call or else chaos ensues
 		// for reasons I don't understand. 
 		delete this._ambigTime;
@@ -2755,7 +2753,6 @@ function commonlyAmbiguate(inputs, preserveTime) {
 	return outputs;
 }
 
-;;
 
 // Single Date Formatting
 // -------------------------------------------------------------------------------------------------
@@ -2985,7 +2982,7 @@ function chunkFormatString(formatStr) {
 	return chunks;
 }
 
-;;
+
 
 /* A rectangular panel that is absolutely positioned over other content
 ------------------------------------------------------------------------------------------------------------------------
@@ -3154,7 +3151,6 @@ Popover.prototype = {
 
 };
 
-;;
 
 /* A "coordinate map" converts pixel coordinates into an associated cell, which has an associated date
 ------------------------------------------------------------------------------------------------------------------------
@@ -3298,7 +3294,6 @@ ComboCoordMap.prototype = {
 
 };
 
-;;
 
 /* Tracks mouse movements over a CoordMap and raises events about which cell the mouse is over.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -3727,7 +3722,6 @@ function isCellsEqual(cell1, cell2) {
 	return false;
 }
 
-;;
 
 /* Creates a clone of an element and lets it track the mouse as it moves
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -3915,7 +3909,6 @@ MouseFollower.prototype = {
 
 };
 
-;;
 
 /* A utility class for rendering <tr> rows.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -4019,7 +4012,6 @@ RowRenderer.prototype = {
 
 };
 
-;;
 
 /* An abstract class comprised of a "grid" of cells that each represent a specific datetime
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -4341,7 +4333,6 @@ $.extend(Grid.prototype, {
 
 });
 
-;;
 
 /* Event-rendering and event-interaction methods for the abstract Grid class
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -4764,7 +4755,6 @@ function compareSegs(seg1, seg2) {
 }
 
 
-;;
 
 /* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -5070,7 +5060,6 @@ $.extend(DayGrid.prototype, {
 
 });
 
-;;
 
 /* Event-rendering methods for the DayGrid class
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -5362,7 +5351,6 @@ function compareDaySegCols(a, b) {
 	return a.leftCol - b.leftCol;
 }
 
-;;
 
 /* Methods relate to limiting the number events for a given day on a DayGrid
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -5708,7 +5696,6 @@ $.extend(DayGrid.prototype, {
 
 });
 
-;;
 
 /* A component that renders one or more columns of vertical time slots
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -6171,7 +6158,6 @@ $.extend(TimeGrid.prototype, {
 
 });
 
-;;
 
 /* Event-rendering methods for the TimeGrid class
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -6597,7 +6583,6 @@ function compareForwardSlotSegs(seg1, seg2) {
 		compareSegs(seg1, seg2);
 }
 
-;;
 
 /* An abstract class from which other views inherit from
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7413,7 +7398,6 @@ function View(calendar) {
 
 }
 
-;;
 
 /* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7711,7 +7695,6 @@ $.extend(BasicView.prototype, {
 
 });
 
-;;
 
 /* A month view with day cells running in rows (one-per-week) and columns
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7793,7 +7776,6 @@ $.extend(MonthView.prototype, {
 
 });
 
-;;
 
 /* A week view with simple day cells running horizontally
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7836,7 +7818,6 @@ $.extend(BasicWeekView.prototype, {
 	}
 	
 });
-;;
 
 /* A view with a single simple day cell
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -7872,7 +7853,6 @@ $.extend(BasicDayView.prototype, {
 	}
 
 });
-;;
 
 /* An abstract class for all agenda-related views. Displays one more columns with time slots running vertically.
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -8304,7 +8284,6 @@ $.extend(AgendaView.prototype, {
 
 });
 
-;;
 
 /* A week view with an all-day cell area at the top, and a time grid below
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -8348,7 +8327,6 @@ $.extend(AgendaWeekView.prototype, {
 
 });
 
-;;
 
 /* A day view with an all-day cell area at the top, and a time grid below
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -8385,7 +8363,6 @@ $.extend(AgendaDayView.prototype, {
 
 });
 
-;;
 
 
 /***************** List View *********************/
@@ -8483,7 +8460,7 @@ $.extend(ListView.prototype, {
             var tstart, tend;
 			
             var j = 0;
-            for(i in events) {
+            for(var i in events) {
                 displayeventlist[j] = Object.create(events[i]);
                 tstart = events[i].start.clone();
                 tend   = events[i].end ? events[i].end.clone() : null;
@@ -8509,9 +8486,9 @@ $.extend(ListView.prototype, {
 
             //Start displaying our sorted list
 			var html    = $("<ul class='fc-agendaList'></ul>");
-			var disDay, disDate, lurl, ltitle, evMonth, visMonth, visYear;
-            var disDay, disDate, ltitle, allDay, startDate, endDate;
-			var temp, i = 0, count = 0;
+			var disDay, disDate, lurl, ltitle, evMonth, visMonth, visYear, allDay, startDate, endDate;
+			var temp, count = 0;
+			i = 0;
             
 			var x = new Date();
 			visDay = x.getDate(); 
@@ -8639,5 +8616,5 @@ $.extend(AgendaListView.prototype, {
  	RowRenderer.call(this, view);
  }
  
-;;
+
 });
