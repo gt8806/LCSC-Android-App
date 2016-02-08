@@ -337,39 +337,43 @@ border-bottom:1px solid #CCC;
 
 .academics_add
 {
-	color:#666;
+	color:white;
+    background-color: #666;
 }
 
 .entertainment_add
 {
-	color:#900;
+    color: white;
+	background-color:#900;	
 }
 .student_activites_add
 {
-	color:#F93;
+    color: white;
+	background-color:#F93;	
 }
 .campus_rec_add
 {
-	color:#093;
+    color: white;
+	background-color:#093;	
 }
 .resident_life_add
 {
-	color:#0CC;
+    color: white;
+	background-color:#0CC;	
 }
 .warrior_athletics_add
 {
-	color:#069;	
+    color: white;
+	background-color:#069;	
 }
-.academics_hidden, .campus_rec_hidden, .entertainment_hidden,
+
+/* .academics_hidden, .campus_rec_hidden, .entertainment_hidden,
 .student_activites_hidden, .resident_life_hidden, .warrior_athletics_hidden
 {
 	color:#CCC !important;
-}
+} */
 
 .fc-agendaList-dayHeader
 {
 	font-size:16px !important; 
 }
-
-
-
