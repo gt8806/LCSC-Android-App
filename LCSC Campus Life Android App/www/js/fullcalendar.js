@@ -1687,7 +1687,7 @@
   
   	while ((match = chunker.exec(formatStr))) {
   		if (match[1]) { // a literal string inside [ ... ]
-  			chunks.push(match[1]);
+  		chunks.push(match[1]);
   		}
   		else if (match[2]) { // non-zero formatting inside ( ... )
   			chunks.push({ maybe: chunkFormatString(match[2]) });
@@ -10405,7 +10405,7 @@
   			if (abstractEvent._recurring) {
   
   				// make a boolean hash as to whether the event occurs on each day-of-week
-  				if ((dow = abstractEvent.dow)) {
+  				if ((dow === abstractEvent.dow)) {
   					dowHash = {};
   					for (i = 0; i < dow.length; i++) {
   						dowHash[dow[i]] = true;
