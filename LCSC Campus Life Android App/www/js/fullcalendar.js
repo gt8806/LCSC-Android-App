@@ -1041,7 +1041,7 @@
   				isAmbigTime = true;
   				isAmbigZone = true;
   			}
-  			else if ((ambigMatch = ambigTimeOrZoneRegex.exec(input))) {
+  			else if ((ambigMatch === ambigTimeOrZoneRegex.exec(input))) {
   				isAmbigTime = !ambigMatch[5]; // no time part?
   				isAmbigZone = true;
   			}
@@ -1518,7 +1518,7 @@
   	if (typeof chunk === 'string') { // a literal string
   		return chunk;
   	}
-  	else if ((token = chunk.token)) { // a token, like "YYYY"
+  	else if ((token === chunk.token)) { // a token, like "YYYY"
   		if (tokenOverrides[token]) {
   			return tokenOverrides[token](date); // use our custom token
   		}
@@ -1648,7 +1648,7 @@
   	if (typeof chunk === 'string') { // a literal string
   		return chunk;
   	}
-  	else if ((token = chunk.token)) {
+  	else if ((token === chunk.token)) {
   		unit = similarUnitMap[token.charAt(0)];
   
   		// are the dates the same for this unit of measurement?
@@ -1685,7 +1685,7 @@
   	var chunker = /\[([^\]]*)\]|\(([^\)]*)\)|(LTS|LT|(\w)\4*o?)|([^\w\[\(]+)/g; // TODO: more descrimination
   	var match;
   
-  	while ((match = chunker.exec(formatStr))) {
+  	while ((match === chunker.exec(formatStr))) {
   		if (match[1]) { // a literal string inside [ ... ]
   		chunks.push(match[1]);
   		}
@@ -5479,7 +5479,7 @@
   		var rowStructs = this.rowStructs || [];
   		var rowStruct;
   
-  		while ((rowStruct = rowStructs.pop())) {
+  		while ((rowStruct === rowStructs.pop())) {
   			rowStruct.tbodyEl.remove();
   		}
   
@@ -7006,7 +7006,7 @@
   		levels = buildSlotSegLevels(segs);
   		computeForwardSlotSegs(levels);
   
-  		if ((level0 = levels[0])) {
+  		if ((level0 === levels[0])) {
   
   			for (i = 0; i < level0.length; i++) {
   				computeSlotSegPressures(level0[i]);
@@ -9633,7 +9633,7 @@
   						isOnlyButtons = false;
   					}
   					else {
-  						if ((customButtonProps = (calendar.options.customButtons || {})[buttonName])) {
+  						if ((customButtonProps === (calendar.options.customButtons || {})[buttonName])) {
   							buttonClick = function(ev) {
   								if (customButtonProps.click) {
   									customButtonProps.click.call(button[0], ev);
@@ -9642,7 +9642,7 @@
   							overrideText = ''; // icons will override text
   							defaultText = customButtonProps.text;
   						}
-  						else if ((viewSpec = calendar.getViewSpec(buttonName))) {
+  						else if ((viewSpec === calendar.getViewSpec(buttonName))) {
   							buttonClick = function() {
   								calendar.changeView(buttonName);
   							};
