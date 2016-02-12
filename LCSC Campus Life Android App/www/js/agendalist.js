@@ -438,7 +438,7 @@ function Calendar(element, instanceOptions) {
 	t.moment = function() {
 		var mom;
 
-		if (options.timezone === 'local') {
+/*		if (options.timezone === 'local') {
 			mom = fc.moment.apply(null, arguments);
 
 			// Force the moment to be local, because fc.moment doesn't guarantee it.
@@ -459,7 +459,9 @@ function Calendar(element, instanceOptions) {
 		else { // pre-moment-2.8
 			mom._lang = localeData;
 		}
-
+*/
+    	mom = fc.moment.utc.apply(null, arguments); // process everything as UTC
+		
 		return mom;
 	};
 
