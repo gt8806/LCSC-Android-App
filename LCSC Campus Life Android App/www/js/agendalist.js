@@ -438,7 +438,7 @@ function Calendar(element, instanceOptions) {
 	t.moment = function() {
 		var mom;
 
-/*		if (options.timezone === 'local') {
+		if (options.timezone === 'local') {
 			mom = fc.moment.apply(null, arguments);
 
 			// Force the moment to be local, because fc.moment doesn't guarantee it.
@@ -459,9 +459,7 @@ function Calendar(element, instanceOptions) {
 		else { // pre-moment-2.8
 			mom._lang = localeData;
 		}
-*/
-    	mom = fc.moment.utc.apply(null, arguments); // process everything as UTC
-		
+
 		return mom;
 	};
 
@@ -8463,20 +8461,24 @@ $.extend(ListView.prototype, {
 			
             var j = 0;
             for(var i in events) {
-                displayeventlist[j] = Object.create(events[i]);
-                tstart = events[i].start.clone();
-                tend   = events[i].end ? events[i].end.clone() : null;
-                /* for multiple-days event, we need to make fake events for the sake of displaying the list
-                   If an event start from Januray 12 - Janurary 15 / we need to display this event in 12/13/14/15
-                */
-                displayeventlist[j].displayDay = events[i].start;
-                while( (tend - tstart) > 1000*60*60*24 ) {
-                    j = j + 1;
-                    displayeventlist[j] = Object.create(events[i]);
-                    tstart = tstart.add(1, 'day');
-                    displayeventlist[j].displayDay  = tstart.clone();
-                }
+              if(events[i].allDay){
+                events[i].start.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
+                events[i].end.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
+              }
+              displayeventlist[j] = Object.create(events[i]);
+              tstart = events[i].start.clone();
+              tend   = events[i].end ? events[i].end.clone() : null;
+              /* for multiple-days event, we need to make fake events for the sake of displaying the list
+                 If an event start from Januray 12 - Janurary 15 / we need to display this event in 12/13/14/15
+              */
+              displayeventlist[j].displayDay = events[i].start;
+              while( (tend - tstart) > 1000*60*60*24 ) {
                 j = j + 1;
+                displayeventlist[j] = Object.create(events[i]);
+                tstart = tstart.add(1, 'day');
+                displayeventlist[j].displayDay  = tstart.clone();
+              }
+              j = j + 1;
             }
 
             // Lets sort our duplicated list start from day 1 to the last of each month
