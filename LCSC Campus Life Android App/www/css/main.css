@@ -132,16 +132,29 @@ div.header{
 		padding-left:20px;
 		height:40px;
         position:fixed;
-
+        z-index:9999;
 }
 #date{
-    all: none;
     color: white;
     font-weight: bolder;
     font-size: 140%;
     width: 50% ;
     position: absolute;
-    left: 33%;
+    left: 40%;
   margin-left: -50px;
     margin-top:.5em;
+}
+#lclog{
+    margin-top: .3em;
+    margin-left: -.5em;
+    height: 1.8em;
+    width: 2em;
+    position: absolute;
+}
+#lclog img{
+    height: 100%;
+    width: 100%;
+}
+#calendar,#emergency,#resource,#fullCalendar{
+    margin-top:2em;
 }
