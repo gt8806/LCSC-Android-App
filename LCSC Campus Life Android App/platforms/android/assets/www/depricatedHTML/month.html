@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lewis-Clark State College</title>
+	<link href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery-2.1.1/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+			navigator.splashscreen.show();
+		}
+	</script>
+
+<link href='js/fullcalendar.css' rel='stylesheet' />
+<script src='js/moment.min.js'></script>
+
+<script src='js/fullcalendar.js'></script>
+<script type='text/javascript' src='js/gcal.js'></script>
+	<script>
+   $(document).ready(function() {
+
+$("#insert-popup").on('click', '.pop-up-close', function() {
+    $("#pop-up").remove();
+	$('#calendar').css("display","");
+	var date = $("#calendar").fullCalendar('getView');
+	
+	if (date.name != "month")
+	{
+	$('.event_sources').css("display","none");
+		$('.fc-prev-button').css("display","none");
+	$('.fc-next-button').css("display","none");
+	}
+});
+
+$("#calendar").on('click', '.fc-month-button', function() {
+	$('.event_sources').css("display","");
+	
+});
+
+
+
+
+
+
+$('#calendar').click(function() {
+		var date = $("#calendar").fullCalendar('getView');
+	
+	if (date.name != "month")
+	{
+	$('.event_sources').css("display","none");
+		$('.fc-prev-button').css("display","none");
+	$('.fc-next-button').css("display","none");
+	}
+	else{
+	$('.fc-prev-button').css("display","");
+	$('.fc-next-button').css("display","");
+	$('.fc-month-button').css("display","none");
+	}
+	
+});
+$('#calendar').ready(function() {
+	$('.fc-month-button').css("display","none");
+	$('.fc-basicDay-button').css("display","none");	
+	
+});
+
+$(".event_sources").on('click', '.warrior_athletics_add', function() {	
+	$('.warrior-athletic-event').css("display","none");
+	$('.warrior_athletics_add').addClass("warrior_athletics_hidden"); 
+});
+
+$(".event_sources").on('click', '.warrior_athletics_hidden', function() {	 
+	 $('.warrior-athletic-event').css("display","");     	 	
+	 $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
+});
+
+$(".event_sources").on('click', '.resident_life_add', function() {	
+	$('.resident-life-event').css("display","none");
+	$('.resident_life_add').addClass("resident_life_hidden"); 
+});
+
+$(".event_sources").on('click', '.resident_life_hidden', function() {	 
+	 $('.resident-life-event').css("display","");     	 	
+	 $('.resident_life_hidden').removeClass("resident_life_hidden");
+});
+
+
+$(".event_sources").on('click', '.entertainment_add', function() {	
+	$('.entertainment-event').css("display","none");
+	$('.entertainment_add').addClass("entertainment_hidden"); 
+});
+
+$(".event_sources").on('click', '.entertainment_hidden', function() {	 
+	 $('.entertainment-event').css("display","");     	 	
+	 $('.entertainment_hidden').removeClass("entertainment_hidden");
+});
+
+$(".event_sources").on('click', '.student_activites_add', function() {	
+	$('.student-activity-event').css("display","none");
+	$('.student_activites_add').addClass("student_activites_hidden"); 
+});
+
+$(".event_sources").on('click', '.student_activites_hidden', function() {	 
+	 $('.student-activity-event').css("display","");     	 	
+	 $('.student_activites_hidden').removeClass("student_activites_hidden");
+});
+
+
+$(".event_sources").on('click', '.academics_add', function() {	
+	$('.academic-event').css("display","none");
+	$('.academics_add').addClass("academics_hidden"); 
+});
+
+$(".event_sources").on('click', '.academics_hidden', function() {	 
+	 $('.academic-event').css("display","");     	 	
+	 $('.academics_hidden').removeClass("academics_hidden");
+});
+
+
+$(".event_sources").on('click', '.campus_rec_add', function() {	
+	$('.campus-rec-event').css("display","none");
+	$('.campus_rec_add').addClass("campus_rec_hidden"); 
+});
+
+$(".event_sources").on('click', '.campus_rec_hidden', function() {	 
+	 $('.campus-rec-event').css("display","");     	 	
+	 $('.campus_rec_hidden').removeClass("campus_rec_hidden");
+});
+		
+$('#calendar').fullCalendar({
+	  dayNamesShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'], 
+      header: {
+         left: 'prev,month',
+         center: 'title',
+         right: 'basicDay,next'
+     },
+
+	  aspectRatio: .9,
+      googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
+	  eventSources: [
+            {
+                googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
+				className: ' academic-event fc-end'
+            },
+            {
+                googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
+                className: ' student-activity-event fc-end'
+            },
+			{
+                googleCalendarId: 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com',
+				className: ' warrior-athletic-event fc-end'
+            },
+			{
+                googleCalendarId: 'm6h2d5afcjfnmaj8qr7o96q89c@group.calendar.google.com',
+				className: ' entertainment-event fc-end'
+            },
+			{
+                googleCalendarId: 'gqv0n6j15pppdh0t8adgc1n1ts@group.calendar.google.com',
+				className: ' resident-life-event fc-end'
+            },
+			{
+                googleCalendarId: 'h4j413d3q0uftb2crk0t92jjlc@group.calendar.google.com',
+				className: ' campus-rec-event fc-end'
+            }
+			
+        ],
+		
+		
+		
+		views:{
+			month: {
+				eventLimit:3,
+				
+			},
+		
+		},
+		eventLimitClick:function(cellInfo, jsEvent) {
+
+		
+   		$('#calendar').fullCalendar( 'gotoDate', cellInfo.date );		
+ 		$('#calendar').fullCalendar( 'changeView', 'basicDay' );
+        
+	 $('.academic-event').css("width","inherit");     
+     $('.academic-event').css("height","20px");
+	 $('.academic-event').css("font-size","14px");   
+	 $('.academic-event').css("border-radius","0px");
+	 
+	 $('.student-activity-event').css("width","inherit");     
+     $('.student-activity-event').css("height","20px");
+	 $('.student-activity-event').css("font-size","14px");   
+	 $('.student-activity-event').css("border-radius","0px"); 
+	 
+	 $('.warrior-athletic-event').css("width","inherit");     
+     $('.warrior-athletic-event').css("height","20px");
+	 $('.warrior-athletic-event').css("font-size","14px");   
+	 $('.warrior-athletic-event').css("border-radius","0px");
+	 
+	 $('.entertainment-event').css("width","inherit");     
+     $('.entertainment-event').css("height","20px");
+	 $('.entertainment-event').css("font-size","14px");   
+	 $('.entertainment-event').css("border-radius","0px");
+	 
+	 $('.resident-life-event').css("width","inherit");     
+     $('.resident-life-event').css("height","20px");
+	 $('.resident-life-event').css("font-size","14px");   
+	 $('.resident-life-event').css("border-radius","0px"); 
+	 
+	 $('.campus-rec-event').css("width","inherit");     
+     $('.campus-rec-event').css("height","20px");
+	 $('.campus-rec-event').css("font-size","14px");   
+	 $('.campus-rec-event').css("border-radius","0px"); 
+	$('.fc-month-button').css("display","");
+	$('.fc-basicDay-button').css("display","none");
+	$('.fc-prev-button').css("display","none");
+	$('.fc-next-button').css("display","none");
+	$('.event_sources').css("display","none");
+		return false;
+    },
+		dayClick:function(date, jsEvent, view) {
+
+		
+   		$('#calendar').fullCalendar( 'gotoDate', date );		
+ 		$('#calendar').fullCalendar( 'changeView', 'basicDay' );
+        
+	 $('.academic-event').css("width","inherit");     
+     $('.academic-event').css("height","20px");
+	 $('.academic-event').css("font-size","14px");   
+	 $('.academic-event').css("border-radius","0px");
+	 
+	 $('.student-activity-event').css("width","inherit");     
+     $('.student-activity-event').css("height","20px");
+	 $('.student-activity-event').css("font-size","14px");   
+	 $('.student-activity-event').css("border-radius","0px"); 
+	 
+	 $('.warrior-athletic-event').css("width","inherit");     
+     $('.warrior-athletic-event').css("height","20px");
+	 $('.warrior-athletic-event').css("font-size","14px");   
+	 $('.warrior-athletic-event').css("border-radius","0px");
+	 
+	 $('.entertainment-event').css("width","inherit");     
+     $('.entertainment-event').css("height","20px");
+	 $('.entertainment-event').css("font-size","14px");   
+	 $('.entertainment-event').css("border-radius","0px");
+	 
+	 $('.resident-life-event').css("width","inherit");     
+     $('.resident-life-event').css("height","20px");
+	 $('.resident-life-event').css("font-size","14px");   
+	 $('.resident-life-event').css("border-radius","0px"); 
+	 
+	 $('.campus-rec-event').css("width","inherit");     
+     $('.campus-rec-event').css("height","20px");
+	 $('.campus-rec-event').css("font-size","14px");   
+	 $('.campus-rec-event').css("border-radius","0px"); 
+	$('.fc-month-button').css("display","");
+	$('.fc-basicDay-button').css("display","none");
+	$('.fc-prev-button').css("display","none");
+	$('.fc-next-button').css("display","none");
+	$('.event_sources').css("display","none");
+		return false;
+    },
+		fixedWeekCount:false,
+		eventClick: function(calEvent, jsEvent, view) {
+			var day =$('#calendar').fullCalendar('getDate').format('MMMM D, YYYY');
+$("#insert-popup").append('<div id=' + '"' + 'pop-up' +'"'+ '>'+
+ 						 '<div class='+ '"' + 'pop-up-header-container' +'"'+'>' +
+						 '<div class='+'"'+'pop-up-close'+'"' +'><img class='+'"'+'aarow icon'+'"'+'src='+'"'+'images/back.png'+'"'+'/></div>'+
+						 '<div class='+'"' +'event-day'+ '"' +'><h2>'+day+'</h2></div>'+
+						 '</div><div class=' + '"' + 'pop-up-content' + '"' + '><div><div class='+'"'+'tr'+'"'+'><div class='+'"'+'ic'+'"'+'><img class='+'"'+'icon'+'"'+'src='+'"'+'images/event.png'+'"'+'/></div><div>'+
+						 calEvent.title+'</div></div><div class='+'"'+'tr'+'"'+'><div  class='+'"'+'ic'+'"'+'><img class='+'"'+'icon'+'"'+'src='+'"'+'images/location.png'+'"'+'/></div><div>'+calEvent.location+'</div></div><div class='+'"'+'tr'+'"'+'><div  class='+'"'+'ic'+'"'+'><img class='+'"'+'icon'+'"'+'src='+'"'+'images/time.png'+'"'+'/></div><div>'+
+						 calEvent.start.format('h:mm a')+' - '+calEvent.end.format('h:mm a')+'</div></div><div class='+'"'+'tr'+'"'+'><div  class='+'"'+'ic'+'"'+'><img class='+'"'+'icon'+'"'+'src='+'"'+'images/description.png'+'"'+'/></div><div>'+
+						 calEvent.description+'</div></div></div></div>'
+     
+);
+			$('#calendar').css("display","none");		
+
+ return false;
+      
+    }
+    });
+});
+
+</script>
+</head>
+<body>
+	 <div id="insert-popup"></div>
+     <div id='calendar' ></div>
+        
+        <table class="event_sources"><tr>
+        <td><p class="academics_add">Academics<p></td>
+        <td><p class="entertainment_add">Entertainment</p></td>
+        <td><p class="student_activites_add">Student Activites</p></td>
+        </tr>
+        <tr>
+        <td><p class="campus_rec_add">Campus Rec</p></td>
+        <td><p class="resident_life_add">Resident Life</p></td>
+        <td><p class="warrior_athletics_add">Warrior Athletics</p></td>
+        </tr></table>
+
+		<div id="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" class="ui-btn-active ui-state-persist">Calendar</a></li>
+					<li><a href="list.html">All Events</a></li>
+					<li><a href="athl.html">Athletics</a></li>
+					<li><a href="emer.html">Emergency</a></li>
+				</ul>
+			</div>
+		</div>
+       
+
+</body>
+
+</html>
