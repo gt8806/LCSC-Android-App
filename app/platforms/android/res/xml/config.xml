@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="edu.lcsc.LCSC" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <splash density="land-hdpi" src="www/images/res-long-land-hdpi/default.png" />
+    <splash density="land-ldpi" src="www/images/res-long-land-ldpi/default.png" />
+    <splash density="land-mdpi" src="www/images/res-long-land-mdpi/default.png" />
+    <splash density="land-xhdpi" src="www/images/res-long-land-xhdpi/default.png" />
+    <splash density="land-xxhdpi" src="www/images/res-long-land-xxhdpi/default.png" />
+    <splash density="land-xxxhdpi" src="www/images/res-long-land-xxxhdpi/default.png" />
+    <splash density="port-hdpi" src="www/images/res-long-port-hdpi/default.png" />
+    <splash density="port-ldpi" src="www/images/res-long-port-ldpi/default.png" />
+    <splash density="port-mdpi" src="www/images/res-long-port-mdpi/default.png" />
+    <splash density="port-xhdpi" src="www/images/res-long-port-xhdpi/default.png" />
+    <splash density="port-xxhdpi" src="www/images/res-long-port-xxhdpi/default.png" />
+    <splash density="port-xxxhdpi" src="www/images/res-long-port-xxxhdpi/default.png" />
+    <icon density="hdpi" src="www/images/drawable-hdpi/icon.png" />
+    <icon density="ldpi" src="www/images/drawable-ldpi/icon.png" />
+    <icon density="mdpi" src="www/images/drawable-mdpi/icon.png" />
+    <icon density="xhdpi" src="www/images/drawable-xhdpi/icon.png" />
+    <icon density="xxhdpi" src="www/images/drawable-xxhdpi/icon.png" />
+    <icon density="xxxhdpi" src="www/images/drawable-xxxhdpi/icon.png" />
+    <name>LCSC</name>
+    <description>
+        The official LCSC app.
+    </description>
+    <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
+        Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access launch-external="yes" origin="tel:*" />
+    <access launch-external="yes" origin="http://*" />
+    <access launch-external="yes" origin="https://*" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="5000" />
+</widget>
