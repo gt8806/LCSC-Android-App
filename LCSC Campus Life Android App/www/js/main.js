@@ -236,3 +236,12 @@ function Emergency(){
 
         document.getElementById('date').innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
     };
+
+$(document).on('click', function(event) {
+    var target = $(event.target)
+    if(target.is(".fa-chevron-circle-down")){
+        $(".eventsources ul").css("display", "block");
+    } else {
+        $(".eventsources ul").css("display", "none");        
+    }
+});
