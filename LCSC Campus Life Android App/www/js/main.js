@@ -180,6 +180,15 @@ $('#fullCalendar').fullCalendar({
     ]
 });
 
+$(document).on('click', function(event) {
+    var target = $(event.target)
+    if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
+        $(".eventsources ul").css("display", "block");
+    } else {
+        $(".eventsources ul").css("display", "none");        
+    }
+});
+
 });
 function AllEvents(){
     $("#calendar").addClass("show");
@@ -236,12 +245,3 @@ function Emergency(){
 
         document.getElementById('date').innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
     };
-
-$(document).on('click', function(event) {
-    var target = $(event.target)
-    if(target.is(".fa-chevron-circle-down")){
-        $(".eventsources ul").css("display", "block");
-    } else {
-        $(".eventsources ul").css("display", "none");        
-    }
-});
