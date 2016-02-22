@@ -181,7 +181,7 @@ $('#fullCalendar').fullCalendar({
 });
 
 $(document).on('click', function(event) {
-    var target = $(event.target)
+    var target = $(event.target);
     if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
         $(".eventsources ul").css("display", "block");
     } else {
@@ -240,7 +240,7 @@ function Emergency(){
 
 }
     window.onload = function () {
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         var date = new Date();
 
         document.getElementById('date').innerHTML = months[date.getMonth()] + ' ' + date.getFullYear();
