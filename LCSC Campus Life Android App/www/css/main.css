@@ -93,9 +93,7 @@ nav.eventsources li {
 	border-bottom: 1px solid #E0E0E0;
 	margin: 0;
 	}
-nav.eventsources:hover ul {
-	display: block;
-}
+
 .nav{
     display:table-row;
 }
