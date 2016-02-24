@@ -1,38 +1,38 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <widget id="edu.lcsc.LCSC" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>LCSC</name>
-    <description>
+  <name>LCSC</name>
+  <description>
         The official LCSC app.
     </description>
-    <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
+  <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
         Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
     </author>
-    <content src="index.html" />
-	<access origin="*" />
-	<access origin="tel:*" launch-external="yes" />
-	<access origin="http://*" launch-external="yes" />
-	<access origin="https://*" launch-external="yes" />
-	<preference name="SplashScreen" value="screen" />
-	<preference name="SplashScreenDelay" value="5000" />
-	<platform name="android">
-		<!-- you can use any density that exists in the Android project -->
-		<splash src="www/images/res-long-land-hdpi/default.png" density="land-hdpi"/>
-		<splash src="www/images/res-long-land-ldpi/default.png" density="land-ldpi"/>
-		<splash src="www/images/res-long-land-mdpi/default.png" density="land-mdpi"/>
-		<splash src="www/images/res-long-land-xhdpi/default.png" density="land-xhdpi"/>
-		<splash src="www/images/res-long-land-xxhdpi/default.png" density="land-xxhdpi"/>
-		<splash src="www/images/res-long-land-xxxhdpi/default.png" density="land-xxxhdpi"/>
-		<splash src="www/images/res-long-port-hdpi/default.png" density="port-hdpi"/>
-		<splash src="www/images/res-long-port-ldpi/default.png" density="port-ldpi"/>
-		<splash src="www/images/res-long-port-mdpi/default.png" density="port-mdpi"/>
-		<splash src="www/images/res-long-port-xhdpi/default.png" density="port-xhdpi"/>
-		<splash src="www/images/res-long-port-xxhdpi/default.png" density="port-xxhdpi"/>
-		<splash src="www/images/res-long-port-xxxhdpi/default.png" density="port-xxxhdpi"/>
-		<icon src="www/images/drawable-hdpi/icon.png" density="hdpi" />
-		<icon src="www/images/drawable-ldpi/icon.png" density="ldpi" />
-		<icon src="www/images/drawable-mdpi/icon.png" density="mdpi" />
-		<icon src="www/images/drawable-xhdpi/icon.png" density="xhdpi" />
-		<icon src="www/images/drawable-xxhdpi/icon.png" density="xxhdpi" />
-		<icon src="www/images/drawable-xxxhdpi/icon.png" density="xxxhdpi" />
-	</platform>
+  <content src="index.html" />
+  <access origin="*" />
+  <access origin="tel:*" launch-external="yes" />
+  <access origin="http://*" launch-external="yes" />
+  <access origin="https://*" launch-external="yes" />
+  <preference name="SplashScreen" value="screen" />
+  <preference name="SplashScreenDelay" value="5000" />
+  <platform name="android">
+    <!-- you can use any density that exists in the Android project -->
+    <splash src="www/images/res-long-land-hdpi/default.png" density="land-hdpi" />
+    <splash src="www/images/res-long-land-ldpi/default.png" density="land-ldpi" />
+    <splash src="www/images/res-long-land-mdpi/default.png" density="land-mdpi" />
+    <splash src="www/images/res-long-land-xhdpi/default.png" density="land-xhdpi" />
+    <splash src="www/images/res-long-land-xxhdpi/default.png" density="land-xxhdpi" />
+    <splash src="www/images/res-long-land-xxxhdpi/default.png" density="land-xxxhdpi" />
+    <splash src="www/images/res-long-port-hdpi/default.png" density="port-hdpi" />
+    <splash src="www/images/res-long-port-ldpi/default.png" density="port-ldpi" />
+    <splash src="www/images/res-long-port-mdpi/default.png" density="port-mdpi" />
+    <splash src="www/images/res-long-port-xhdpi/default.png" density="port-xhdpi" />
+    <splash src="www/images/res-long-port-xxhdpi/default.png" density="port-xxhdpi" />
+    <splash src="www/images/res-long-port-xxxhdpi/default.png" density="port-xxxhdpi" />
+    <icon src="www/images/drawable-hdpi/icon.png" density="hdpi" />
+    <icon src="www/images/drawable-ldpi/icon.png" density="ldpi" />
+    <icon src="www/images/drawable-mdpi/icon.png" density="mdpi" />
+    <icon src="www/images/drawable-xhdpi/icon.png" density="xhdpi" />
+    <icon src="www/images/drawable-xxhdpi/icon.png" density="xxhdpi" />
+    <icon src="www/images/drawable-xxxhdpi/icon.png" density="xxxhdpi" />
+  </platform>
 </widget>

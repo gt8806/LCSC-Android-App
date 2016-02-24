@@ -18,6 +18,31 @@ width:100%!important
 	height:auto;
 	color:#4e4e4e !important;
 }
+.warrior_athletics_hidden{
+    color:#069;
+    background-color:white;
+}
+.resident_life_hidden{
+    color:#0cc;
+    background-color:white;
+}
+.entertainment_hidden{
+    color:#900;
+    background-color:white;
+}
+.student_activites_hidden{
+    color:#f93;
+    background-color:white;
+}
+.academics_hidden{
+    color:#666;
+    background-color:white;
+}
+.campus_rec_hidden{
+    color:#093;
+    background-color:white;
+}
+
 .ball{
 	width:15px;
 	height:15px;
@@ -166,4 +191,6 @@ div.header{
 }
 #calendar,#emergency,#resource,#fullCalendar{
     margin-top:2em;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
 }
