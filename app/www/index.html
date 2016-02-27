@@ -39,66 +39,96 @@ $("#calendar").on('click', 'a', function() {
 });
 
 $(".eventsources").on('click', '.warrior_athletics_add', function() {	
+  $('#calendar').fullCalendar('removeEventSource', 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com');
 	$('.warrior-athletic-event').css("display","none");
 	$('.warrior_athletics_add').addClass("warrior_athletics_hidden"); 
 });
 
 $(".eventsources").on('click', '.warrior_athletics_hidden', function() {	 
-	 $('.warrior-athletic-event').css("display","");     	 	
-	 $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
+	$('#calendar').fullCalendar('addEventSource', {
+    googleCalendarId: 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com',
+    className: ' warrior-athletic-event'
+  });
+  $('.warrior-athletic-event').css("display","");     	 	
+  $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
 });
 
 $(".eventsources").on('click', '.resident_life_add', function() {	
+	$('#calendar').fullCalendar('removeEventSource', 'gqv0n6j15pppdh0t8adgc1n1ts@group.calendar.google.com');
 	$('.resident-life-event').css("display","none");
 	$('.resident_life_add').addClass("resident_life_hidden"); 
 });
 
 $(".eventsources").on('click', '.resident_life_hidden', function() {	 
-	 $('.resident-life-event').css("display","");     	 	
-	 $('.resident_life_hidden').removeClass("resident_life_hidden");
+	$('#calendar').fullCalendar('addEventSource', {
+    googleCalendarId: 'gqv0n6j15pppdh0t8adgc1n1ts@group.calendar.google.com',
+    className: ' resident-life-event'
+  });
+  $('.resident-life-event').css("display","");     	 	
+	$('.resident_life_hidden').removeClass("resident_life_hidden");
 });
 
 
 $(".eventsources").on('click', '.entertainment_add', function() {	
+	$('#calendar').fullCalendar('removeEventSource', 'm6h2d5afcjfnmaj8qr7o96q89c@group.calendar.google.com');
 	$('.entertainment-event').css("display","none");
 	$('.entertainment_add').addClass("entertainment_hidden"); 
 });
 
 $(".eventsources").on('click', '.entertainment_hidden', function() {	 
-	 $('.entertainment-event').css("display","");     	 	
-	 $('.entertainment_hidden').removeClass("entertainment_hidden");
+	$('#calendar').fullCalendar('addEventSource', {
+    googleCalendarId: 'm6h2d5afcjfnmaj8qr7o96q89c@group.calendar.google.com',
+    className: ' entertainment-event'
+  });
+	$('.entertainment-event').css("display","");     	 	
+	$('.entertainment_hidden').removeClass("entertainment_hidden");
 });
 
 $(".eventsources").on('click', '.student_activites_add', function() {	
+	$('#calendar').fullCalendar('removeEventSource', 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com');
 	$('.student-activity-event').css("display","none");
 	$('.student_activites_add').addClass("student_activites_hidden"); 
 });
 
 $(".eventsources").on('click', '.student_activites_hidden', function() {	 
-	 $('.student-activity-event').css("display","");     	 	
-	 $('.student_activites_hidden').removeClass("student_activites_hidden");
+  $('#calendar').fullCalendar('addEventSource', {
+    googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
+    className: ' student-activity-event'
+  });
+  $('.student-activity-event').css("display","");     	 	
+	$('.student_activites_hidden').removeClass("student_activites_hidden");
 });
 
 
 $(".eventsources").on('click', '.academics_add', function() {	
+	$('#calendar').fullCalendar('removeEventSource','0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com' );
 	$('.academic-event').css("display","none");
 	$('.academics_add').addClass("academics_hidden"); 
 });
 
 $(".eventsources").on('click', '.academics_hidden', function() {	 
-	 $('.academic-event').css("display","");     	 	
-	 $('.academics_hidden').removeClass("academics_hidden");
+  $('#calendar').fullCalendar('addEventSource', {
+    googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
+    className: ' academic-event'
+  });
+	$('.academic-event').css("display","");     	 	
+  $('.academics_hidden').removeClass("academics_hidden");
 });
 
 
 $(".eventsources").on('click', '.campus_rec_add', function() {	
+	$('#calendar').fullCalendar('removeEventSource', 'h4j413d3q0uftb2crk0t92jjlc@group.calendar.google.com');
 	$('.campus-rec-event').css("display","none");
 	$('.campus_rec_add').addClass("campus_rec_hidden"); 
 });
 
 $(".eventsources").on('click', '.campus_rec_hidden', function() {	 
-	 $('.campus-rec-event').css("display","");     	 	
-	 $('.campus_rec_hidden').removeClass("campus_rec_hidden");
+	$('#calendar').fullCalendar('addEventSource', {
+    googleCalendarId: 'h4j413d3q0uftb2crk0t92jjlc@group.calendar.google.com',
+    className: ' campus-rec-event'
+  });
+	$('.campus-rec-event').css("display","");     	 	
+	$('.campus_rec_hidden').removeClass("campus_rec_hidden");
 });
 		
 $('#calendar').fullCalendar({
@@ -186,205 +216,7 @@ $(".eventsources").addClass("hide");
 $(".eventsources").removeClass("show");
 }
 </script>
-<style>
-.show{
-disply:block;}
-.hide{
-display:none}
-.fc-agendaList-dayHeader{
-width:100%!important}
-.academic-event, .student-activity-event,.warrior-athletic-event,
-.entertainment-event, .resident-life-event, .campus-rec-event
-{
-	text-shadow:none;
-	font-weight:100;
-	font-size:12px;
-	padding-top:10px;
-	padding-bottom:10px;
-	width:100%;
-	height:auto;
-	color:#4e4e4e !important;	
-}
-
-.ball
-{
-	width:15px;
-	height:15px;
-	float:left;
-	margin-right:10px;
-	border-radius:15px;
-}
-.academic-event .ball
-{
-	background-color:#666 !important;						
-}
-
-
-.student-activity-event .ball
-{
-	background-color:#F93;
-		
-}
-
-.warrior-athletic-event .ball
-{
-	background-color:#069 !important;
-	
-	
-}
-
-.entertainment-event .ball
-{
-	background-color:#900 !important;	
-
-}
-
-.resident-life-event .ball
-{	
-	background-color:#0CC !important;	
-
-}
-
-.campus-rec-event .ball
-{	
-	background-color:#093 !important;	
-	
-}
-
-nav.eventsources {
-
-	float: right;
-	padding: 20px;	
-	margin-top:-20px;
-	
-
-}
-
-nav.eventsources #menu-icon {
-
-	display: hidden;
-	width: 40px;
-	height: 40px;
-	
-	background: url(images/filter.png) center;
-	background-image:url('images/filter.png');
-	background-size:20px;
-	background-repeat:no-repeat;
-
-}
-
-
-
- nav.eventsources li a
- {
- padding:0px;
- }
-
-nav.eventsources ul {
-
-	list-style: none;
-
-}
-
-nav.eventsources li {
-
-	display: inline-block;
-	
-	padding: 0px
-
-}
-
-nav.eventsources .current {
-
-	color: #2262AD;
-
-}
-
-nav.eventsources #menu-icon {
-
-		display:inline-block;
-
-	}
-
-	nav.eventsources ul, nav.eventsources:active ul { 
-
-		display: none;
-		position: absolute;
-		padding: 0px;
-		background: #f6f6f6;
-		border: 1px solid #E0E0E0;
-		right: 0px;
-		top: 24px;
-		width: 130px;
-		
-
-	}
-
-	nav.eventsources li {
-
-		text-align: center;
-		width: 100%;
-		padding: 0px 0px;
-		border-bottom: 1px solid #E0E0E0;
-		margin: 0;
-
-	}
-
-	nav.eventsources:hover ul {
-
-		display: block;
-
-	}
-
-	.nav
-	{
-
-	display:table-row;
-
-	}
-	
-.nav li
-{
-
-font-size:14px;
-display:inline;
-border-left:1px solid #f6f6f6;
-
-
-}
-
-.nav li a
-{
-
-height:50px !important;
-width:auto !important;
-display:table-cell;
-}
-
-nav.Navigation
-{
-display:table; width:100%; 
-height:50px;
-border-top:1px solid #E0E0E0;
-}
-
-nav.Navigation  ul {display:table-row; }
-nav.Navigation  li {display:table-cell; text-align:center;
-border-left:1px solid #E0E0E0; padding-top:15px; }
-
-	div.header{
-		
-		background-image:url("images/lcsc.png");
-		background-size:22px;
-		background-position:10px 5px;
-		background-repeat:no-repeat;
-		background-color:#003865;
-		width:100%;
-		padding-left:20px;
-
-		height:40px;
-	} 
-</style>
+    <link rel="stylesheet" href="css/main.css"/>
 
 </head>
 <body >
