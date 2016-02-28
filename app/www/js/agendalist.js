@@ -7881,7 +7881,7 @@ $.extend(BasicDayView.prototype, {
 
 setDefaults({
 	allDaySlot: true,
-	allDayText: 'all-day',
+	allDayText: 'All-Day',
 
 	scrollTime: '06:00:00',
 
