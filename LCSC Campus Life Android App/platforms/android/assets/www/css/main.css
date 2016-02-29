@@ -91,6 +91,7 @@ nav.eventsources{
     position: absolute;
     font-size: 2em;
     bottom: 0;
+    margin-left: 5%;
 }
 
 #social-media a {
