@@ -149,11 +149,22 @@ $(document).on('click', function(event) {
     if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
         $(".eventsources ul").css("display", "block");
     } else {
-        $(".eventsources ul").css("display", "none");        
+        $(".eventsources ul").css("display", "none");
+    }
+});
+
+var menu = $(".menu");
+$(document).on('click', function(event) {
+    var target = $(event.target);
+    if(target.is('#menu-icon') || target.is('.fa-bars') || target.is(menu)){
+        menu.animate({left: '0'});
+    } else {
+        menu.animate({left: '-50%'});
     }
 });
 
 });
+
 
 function front() {
     $("#front").addClass("show");
@@ -166,8 +177,8 @@ function front() {
     $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
     $("#fullCalendar").removeClass("show");
-    $(".eventsources").addClass("show");
-    $(".eventsources").removeClass("hide");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
 }
 
 function AllEvents() {

@@ -164,9 +164,29 @@ $(document).on('click', function(event) {
 });
 
 });
-function AllEvents(){
+
+
+function front() {
+    $("#front").addClass("show");
+    $("#front").removeClass("hide");
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#resource").addClass("hide");
+    $("#resource").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+}
+
+function AllEvents() {
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
     $("#calendar").addClass("show");
     $("#calendar").removeClass("hide");
+    $('#calendar').fullCalendar('render');
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
     $("#resource").addClass("hide");
@@ -177,6 +197,8 @@ function AllEvents(){
     $(".eventsources").removeClass("hide");
 }
 function FullCalendar() {
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
@@ -188,7 +210,9 @@ function FullCalendar() {
     $(".eventsources").addClass("show");
     $(".eventsources").removeClass("hide");
 }
-function Resources(){
+function Resources() {
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
@@ -200,7 +224,9 @@ function Resources(){
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
 }
-function Emergency(){
+function Emergency() {
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("show");
@@ -211,5 +237,4 @@ function Emergency(){
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
-
 }
