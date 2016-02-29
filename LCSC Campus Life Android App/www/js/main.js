@@ -149,33 +149,24 @@ $(document).on('click', function(event) {
     if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
         $(".eventsources ul").css("display", "block");
     } else {
-        $(".eventsources ul").css("display", "none");        
+        $(".eventsources ul").css("display", "none");
+    }
+});
+
+var menu = $(".menu");
+$(document).on('click', function(event) {
+    var target = $(event.target);
+    if(target.is('#menu-icon') || target.is('.fa-bars') || target.is(menu)){
+        menu.animate({left: '0'});
+    } else {
+        menu.animate({left: '-50%'});
     }
 });
 
 });
-
-function front() {
-    $("#front").addClass("show");
-    $("#front").removeClass("hide");
-    $("#calendar").addClass("hide");
-    $("#calendar").removeClass("show");
-    $("#emergency").addClass("hide");
-    $("#emergency").removeClass("show");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
-    $("#fullCalendar").addClass("hide");
-    $("#fullCalendar").removeClass("show");
-    $(".eventsources").addClass("show");
-    $(".eventsources").removeClass("hide");
-}
-
-function AllEvents() {
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
+function AllEvents(){
     $("#calendar").addClass("show");
     $("#calendar").removeClass("hide");
-    $('#calendar').fullCalendar('render');
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
     $("#resource").addClass("hide");
@@ -186,8 +177,6 @@ function AllEvents() {
     $(".eventsources").removeClass("hide");
 }
 function FullCalendar() {
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
@@ -199,9 +188,7 @@ function FullCalendar() {
     $(".eventsources").addClass("show");
     $(".eventsources").removeClass("hide");
 }
-function Resources() {
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
+function Resources(){
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
@@ -213,9 +200,7 @@ function Resources() {
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
 }
-function Emergency() {
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
+function Emergency(){
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("show");
@@ -226,4 +211,5 @@ function Emergency() {
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
+
 }
