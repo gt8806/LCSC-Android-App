@@ -186,8 +186,39 @@ div.header{
     
 }
 
-#calendar,#emergency,#resource,#fullCalendar{
+#front, #calendar,#emergency,#resource,#fullCalendar{
     margin-top:2em;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
 }
+#front{
+    height:100%;
+    width:100%;
+}
+
+#front .tower{
+    height:100%;
+    width:100%;
+    opacity:0.75;
+}
+
+#front .logon{
+    top:35%;
+    left:15%;
+    height: 18%;
+    width: 70%;
+    position:absolute;
+    z-index: 999;
+}
+
+#front h4{
+    top:50%;
+    left:21%;
+    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position:absolute;
+    z-index: 1;
+}
+

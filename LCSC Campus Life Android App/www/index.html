@@ -16,7 +16,7 @@
     
     <div class="header">
       <i class="fa fa-bars" id="menu-icon"></i>
-      <div id="lclog"><img src="images/lcsc.gif"></div>
+      <div id="lclog"><a onclick="front();"><img src="images/lcsc.gif"></a></div>
       <nav class="eventsources">
       <a href="#" id="filter-icon"><i class="fa fa-chevron-circle-down"></i>
 </a>
@@ -30,7 +30,12 @@
         </ul>
       </nav>
     </div>
-    <div id='calendar' class="show"></div>
+    <div id='front' class="show">
+        <img class="tower" src="images/frontpage.jpg">
+        <img class="logon" src="images/logo.gif">
+        <h4>Connecting learning to life</h4>
+    </div>
+    <div id='calendar' class="hide"></div>
     <div id="emergency" class="ui-body hide">
       <h2 style="text-align:center">Emergency</h2>
       <a href="tel:911" data-role="button" data-icon="phone" rel="external" style="text-align:left">Emergency Services</a>
