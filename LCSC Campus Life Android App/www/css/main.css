@@ -74,6 +74,43 @@ nav.eventsources{
 	margin-top:-20px;
 }
 
+.menu {
+    position: fixed;
+    background-color: white;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    left: -50%;
+}
+
+.menu ul{
+    padding: 0;
+}
+
+#social-media {
+    position: absolute;
+    font-size: 2em;
+    bottom: 0;
+    margin-left: 30%;
+}
+
+#social-media a {
+    color: #333333;
+    text-decoration: none;    
+}
+
+.fa-facebook-official:hover {
+    color: #3b5998;
+}
+
+.fa-twitter-square:hover{
+    color: #00aced;
+}
+
+.fa-instagram:hover {
+    color: #9b6954;
+}
+
 nav.eventsources #filter-icon{
     display:inline-block;
     border: none !important;
@@ -175,10 +212,10 @@ div.header{
     position: absolute;
     background-color: #003865;
     color: white;
-    padding-top: 4px;
-    padding-right: 7px;
-    padding-left: 7px;
-    padding-bottom: 7px;
+    padding-top: 3px;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-bottom: 3px;
     border-radius: 75%;
     font-size: 0.95em;
     margin-top: 1.85%;
@@ -186,39 +223,8 @@ div.header{
     
 }
 
-#front, #calendar,#emergency,#resource,#fullCalendar{
+#calendar,#emergency,#resource,#fullCalendar{
     margin-top:2em;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
 }
-#front{
-    height:100%;
-    width:100%;
-}
-
-#front .tower{
-    height:100%;
-    width:100%;
-    opacity:0.75;
-}
-
-#front .logon{
-    top:35%;
-    left:15%;
-    height: 18%;
-    width: 70%;
-    position:absolute;
-    z-index: 999;
-}
-
-#front h4{
-    top:50%;
-    left:21%;
-    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    position:absolute;
-    z-index: 1;
-}
-
