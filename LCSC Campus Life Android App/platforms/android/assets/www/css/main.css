@@ -78,8 +78,9 @@ nav.eventsources #filter-icon{
     display:inline-block;
     border: none !important;
     margin-right: 10px;
-    margin-top: 10px;
-    color: white;
+    margin-top: 3px;
+    color: #003865;
+    font-size: 1.8em;
 }
 
 .fa-calendar-plus-o {
@@ -151,46 +152,73 @@ div.header{
 		background-size:22px;
 		background-position:10px 5px;
 		background-repeat:no-repeat;
-		background-color:#003865;
+		background-color:#ffffff;
 		width:100%;
 		padding-left:20px;
 		height:40px;
         position:fixed;
         z-index:9999;
 }
-#date{
-    color: white;
-    font-weight: bolder;
-    font-size: 140%;
-    width: 50% ;
-    position: absolute;
-    left: 40%;
-  margin-left: -50px;
-    margin-top:.5em;
-}
-#date{
-    color: white;
-    font-weight: bolder;
-    font-size: 140%;
-    width: 50% ;
-    position: absolute;
-    left: 40%;
-    margin-left: -35px;
-    margin-top:.3em;
-}
 #lclog{
-    margin-top: .4em;
-    margin-left: -.6em;
-    height: 1.7em;
-    width: 1.5em;
+    margin-left: 39%;
+    height: 3.5em;
+    width: 3em;
     position: absolute;
+    background-color: none;
 }
 #lclog img{
     height: 100%;
     width: 100%;
 }
-#calendar,#emergency,#resource,#fullCalendar{
+
+#menu-icon {
+    position: absolute;
+    background-color: #003865;
+    color: white;
+    padding-top: 4px;
+    padding-right: 7px;
+    padding-left: 7px;
+    padding-bottom: 7px;
+    border-radius: 75%;
+    font-size: 0.95em;
+    margin-top: 1.85%;
+    margin-left: -2.2%;
+    
+}
+
+#front, #calendar,#emergency,#resource,#fullCalendar{
     margin-top:2em;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
 }
+#front{
+    height:100%;
+    width:100%;
+}
+
+#front .tower{
+    height:100%;
+    width:100%;
+    opacity:0.75;
+}
+
+#front .logon{
+    top:35%;
+    left:15%;
+    height: 18%;
+    width: 70%;
+    position:absolute;
+    z-index: 999;
+}
+
+#front h4{
+    top:50%;
+    left:21%;
+    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position:absolute;
+    z-index: 1;
+}
+
