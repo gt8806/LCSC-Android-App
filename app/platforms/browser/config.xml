@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versioncode="10003" id="edu.lcsc.LCSC" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>LCSC</name>
+    <description>
+        The official LCSC app.
+    </description>
+    <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
+        Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access launch-external="yes" origin="tel:*" />
+    <access launch-external="yes" origin="http://*" />
+    <access launch-external="yes" origin="https://*" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="5000" />
+</widget>
