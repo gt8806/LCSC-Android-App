@@ -8383,7 +8383,6 @@ function ListView(calendar) {
     this.dayGrid = new ListGrid(this);
 	//this.coordMap = this.dayGrid.coordMap;
 }
-var firstload = true;
 ListView.prototype = createObject(View.prototype);
 $.extend(ListView.prototype, {
 	axisWidth: null,
@@ -8461,12 +8460,10 @@ $.extend(ListView.prototype, {
 			
             var j = 0;
             for(var i in events) {
-              if(firstload){
                 if(events[i].allDay){
                   events[i].start.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
                   events[i].end.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
                 }
-              }
               displayeventlist[j] = Object.create(events[i]);
               tstart = events[i].start.clone();
               tend   = events[i].end ? events[i].end.clone() : null;
@@ -8482,7 +8479,6 @@ $.extend(ListView.prototype, {
               }
               j = j + 1;
             }
-            firstload=false;
 
             // Lets sort our duplicated list start from day 1 to the last of each month
 			displayeventlist.sort(function(a,b) {
