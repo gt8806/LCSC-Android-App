@@ -73,7 +73,7 @@ $(".eventsources").on('click', '.academics_add', function () {
 $(".eventsources").on('click', '.academics_hidden', function () {
     $('#calendar').fullCalendar('addEventSource', {
         googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
-        className: ' academic-event'
+        className: 'academic-event'
     });
     $('.academics_hidden').removeClass("academics_hidden");
 });
@@ -128,20 +128,6 @@ $('#calendar').fullCalendar({
 			className: ' campus-rec-event'
             }
         ],
-});
-
-$('#fullCalendar').fullCalendar({
-    googleCalendarApiKey: 'AIzaSyASiprsGk5LMBn1eCRZbupcnC1RluJl_q0',
-    eventSources: [
-        {
-            googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
-            className: ' academic-event'
-        },
-        {
-            googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
-            className: 'student-activity-event'
-        }
-    ]
 });
 
 $(document).on('click', function(event) {
