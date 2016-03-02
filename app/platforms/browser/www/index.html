@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lewis-Clark State College</title>
+    <link href="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="css/fullcalendar.css" />-->
+    <link href='css/agendalist.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="platform-browser platform-cordova platform-webview">    
+    <div class="header">
+        <a href="#" id="menu-icon"><i class="fa fa-bars"></i></a>
+        <div id="lclog"><a href="#" onclick="front();"><img src="images/lcsc.gif"></a></div>
+        <nav class="eventsources hide">
+            <a href="#" id="filter-icon"><i class="fa fa-chevron-circle-down"></i>
+</a>
+            <ul class="filter">
+                <li class="academics_add">
+                    <p>Academics</p>
+                </li>
+                <li class="entertainment_add">
+                    <p>Entertainment</p>
+                </li>
+                <li class="student_activites_add">
+                    <p>Student Activites</p>
+                </li>
+                <li class="campus_rec_add">
+                    <p>Campus Rec</p>
+                </li>
+                <li class="resident_life_add">
+                    <p>Resident Life</p>
+                </li>
+                <li class="warrior_athletics_add">
+                    <p>Warrior Athletics</p>
+                </li>
+            </ul>
+        </nav>
+    </div>    
+    
+    <nav class="menu">
+        <h3>Menu</h3>
+        <ul>
+            <li class="AllEvents" ><a data-role="button" data-icon="arrow-r" data-mini="true" onclick="AllEvents();">Event List</a></li>
+            <li class="FullCalendar"><a data-role="button" data-icon="calendar" data-mini="true"  onclick="FullCalendar();">Calendar</a></li>
+            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true"  onclick="Resources();">Resources</a></li>
+            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true"  onclick="Emergency();">Emergency</a></li>
+        </ul>
+        
+        <div id="social-media">
+            <a href="https://www.facebook.com/LewisClarkState"><i class="fa fa-facebook-official"></i></a>
+            <a href="https://twitter.com/lcsc"><i class="fa fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/lewisclarkstate/"><i class="fa fa-instagram"></i></a>
+        </div>
+    </nav>
+    <div id='front' class="show">
+        <img class="tower" src="images/frontpage.jpg">
+        <img class="logon" src="images/logo.gif">
+        <h4>Connecting learning to life</h4>
+    </div>
+    <div id='calendar' class="hide"></div>
+    <div id="emergency" class="ui-body hide">
+        <h2 style="text-align:center">Emergency</h2>
+        <a href="tel:911" data-role="button" data-icon="phone" rel="external" style="text-align:left">Emergency Services</a>
+        <a href="tel:2087922226" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Office</a>
+        <a href="tel:2087922815" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Mobile</a>
+    </div>
+    <div id="resource" class="ui-body hide">
+        <h2 style="text-align:center">Resources</h2>
+        <a href="http://www.lcsc.edu/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">LCSC</a>
+        <a href="http://www.lcwarriors.com/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Athletics</a>
+        <a href="http://www.lcsc.edu/news/" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">Campus News</a>
+        <a href="http://www.lcsc.edu/lcmail" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:left">LCMail</a>
+        <a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-icon="navigation" rel="external" target="_top"
+        style="text-align:left">Warrior Web</a>
+    </div>
+    <div id="fullCalendar" class="ui-body hide">
+    </div>
+
+    <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
+    <!--<script src="js/fullcalendar.js"></script>-->
+    <script src='js/moment.min.js'></script>
+    <script src='js/agendalist.js'></script>
+    <script src='js/gcal.js'></script>
+    <script src='js/main.js'></script>
+</body>
+
+</html>
