@@ -10,10 +10,7 @@
 }
 .fc-agendaList {
   list-style: none;
-  margin: 0;
   padding: 0;
-  border: 1px solid #E0E0E0;
-  border-bottom: none;
 }
 .fc-agendaList-dayHeader {
   background-image: none;
@@ -194,7 +191,7 @@ border-bottom:1px solid #CCC;
 .academic-event, .student-activity-event,.warrior-athletic-event,
 .entertainment-event, .resident-life-event, .campus-rec-event
 {
-	text-shadow:none;
+	text-shadow:none;!important;
 	font-weight:100;
 	font-size:12px;
 	padding-top:10px;
