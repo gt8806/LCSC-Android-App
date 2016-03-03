@@ -10,7 +10,8 @@ $("#calendar").on('click', 'a', function() {
 	$(item).css("display","none");
 	}
 });
-
+});
+/*
 $(".eventsources").on('click', '.warrior_athletics_add', function () {
     $('#calendar').fullCalendar('removeEventSource', 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com');
     $('.warrior_athletics_add').addClass("warrior_athletics_hidden");
@@ -91,6 +92,16 @@ $(".eventsources").on('click', '.campus_rec_hidden', function () {
     });
     $('.campus_rec_hidden').removeClass("campus_rec_hidden");
 });
+*/
+
+$(document).on('click', function(event) {
+    var target = $(event.target);
+    if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
+        $(".eventsources ul").css("display", "block");
+    }else {
+        $(".eventsources ul").css("display", "none");
+    }
+});
 
 $('#calendar').fullCalendar({
     dayNamesShort: ['', '', '', '', '', '', ''],
@@ -147,8 +158,6 @@ $(document).on('click', function(event) {
     } else {
         menu.animate({left: '-50%'});
     }
-});
-
 });
 
 
