@@ -11,96 +11,102 @@ $("#calendar").on('click', 'a', function() {
 	}
 });
 });
-/*
-$(".eventsources").on('click', '.warrior_athletics_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com');
-    $('.warrior_athletics_add').addClass("warrior_athletics_hidden");
-});
 
-$(".eventsources").on('click', '.warrior_athletics_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: 'd6jbgjhudph2mpef1cguhn4g9g@group.calendar.google.com',
-        className: ' warrior-athletic-event'
-    });
-    $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
-});
+var counter = 0;
 
-$(".eventsources").on('click', '.resident_life_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', 'gqv0n6j15pppdh0t8adgc1n1ts@group.calendar.google.com');
-    $('.resident_life_add').addClass("resident_life_hidden");
-});
-
-$(".eventsources").on('click', '.resident_life_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: 'gqv0n6j15pppdh0t8adgc1n1ts@group.calendar.google.com',
-        className: ' resident-life-event'
-    });
-    $('.resident_life_hidden').removeClass("resident_life_hidden");
-});
-
-
-$(".eventsources").on('click', '.entertainment_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', 'm6h2d5afcjfnmaj8qr7o96q89c@group.calendar.google.com');
-    $('.entertainment_add').addClass("entertainment_hidden");
-});
-
-$(".eventsources").on('click', '.entertainment_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: 'm6h2d5afcjfnmaj8qr7o96q89c@group.calendar.google.com',
-        className: ' entertainment-event'
-    });
-    $('.entertainment_hidden').removeClass("entertainment_hidden");
-});
-
-$(".eventsources").on('click', '.student_activites_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com');
-    $('.student_activites_add').addClass("student_activites_hidden");
-});
-
-$(".eventsources").on('click', '.student_activites_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: 'l9qpkh5gb7dhjqv8nm0mn098fk@group.calendar.google.com',
-        className: ' student-activity-event'
-    });
-    $('.student_activites_hidden').removeClass("student_activites_hidden");
-});
-
-
-$(".eventsources").on('click', '.academics_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com');
-    $('.academics_add').addClass("academics_hidden");
-});
-
-$(".eventsources").on('click', '.academics_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: '0rn5mgclnhc7htmh0ht0cc5pgk@group.calendar.google.com',
-        className: 'academic-event'
-    });
-    $('.academics_hidden').removeClass("academics_hidden");
-});
-
-
-$(".eventsources").on('click', '.campus_rec_add', function () {
-    $('#calendar').fullCalendar('removeEventSource', 'h4j413d3q0uftb2crk0t92jjlc@group.calendar.google.com');
-    $('.campus_rec_add').addClass("campus_rec_hidden");
-});
-
-$(".eventsources").on('click', '.campus_rec_hidden', function () {
-    $('#calendar').fullCalendar('addEventSource', {
-        googleCalendarId: 'h4j413d3q0uftb2crk0t92jjlc@group.calendar.google.com',
-        className: ' campus-rec-event'
-    });
-    $('.campus_rec_hidden').removeClass("campus_rec_hidden");
-});
-*/
-
-$(document).on('click', function(event) {
-    var target = $(event.target);
-    if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
-        $(".eventsources ul").css("display", "block");
+function checkEvents() {
+    if (counter == 6) {
+        $('#calendar').addClass('hide');
+        $('#calendar').removeClass('show');
+        $('#noCal').addClass('show');
+        $('#noCal').removeClass('hide');
     }else {
-        $(".eventsources ul").css("display", "none");
+        $('#calendar').addClass('show');
+        $('#calendar').removeClass('hide');
+        $('#noCal').addClass('hide');
+        $('#noCal').removeClass('show');
     }
+}
+
+function addCount() {
+    counter++;
+    checkEvents();
+}
+function removeCount() {
+    counter--;
+    checkEvents();
+}
+$(".eventsources").on('click', '.warrior_athletics_add', function () {
+    $('.warrior-athletic-event').css("display", "none");
+    $('.warrior_athletics_add').addClass("warrior_athletics_hidden");
+    $('.warrior_athletics_add').removeClass("warrior_athletics_add");
+    addCount();
+});
+$(".eventsources").on('click', '.warrior_athletics_hidden', function () {
+    $('.warrior-athletic-event').css("display", "");
+    $('.warrior_athletics_hidden').addClass("warrior_athletics_add");
+    $('.warrior_athletics_hidden').removeClass("warrior_athletics_hidden");
+    removeCount();
+});
+$(".eventsources").on('click', '.resident_life_add', function () {
+    $('.resident-life-event').css("display", "none");
+    $('.resident_life_add').addClass("resident_life_hidden");
+    $('.resident_life_add').removeClass("resident_life_add");
+    addCount();
+});
+$(".eventsources").on('click', '.resident_life_hidden', function () {
+    $('.resident-life-event').css("display", "");
+    $('.resident_life_hidden').addClass("resident_life_add");
+    $('.resident_life_hidden').removeClass("resident_life_hidden");
+    removeCount();
+});
+$(".eventsources").on('click', '.entertainment_add', function () {
+    $('.entertainment-event').css("display", "none");
+    $('.entertainment_add').addClass("entertainment_hidden");
+    $('.entertainment_add').removeClass("entertainment_add");
+    addCount();
+});
+$(".eventsources").on('click', '.entertainment_hidden', function () {
+    $('.entertainment-event').css("display", "");
+    $('.entertainment_hidden').addClass("entertainment_add");
+    $('.entertainment_hidden').removeClass("entertainment_hidden");
+    removeCount();
+});
+$(".eventsources").on('click', '.student_activites_add', function () {
+    $('.student-activity-event').css("display", "none");
+    $('.student_activites_add').addClass("student_activites_hidden");
+    $('.student_activites_add').removeClass("student_activites_add");
+    addCount();
+});
+$(".eventsources").on('click', '.student_activites_hidden', function () {
+    $('.student-activity-event').css("display", "");
+    $('.student_activites_hidden').addClass("student_activites_add");
+    $('.student_activites_hidden').removeClass("student_activites_hidden");
+    removeCount();
+});
+$(".eventsources").on('click', '.academics_add', function () {
+    $('.academic-event').css("display", "none");
+    $('.academics_add').addClass("academics_hidden");
+    $('.academics_add').removeClass("academics_add");
+    addCount();
+});
+$(".eventsources").on('click', '.academics_hidden', function () {
+    $('.academic-event').css("display", "");
+    $('.academics_hidden').addClass("academics_add");
+    $('.academics_hidden').removeClass("academics_hidden");
+    removeCount();
+});
+$(".eventsources").on('click', '.campus_rec_add', function () {
+    $('.campus-rec-event').css("display", "none");
+    $('.campus_rec_add').addClass("campus_rec_hidden");
+    $('.campus_rec_add').removeClass("campus_rec_add");
+    addCount();
+});
+$(".eventsources").on('click', '.campus_rec_hidden', function () {
+    $('.campus-rec-event').css("display", "");
+    $('.campus_rec_hidden').addClass("campus_rec_add");
+    $('.campus_rec_hidden').removeClass("campus_rec_hidden");
+    removeCount();
 });
 
 $('#calendar').fullCalendar({
@@ -164,6 +170,8 @@ $(document).on('click', function(event) {
 function front() {
     $("#front").addClass("show");
     $("#front").removeClass("hide");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
@@ -179,8 +187,7 @@ function front() {
 function AllEvents() {
     $("#front").addClass("hide");
     $("#front").removeClass("show");
-    $("#calendar").addClass("show");
-    $("#calendar").removeClass("hide");
+    checkEvents();
     $('#calendar').fullCalendar('render');
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
@@ -191,23 +198,11 @@ function AllEvents() {
     $(".eventsources").addClass("show");
     $(".eventsources").removeClass("hide");
 }
-function FullCalendar() {
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
-    $("#calendar").addClass("hide");
-    $("#calendar").removeClass("show");
-    $("#emergency").addClass("hide");
-    $("#emergency").removeClass("show");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
-    $("#fullCalendar").addClass("show");
-    $("#fullCalendar").removeClass("hide");
-    $(".eventsources").addClass("show");
-    $(".eventsources").removeClass("hide");
-}
 function Resources() {
     $("#front").addClass("hide");
     $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
@@ -222,6 +217,8 @@ function Resources() {
 function Emergency() {
     $("#front").addClass("hide");
     $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
     $("#emergency").addClass("show");
