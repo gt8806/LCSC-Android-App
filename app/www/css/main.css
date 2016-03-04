@@ -272,16 +272,3 @@ div.header{
     position:absolute;
     z-index: 999;
 }
-
-#front h4{
-    top:52%;
-    left:0;
-    right:0;
-    text-align: center;
-    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    position:absolute;
-    z-index: 1;
-}
