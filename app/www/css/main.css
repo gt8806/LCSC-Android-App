@@ -258,8 +258,10 @@ div.header{
 }
 
 #front h4{
-    top:50%;
-    left:21%;
+    top:52%;
+    left:0;
+    right:0;
+    text-align: center;
     font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
     color: white;
