@@ -156,6 +156,23 @@ nav.eventsources li {
 	border-bottom: 1px solid #E0E0E0;
 	margin: 0;
 	}
+#noCal{
+    height:100%;
+    width:100%;
+    position: fixed;
+}
+#noCal h3{
+    position: absolute;
+    top:40%;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: auto;
+    width:100%;
+    height: auto;
+    text-align:center;
+    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
+}
 
 .nav{
     display:table-row;
@@ -231,7 +248,6 @@ div.header{
 }
 
 #front{
-    clear:both;
     height:100%;
     width:100%;
     position: fixed;
