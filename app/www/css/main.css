@@ -250,7 +250,7 @@ div.header{
 #front{
     height:100%;
     width:100%;
-    position: fixed;
+    position: absolute;
 }
 
 #front .tower{
@@ -271,4 +271,13 @@ div.header{
     max-width: 500px;
     position:absolute;
     z-index: 999;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+#twitterFeed {
+    position: absolute;
+    top: 100%;
 }
