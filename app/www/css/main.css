@@ -266,9 +266,9 @@ div.header{
     right:0;
     margin-left:auto;
     margin-right: auto;
-    height: 18%;
+    height: auto;
     width: 70%;
-    max-width: 300px;
+    max-width: 500px;
     position:absolute;
     z-index: 999;
 }
