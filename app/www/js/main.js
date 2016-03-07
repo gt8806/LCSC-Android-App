@@ -12,6 +12,28 @@ $("#calendar").on('click', 'a', function() {
 });
 });
 
+function takePhoto(){
+  source = navigator.camera.PictureSourceType.CAMERA;
+  navigator.camera.getPicture(function(imageURI) {
+    var image = document.getElementById('myImage');
+    image.src = imageURI;}, function(message) {
+    alert('Failed because: ' + message);}, { quality: 50, 
+    allowEdit: false, saveToPhotoAlbum: true,
+    destinationType: Camera.DestinationType.FILE_URI,
+    sourceType: source});
+}
+function getPhoto(){
+  source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
+  navigator.camera.getPicture(function(imageURI) {
+    var image = document.getElementById('myImage');
+    image.src = imageURI;}, function(message) {
+    alert('Failed because: ' + message);}, { quality: 50, 
+    allowEdit: false, saveToPhotoAlbum: true,
+    destinationType: Camera.DestinationType.FILE_URI,
+    sourceType: source});
+}
+
+
 var counter = 0;
 
 function checkEvents() {
