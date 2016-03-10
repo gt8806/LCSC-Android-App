@@ -40,7 +40,9 @@
   font-weight: bold;
 }
 .fc-agendaList-item {
-  border-bottom: 1px solid #E0E0E0;
+  /*border-bottom: 1px solid #E0E0E0;
+	Border isn't hidden so they stack 1 pixle at a time, bad place for borders 03/09/2016 ~MK 
+*/
 }
 .fc-agendaList-event {
   display: block;
@@ -202,38 +204,45 @@ border-bottom:1px solid #CCC;
 
 .academic-event
 {
-	color:#666;		
+	color:#666;	
+	border-bottom:1px solid #E0E0E0;	
 				
 }
 
 .student-activity-event
 {
-	color:#F93;	
+	color:#F93;
+	border-bottom:1px solid #E0E0E0;	
 	
+
 }
 
 .warrior-athletic-event
 {
 	color:#069 !important;
 	background-color:none !important;
+	border-bottom:1px solid #E0E0E0;
 	
 }
 
 .entertainment-event
 {
 	color:#900;	
+	border-bottom:1px solid #E0E0E0;
 
 }
 
 .resident-life-event
 {	
-	color:#0CC;	
+	color:#0CC;
+	border-bottom:1px solid #E0E0E0;	
 
 }
 
 .campus-rec-event
 {	
 	color:#093;	
+	border-bottom:1px solid #E0E0E0;
 	
 }
 
@@ -380,4 +389,5 @@ border-bottom:1px solid #CCC;
 .fc-agendaList-dayHeader
 {
 	font-size:16px !important; 
+	border-bottom:1px solid #003865;
 }
