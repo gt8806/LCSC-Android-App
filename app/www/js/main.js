@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 $("#calendar").on('click', 'a', function() {
     var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
 	if ($(item).css('display')=='none')
@@ -10,6 +11,9 @@ $("#calendar").on('click', 'a', function() {
 	$(item).css("display","none");
 	}
 });
+
+FastClick.attach(document.body);
+
 });
 
 var counter = 0;
