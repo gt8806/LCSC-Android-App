@@ -12,28 +12,6 @@ $("#calendar").on('click', 'a', function() {
 });
 });
 
-function takePhoto(){
-  source = navigator.camera.PictureSourceType.CAMERA;
-  navigator.camera.getPicture(function(imageURI) {
-    var image = document.getElementById('myImage');
-    image.src = imageURI;}, function(message) {
-    alert('Failed because: ' + message);}, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: true,
-    destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: source});
-}
-function getPhoto(){
-  source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
-  navigator.camera.getPicture(function(imageURI) {
-    var image = document.getElementById('myImage');
-    image.src = imageURI;}, function(message) {
-    alert('Failed because: ' + message);}, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: true,
-    destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: source});
-}
-
-
 var counter = 0;
 
 function checkEvents() {
@@ -171,7 +149,7 @@ $('#calendar').fullCalendar({
 
 $(document).on('click', function(event) {
     var target = $(event.target);
-    if(target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
+    if(target.is("#filter-icon") || target.is(".fa-chevron-circle-down") || target.is(".filter li") || target.is(".filter p")){
         $(".eventsources ul").css("display", "block");
     } else {
         $(".eventsources ul").css("display", "none");
@@ -204,7 +182,8 @@ function front() {
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
-}
+    $("#filter-icon").css('display', 'none');  
+ }
 
 function AllEvents() {
     $("#front").addClass("hide");
@@ -219,6 +198,7 @@ function AllEvents() {
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("show");
     $(".eventsources").removeClass("hide");
+    $("#filter-icon").css('display', 'block');
 }
 function Resources() {
     $("#front").addClass("hide");
@@ -235,6 +215,7 @@ function Resources() {
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
 }
 function Emergency() {
     $("#front").addClass("hide");
@@ -251,4 +232,5 @@ function Emergency() {
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
 }
