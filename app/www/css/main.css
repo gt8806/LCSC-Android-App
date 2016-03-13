@@ -113,12 +113,7 @@ nav.eventsources{
     position: absolute;
     background-color: #003865;
     color: white;
-    padding-top: 4px;
-    padding-right: 7px;
-    padding-left: 7px;
-    padding-bottom: 4px;
-    border-radius: 75%;
-    font-size: 0.95em;
+    font-size: 0.85em;
     display: none;
 }
 
@@ -131,6 +126,7 @@ nav.eventsources li a{
 }
 nav.eventsources ul {
     list-style: none;
+    position: fixed;
 }
 nav.eventsources li {
 	display: inline-block;
@@ -142,7 +138,6 @@ nav.eventsources .current {
 
 nav.eventsources ul, nav.eventsources:active ul{
 	display: none;
-	position: absolute;
 	padding: 0px;
 	background: #f6f6f6;
 	border: 1px solid #E0E0E0;
@@ -239,12 +234,7 @@ nav.Navigation li {
     position: absolute;
     background-color: #003865;
     color: white;
-    padding-top: 4px;
-    padding-right: 7px;
-    padding-left: 7px;
-    padding-bottom: 4px;
-    border-radius: 75%;
-    font-size: 0.95em;
+    font-size: 0.85em;
     
 }
 
@@ -252,8 +242,6 @@ nav.Navigation li {
     background-color: white !important;    
 }
 
-#header h1 {
-}
 
 #front, #calendar,#emergency,#resource,#fullCalendar{
     -webkit-transform: translateZ(0);
@@ -284,4 +272,14 @@ nav.Navigation li {
     max-width: 300px;
     position:absolute;
     z-index: 999;
+}
+
+.ui-btn-left {
+    left: 0 !important;
+    top: 0 !important;
+}
+
+.ui-btn-right {
+    right: 0 !important;
+    top: 0 !important;
 }
