@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -46,6 +46,7 @@
     <nav class="menu">
         <h3>Menu</h3>
         <ul>
+            <li id='idPicItem'><button data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</button><br><button data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</button></li>
             <li class="AllEvents"><a data-role="button" data-icon="arrow-r" data-mini="true" onclick="AllEvents();">Event List</a></li>
 	    <li class="AllEvents"><a href="https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2fPlanning" data-role="button" data-mini="true" data-icon="navigation" rel="external" target="_top"
         >Warrior Web</a></li>
@@ -85,6 +86,7 @@
     <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
 
+    <script src="cordova.js"></script>
     <script src='js/moment.min.js'></script>
     <script src='js/agendalist.js'></script>
     <script src='js/gcal.js'></script>
