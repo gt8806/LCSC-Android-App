@@ -261,19 +261,6 @@ nav.Navigation li {
     position: fixed;
 }
 
-#front .logon{
-    top:35%;
-    left:0;
-    right:0;
-    margin-left:auto;
-    margin-right: auto;
-    height: auto;
-    width: 70%;
-    max-width: 500px;
-    position:absolute;
-    z-index: 999;
-}
-
 .ui-btn-left {
     left: 0 !important;
     top: 0 !important;
@@ -282,4 +269,34 @@ nav.Navigation li {
 .ui-btn-right {
     right: 0 !important;
     top: 0 !important;
+}
+
+@media screen and (orientation:landscape){
+
+    #front .logon{
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        height: auto;
+        width: 40%;
+        position:absolute;
+        z-index: 999;
+    }
+}
+
+@media screen and (orientation:portrait){
+
+    #front .logon{
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        height: auto;
+        width: 70%;
+        position:absolute;
+        z-index: 999;
+    }
 }
