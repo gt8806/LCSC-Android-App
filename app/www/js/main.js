@@ -208,6 +208,8 @@ $(document).on('click', function(event) {
 $("[data-role=header]").toolbar({ tapToggle: false });
 
 function front() {
+    $("#twitter").addClass("show");
+    $("#twitter").removeClass("hide");
     $("#front").addClass("show");
     $("#front").removeClass("hide");
     $('#noCal').addClass('hide');
@@ -226,6 +228,8 @@ function front() {
  }
 
 function AllEvents() {
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
     $("#front").addClass("hide");
     $("#front").removeClass("show");
     checkEvents();
@@ -241,6 +245,8 @@ function AllEvents() {
     $("#filter-icon").css('display', 'block');
 }
 function Resources() {
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
     $("#front").addClass("hide");
     $("#front").removeClass("show");
     $('#noCal').addClass('hide');
@@ -258,6 +264,8 @@ function Resources() {
     $("#filter-icon").css('display', 'none');
 }
 function Emergency() {
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
     $("#front").addClass("hide");
     $("#front").removeClass("show");
     $('#noCal').addClass('hide');
@@ -274,3 +282,34 @@ function Emergency() {
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
 }
+
+!function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + "://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, "script", "twitter-wjs");
+
+$(window).on("orientationchange", function () {
+    if (window.orientation == 0)
+    {
+        $(".tower").attr("src","images/frontpage.jpg");
+    }
+    else
+    {
+        $(".tower").attr("src", "images/frontpage2.jpg");
+    }
+});
+
+$(window).on("pagebeforechange", function () {
+    if (window.orientation == 0) {
+        $(".tower").attr("src", "images/frontpage.jpg");
+    }
+    else {
+        $(".tower").attr("src", "images/frontpage2.jpg");
+    }
+});
