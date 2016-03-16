@@ -263,13 +263,13 @@ nav.Navigation li {
 #twitter{
     background-color: white;
     position:absolute !important;
-    top:70%;
+    top:65%;
     width:100%;
 }
 
 #twitter-widget-0 { 
     background-color: white;
-      width: 100% !important; 
+    width: 200% !important; 
 }
 
 #twitter body{
@@ -289,10 +289,11 @@ nav.Navigation li {
 
 @media screen and (orientation:landscape){
     #front{
-        height: 55%;
+        height: 100%;
+        position: fixed;
     }
     #twitter{
-        top:66%;
+        display: none;
     }
     #front .logon{
         top:0;
@@ -320,4 +321,8 @@ nav.Navigation li {
         position:absolute;
         z-index: 2;
     }
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }
