@@ -249,16 +249,32 @@ nav.Navigation li {
 }
 
 #front{
-    height:100%;
     width:100%;
-    position: fixed;
+    height:70%;
+    position: absolute;
 }
 
 #front .tower{
     height:100%;
     width:100%;
     opacity:0.75;
-    position: fixed;
+}
+
+#twitter{
+    background-color: white;
+    position:absolute !important;
+    top:70%;
+    width:100%;
+}
+
+#twitter-widget-0 { 
+    background-color: white;
+      width: 100% !important; 
+}
+
+#twitter body{
+    background-color: white;
+    width:100% !important;
 }
 
 .ui-btn-left {
@@ -272,7 +288,12 @@ nav.Navigation li {
 }
 
 @media screen and (orientation:landscape){
-
+    #front{
+        height: 55%;
+    }
+    #twitter{
+        top:66%;
+    }
     #front .logon{
         top:0;
         left:0;
@@ -282,7 +303,7 @@ nav.Navigation li {
         height: auto;
         width: 40%;
         position:absolute;
-        z-index: 999;
+        z-index: 2;
     }
 }
 
@@ -297,6 +318,6 @@ nav.Navigation li {
         height: auto;
         width: 70%;
         position:absolute;
-        z-index: 999;
+        z-index: 2;
     }
 }
