@@ -205,6 +205,7 @@ $(document).on('click', function(event) {
     }
 });
 
+
 $("[data-role=header]").toolbar({ tapToggle: false });
 
 function front() {
