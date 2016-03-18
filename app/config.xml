@@ -7,7 +7,6 @@
     <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
         Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
     </author>
-    <plugin name="com.alphasoftware.plugins.camera.withexif" spec="1.0.14" source="pgb" />
     <content src="index.html" />
 	<access origin="*" />
 	<access origin="tel:*" launch-external="yes" />
@@ -17,6 +16,7 @@
 	<preference name="SplashScreenDelay" value="5000" />
 	<platform name="android">
 		<!-- you can use any density that exists in the Android project -->
+		<plugin name="com.alphasoftware.plugins.camera.withexif" spec="1.0.14" source="pgb" />
 		<splash src="www/images/res-long-land-hdpi/default.png" density="land-hdpi"/>
 		<splash src="www/images/res-long-land-ldpi/default.png" density="land-ldpi"/>
 		<splash src="www/images/res-long-land-mdpi/default.png" density="land-mdpi"/>
