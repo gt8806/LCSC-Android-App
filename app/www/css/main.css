@@ -294,6 +294,11 @@ nav.Navigation li {
     top: 0 !important;
 }
 
+#campusM img{
+    height:100%;
+    width: 100%;
+}
+
 @media screen and (orientation:landscape){
     #front{
         height: 70%;
