@@ -208,12 +208,36 @@ $(document).on('click', function(event) {
 
 $("[data-role=header]").toolbar({ tapToggle: false });
 
+function campusM() {
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("show");
+    $("#campusM").removeClass("hide");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#resource").addClass("hide");
+    $("#resource").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+}
+
 function front() {
     $("#twitter").addClass("show");
     $("#twitter").removeClass("hide");
     $("#front").addClass("show");
     $("#front").removeClass("hide");
     $('#noCal').addClass('hide');
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
     $('#noCal').removeClass('show');
     $("#calendar").addClass("hide");
     $("#calendar").removeClass("show");
@@ -233,6 +257,8 @@ function AllEvents() {
     $("#twitter").removeClass("show");
     $("#front").addClass("hide");
     $("#front").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
     checkEvents();
     $('#calendar').fullCalendar('render');
     $("#emergency").addClass("hide");
@@ -248,6 +274,8 @@ function AllEvents() {
 function Resources() {
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
     $("#front").addClass("hide");
     $("#front").removeClass("show");
     $('#noCal').addClass('hide');
@@ -267,6 +295,8 @@ function Resources() {
 function Emergency() {
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
     $("#front").addClass("hide");
     $("#front").removeClass("show");
     $('#noCal').addClass('hide');
