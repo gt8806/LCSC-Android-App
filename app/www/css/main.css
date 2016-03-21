@@ -49,6 +49,10 @@ width:100%!important
 	margin-right:10px;
 	border-radius:15px;
 }
+.addButton{
+	margin-right:10px;
+	display:none;
+}
 .academic-event .ball{
 	background-color:#666 !important;
 }
