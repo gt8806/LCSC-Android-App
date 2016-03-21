@@ -12,7 +12,7 @@ $("#calendar").on('click', 'a', function() {
 	}
   if(localStorage.getItem('idPic')) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+localStorage.getItem('idPic'));
+    $('#idPic', this.$el).attr('src', localStorage.getItem('idPic'));
  	}
 });
 
@@ -25,14 +25,14 @@ function takePhoto(){
   navigator.camera.getPicture(
   function(imgData) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+imgData);
+    $('#idPic', this.$el).attr('src', imgData);
     localStorage.setItem('idPic', imgData);
     }, 
   function(message) {
     alert('Failed because: ' + message);
     }, { quality: 50, 
     allowEdit: false, saveToPhotoAlbum: true,
-    destinationType: Camera.DestinationType.DATA_URL,
+    destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
 function getPhoto(){
@@ -40,14 +40,14 @@ function getPhoto(){
   navigator.camera.getPicture(
   function(imgData) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+imgData);
+    $('#idPic', this.$el).attr('src', imgData);
     localStorage.setItem('idPic', imgData);
   }, 
   function(message) {
     alert('Failed because: ' + message);
     }, { quality: 50, 
     allowEdit: false, saveToPhotoAlbum: true,
-    destinationType: Camera.DestinationType.DATA_URL,
+    destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
 

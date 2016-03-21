@@ -12,7 +12,7 @@ $("#calendar").on('click', 'a', function() {
 	}
   if(localStorage.getItem('idPic')) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', localStorage.getItem('idPic'));
+    $('#idPic').attr('src', localStorage.getItem('idPic'));
  	}
 });
 
@@ -25,7 +25,7 @@ function takePhoto(){
   navigator.camera.getPicture(
   function(imgData) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', imgData);
+    $('#idPic').attr('src', imgData);
     localStorage.setItem('idPic', imgData);
     }, 
   function(message) {
@@ -40,7 +40,7 @@ function getPhoto(){
   navigator.camera.getPicture(
   function(imgData) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', imgData);
+    $('#idPic').attr('src', imgData);
     localStorage.setItem('idPic', imgData);
   }, 
   function(message) {
