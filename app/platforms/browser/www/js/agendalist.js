@@ -1082,7 +1082,7 @@ function Header(calendar, options) {
 
 		tm = options.theme ? 'ui' : 'fc';
 
-		if (sections) {
+		/*if (sections) {
 			el = $("<div class='fc-toolbar'/>")
 				.append(renderSection('left'))
 				.append(renderSection('right'))
@@ -1090,7 +1090,7 @@ function Header(calendar, options) {
 				.append('<div class="fc-clear"/>');
 
 			return el;
-		}
+		}*/
 	}
 	
 	

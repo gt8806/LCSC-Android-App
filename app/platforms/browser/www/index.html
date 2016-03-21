@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no" />
     <title>Lewis-Clark State College</title>
     <link href="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.css" rel="stylesheet" />
     <link href='css/agendalist.css' rel='stylesheet' />
@@ -12,42 +12,47 @@
 
 </head>
 
-<body class="platform-browser platform-cordova platform-webview">    
-    <div class="header">
+<body>
+    <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
         <a href="#" id="menu-icon"><i class="fa fa-bars"></i></a>
-        <div id="lclog"><a href="#" onclick="front();"><img src="images/lcsc.gif"></a></div>
-        <nav class="eventsources hide">
-            <a href="#" id="filter-icon"><i class="fa fa-chevron-circle-down"></i>
-</a>
-            <ul class="filter">
-                <li class="academics_add">
-                    <p>Academics</p>
-                </li>
-                <li class="entertainment_add">
-                    <p>Entertainment</p>
-                </li>
-                <li class="student_activites_add">
-                    <p>Student Activites</p>
-                </li>
-                <li class="campus_rec_add">
-                    <p>Campus Rec</p>
-                </li>
-                <li class="resident_life_add">
-                    <p>Resident Life</p>
-                </li>
-                <li class="warrior_athletics_add">
-                    <p>Warrior Athletics</p>
-                </li>
-            </ul>
-        </nav>
-    </div>    
-    
+        <h1><a href="#" id="lclog" onclick="front();"><img src="images/lcsc.gif"></a></h1>
+        <a href="#" id="filter-icon"><i class="fa fa-chevron-circle-down"></i></a>
+    </div>
+
+    <nav class="eventsources hide">
+        <ul class="filter">
+            <li class="academics_add">
+                <p>Academics</p>
+            </li>
+            <li class="entertainment_add">
+                <p>Entertainment</p>
+            </li>
+            <li class="student_activites_add">
+                <p>Student Activites</p>
+            </li>
+            <li class="campus_rec_add">
+                <p>Campus Rec</p>
+            </li>
+            <li class="resident_life_add">
+                <p>Resident Life</p>
+            </li>
+            <li class="warrior_athletics_add">
+                <p>Warrior Athletics</p>
+            </li>
+        </ul>
+    </nav>
+
+
     <nav class="menu">
         <h3>Menu</h3>
         <ul>
-            <li class="AllEvents" ><a data-role="button" data-icon="arrow-r" data-mini="true" onclick="AllEvents();">Event List</a></li>
-            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true"  onclick="Resources();">Resources</a></li>
-            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true"  onclick="Emergency();">Emergency</a></li>
+            <li id='idPicItem'><li><a data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a></li><li><a data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a></li></li>
+            <li class="AllEvents"><a data-role="button" data-icon="arrow-r" data-mini="true" onclick="AllEvents();">Event List</a></li>
+	    <li class="AllEvents"><a href="https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2fPlanning" data-role="button" data-mini="true" data-icon="navigation" rel="external" target="_top"
+        >Warrior Web</a></li>
+            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="Resources();">Resources</a></li>
+            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="Emergency();">Emergency</a></li>
+            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="campusM();">Campus Map</a></li>
         </ul>
         <div id="social-media">
             <a href="https://www.facebook.com/LewisClarkState"><i class="fa fa-facebook-official"></i></a>
@@ -55,12 +60,20 @@
             <a href="https://www.instagram.com/lewisclarkstate/"><i class="fa fa-instagram"></i></a>
         </div>
     </nav>
+    
     <div id='front' class="show">
         <img class="tower" src="images/frontpage.jpg">
-        <img class="logon" src="images/logo.gif">
-        <h4>Connecting learning to life</h4>
+        <img class="logon" src="images/logo.png">
+    </div>
+    <div id="twitter" class="show">
+        <div id="feed">
+            <a class="twitter-timeline" data-chrome="nofooter noscrollbar noheader" href="https://twitter.com/LCSC" data-widget-id="706957886983786496">Tweets by @LCSC</a>
+        </div>
     </div>
     <div id='calendar' class="ui-body hide"></div>
+    <div id='noCal' class="ui-body hide">
+        <h3>No events to display</h3>
+    </div>
     <div id="emergency" class="ui-body hide">
         <h2 style="text-align:center">Emergency</h2>
         <a href="tel:911" data-role="button" data-icon="phone" rel="external" style="text-align:left">Emergency Services</a>
@@ -76,14 +89,19 @@
         <a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-icon="navigation" rel="external" target="_top"
         style="text-align:left">Warrior Web</a>
     </div>
+    <div id="campusM" class="ui-body hide">
+        <img src="images/CampusMap.jpg">
+    </div>
 
     <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
 
+    <script src="cordova.js"></script>
     <script src='js/moment.min.js'></script>
     <script src='js/agendalist.js'></script>
     <script src='js/gcal.js'></script>
     <script src='js/main.js'></script>
+    <script src='js/fastclick.js'></script>
 </body>
 
 </html>
