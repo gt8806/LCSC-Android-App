@@ -37,4 +37,8 @@
 		<icon src="www/images/drawable-xxhdpi/icon.png" density="xxhdpi" />
 		<icon src="www/images/drawable-xxxhdpi/icon.png" density="xxxhdpi" />
 	</platform>
+	<!-- for Android -->
+	<feature name="Calendar">
+  		<param name="android-package" value="nl.xservices.plugins.Calendar" />
+	</feature>
 </widget>
