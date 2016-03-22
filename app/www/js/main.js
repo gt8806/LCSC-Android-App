@@ -2,19 +2,18 @@ $(document).ready(function() {
 
 $("#calendar").on('click', 'a', function() {
     var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
-	if ($(item).css('display')=='none')
-	{
-	$(item).css("display","");
+	if ($(item).css('display')=='none'){
+		$(item).css("display","");
+		}
+	else{
+		$(item).css("display","none");
 	}
-	else
-	{
-	$(item).css("display","none");
-	}
-  if(localStorage.getItem('idPic')) {
+});
+
+if(localStorage.getItem('idPic')) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
     $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+localStorage.getItem('idPic'));
- 	}
-});
+}
 
 FastClick.attach(document.body);
 

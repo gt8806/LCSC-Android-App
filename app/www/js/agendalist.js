@@ -8552,13 +8552,19 @@ $.extend(ListView.prototype, {
 			"<li class='fc-agendaList-item'>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
 			"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
 			"<div class='fc-agendaList-eventDetails'>"+
-			"<div class='fc-eventlist-title' style='font-size:14px;' ><div class='ball'></div>"+ ltitle+"</div>"+
+			"<div class='fc-eventlist-title' style='font-size:14px;' >"+
+			"<div class='ball'></div>"+ ltitle+"</div>"+
 			"</div>"+
-			"<tr><td><img src='images/time.png' class='icon'/></td><td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
+			"<div class='fc-event-time'><table style='display:none'>"+
+			"<tr><td><img src='images/time.png' class='icon'/></td>"+
+			"<td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
 			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
 			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
-			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+"</table></div>"+
+			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
+			"<td><div class= EventAdd>"+
+			"<img src='images/description.png' style='vertical-align:top' class='icon'/>"+			
+			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
                     } else {
@@ -8575,8 +8581,12 @@ eventdisplay = $(
 			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
 			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
-			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+"</table></div>"+
-			"</" + (lurl ? "a" : "div") + ">"+"</li>").appendTo(html);
+			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+
+			"<td><div class= EventAdd>"+
+			"<img src='images/description.png' style='vertical-align:top' class='icon'/>"+			
+			"</div>"+"</td></table></div>"+
+			"</" + (lurl ? "a" : "div") + ">"+
+			"</li>").appendTo(html);
 }
 }
 }
