@@ -8538,46 +8538,45 @@ $.extend(ListView.prototype, {
                     
 
                     if (disDate != temp) {
-                        $("<li class='fc-agendaList-dayHeader ui-widget-header'>" +
-                            "<span class='fc-agendaList-day'>"+ disDay +",&nbsp;</span>" + 
-                            "<span class='fc-agendaList-date'>"+ disDate +"</span>" +
-                        "</li>").appendTo(html);
+                        $(
+			"<li class='fc-agendaList-dayHeader ui-widget-header'>" +
+			"<span class='fc-agendaList-day'>"+ disDay +",&nbsp;</span>" + 
+			"<span class='fc-agendaList-date'>"+ disDate +"</span>" +
+			"</li>").appendTo(html);
                         temp = disDate;
                     }
                     if (allDay) {
                     // if the event is all day , make sure you print that and not date and time
                     // otherwise do the opposite ( description ? "<div class='fc-eventlist-desc'>"+ htmlEscape(description) +"</div>" : "")+
-                        eventdisplay = $("<li class='fc-agendaList-item'>"+
-                                            "<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
-                                             " class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
-                                           
-                                            "<div class='fc-agendaList-eventDetails'>"+
-                                              "<div class='fc-eventlist-title' style='font-size:14px;' ><div class='ball'></div>"+ ltitle+"</div>"+
-                                              
-                                            "</div>"+
-											 "<div class='fc-event-time'><table style='display:none'>"+
-                                                "<tr><td><img src='images/time.png' class='icon'/></td><td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
-												( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
-												( description ? "<tr><td><img src='images/description.png'  class='icon'/></td><td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
-                                            "</table></div>"+
-                                          "</" + (lurl ? "a" : "div") + ">"+
-                                        "</li>").appendTo(html);
-                    } else {
                         eventdisplay = $(
-"<li class='fc-agendaList-item '>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div")+
-"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
-"<div class='fc-agendaList-eventDetails'>"+
-"<div class='fc-eventlist-title' style='font-size:14px;' >"+
-"<div class='ball'></div>"+ ltitle +"</div>"+
-"</div>"+
-"<div class='fc-event-time'><table style='display:none'>"+
-"<tr><td><img src='images/time.png' class='icon'/></td>"+
-"<td><span class='fc-event-start-time'>"+ startDate + " - "+( endDate ? endDate : "") +"</span></td></tr>"+
-( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
-"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
-( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
-"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+"</table></div>"+
-"</" + (lurl ? "a" : "div") + ">"+"</li>").appendTo(html);
+			"<li class='fc-agendaList-item'>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
+			"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
+			"<div class='fc-agendaList-eventDetails'>"+
+			"<div class='fc-eventlist-title' style='font-size:14px;' ><div class='ball'></div>"+ ltitle+"</div>"+
+			"</div>"+
+			"<tr><td><img src='images/time.png' class='icon'/></td><td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
+			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
+			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
+			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+"</table></div>"+
+			"</" + (lurl ? "a" : "div") + ">"+
+			"</li>").appendTo(html);
+                    } else {
+eventdisplay = $(
+			"<li class='fc-agendaList-item '>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div")+
+			"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
+			"<div class='fc-agendaList-eventDetails'>"+
+			"<div class='fc-eventlist-title' style='font-size:14px;' >"+
+			"<div class='ball'></div>"+ ltitle +"</div>"+
+			"</div>"+
+			"<div class='fc-event-time'><table style='display:none'>"+
+			"<tr><td><img src='images/time.png' class='icon'/></td>"+
+			"<td><span class='fc-event-start-time'>"+ startDate + " - "+( endDate ? endDate : "") +"</span></td></tr>"+
+			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
+			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
+			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+"</table></div>"+
+			"</" + (lurl ? "a" : "div") + ">"+"</li>").appendTo(html);
 }
 }
 }
