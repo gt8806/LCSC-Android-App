@@ -8563,9 +8563,7 @@ $.extend(ListView.prototype, {
 			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
 			"<td><div ID='EventAdd' class= 'EventAdd'>"+
-			"<a href='#' id='EventAdder' data-role='button' role='button' style='display:block';>"+	
-			"<img src='images/description.png' style='vertical-align:top' class='icon'/>" + 
-			"</a>" +		
+			"<i id='addEvent' class='fa fa-calendar-plus-o' data-mini='true' onclick='addEvent();'></i>"+		
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
@@ -8585,10 +8583,7 @@ eventdisplay = $(
 			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+
 			"<td><div ID='EventAdd' class= 'EventAdd'>"+
-			
-			"<a href='#' id='EventAdder' data-role='button' role='button' style='display:block'; >"+	
-			"<img src='images/description.png' style='vertical-align:top' class='icon'/>" + 
-			"</a>" +				
+			"<i id='addEvent' class='fa fa-calendar-plus-o' data-mini='true' onclick='addEvent();'></i>"+				
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);

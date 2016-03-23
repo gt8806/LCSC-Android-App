@@ -20,10 +20,12 @@ FastClick.attach(document.body);
 });
 
 //for event additions to local calendar
-function EventAdd() {
-    confirm("Add this event to your personal calendar?");
+function addEvent() {
+var startDate = new Date(2016,3,23,0,0,0,0,0);
+  var endDate = new Date(2016,3,25,0,0,0,0,0);
+    var r = confirm("Add this event to your personal calendar?");
     if (r == true) {
-        alert("You pressed OK!");
+        window.plugins.calendar.createEvent('title','eventLocation','notes',startDate,endDate,'success','error');
     } else {
         alert("You pressed Cancel!");
     }
