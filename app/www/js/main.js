@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 $("#calendar").on('click', 'a', function() {
     var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
 	if ($(item).css('display')=='none'){
@@ -7,6 +6,7 @@ $("#calendar").on('click', 'a', function() {
 		}
 	else{
 		$(item).css("display","none");
+//new var a# ...
 	}
 });
 
@@ -18,6 +18,19 @@ if(localStorage.getItem('idPic')) {
 FastClick.attach(document.body);
 
 });
+
+//for event additions to local calendar
+function EventAdd() {
+    confirm("Add this event to your personal calendar?");
+    if (r == true) {
+        alert("You pressed OK!");
+    } else {
+        alert("You pressed Cancel!");
+    }
+
+}
+//end of additionals to lcal
+
 
 function takePhoto(){
   source = navigator.camera.PictureSourceType.CAMERA;
@@ -191,6 +204,15 @@ $(document).on('click', function(event) {
         $(".eventsources ul").css("display", "block");
     } else {
         $(".eventsources ul").css("display", "none");
+    }
+});
+
+$(document).on('click', function(event) {
+    var target = $(event.target);
+    if(target.is("#eventAdder")){
+ 	confirm("Add this event to your personal calendar?");
+    } else {
+
     }
 });
 

@@ -8562,8 +8562,10 @@ $.extend(ListView.prototype, {
 			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
-			"<td><div class= EventAdd>"+
-			"<img src='images/description.png' style='vertical-align:top' class='icon'/>"+			
+			"<td><div ID='EventAdd' class= 'EventAdd'>"+
+			"<a href='#' id='EventAdder' data-role='button' role='button' style='display:block';>"+	
+			"<img src='images/description.png' style='vertical-align:top' class='icon'/>" + 
+			"</a>" +		
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
@@ -8582,8 +8584,11 @@ eventdisplay = $(
 			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+
-			"<td><div class= EventAdd>"+
-			"<img src='images/description.png' style='vertical-align:top' class='icon'/>"+			
+			"<td><div ID='EventAdd' class= 'EventAdd'>"+
+			
+			"<a href='#' id='EventAdder' data-role='button' role='button' style='display:block'; >"+	
+			"<img src='images/description.png' style='vertical-align:top' class='icon'/>" + 
+			"</a>" +				
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
