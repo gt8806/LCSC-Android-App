@@ -6,10 +6,6 @@
     "config_munge": {
         "files": {}
     },
-    "installed_plugins": {
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "edu.lcsc.LCSC"
-        }
-    },
+    "installed_plugins": {},
     "dependent_plugins": {}
 }
