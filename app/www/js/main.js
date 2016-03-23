@@ -11,7 +11,7 @@ $("#calendar").on('click', 'a', function() {
 	$(item).css("display","none");
 	}
   if(localStorage.getItem('idPic')) {
-    $('#idPicItem').innnerHTML='<img id="idPic">';
+    $('#idPicItem').html('<img id="idPic">');
     $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+localStorage.getItem('idPic'));
  	}
 });
@@ -23,31 +23,31 @@ FastClick.attach(document.body);
 function takePhoto(){
   source = navigator.camera.PictureSourceType.CAMERA;
   navigator.camera.getPicture(
-  function(imgData) {
-    $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+imgData);
-    localStorage.setItem('idPic', imgData);
+  function(imageURI) {
+    $('#idPicItem').html('<img id="idPic">');
+    $('#idPic').attr('src', imageURI);
+    localStorage.setItem('idPic', imageURI);
     }, 
   function(message) {
     alert('Failed because: ' + message);
     }, { quality: 50, 
     allowEdit: false, saveToPhotoAlbum: true,
-    destinationType: Camera.DestinationType.DATA_URL,
+    destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
 function getPhoto(){
   source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
   navigator.camera.getPicture(
-  function(imgData) {
+  function(imageURI) {
     $('#idPicItem').innnerHTML='<img id="idPic">';
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+imgData);
-    localStorage.setItem('idPic', imgData);
+    $('#idPic').attr('src', imageURI);
+    localStorage.setItem('idPic', imageURI);
   }, 
   function(message) {
     alert('Failed because: ' + message);
     }, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: true,
-    destinationType: Camera.DestinationType.DATA_URL,
+    allowEdit: false, saveToPhotoAlbum: false,
+    destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
 
