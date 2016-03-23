@@ -389,3 +389,8 @@ border-bottom:1px solid #CCC;
 	font-size:16px !important; 
 	border-bottom:1px solid #003865;
 }
+
+#addEvent {
+	color: black;
+	font-size: 2em;
+}
