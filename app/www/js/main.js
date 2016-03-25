@@ -39,7 +39,7 @@ function getPhoto(){
   source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#idPicItem').innnerHTML='<img id="idPic">';
+    $('#idPicItem').html('<img id="idPic">');
     $('#idPic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
   }, 
