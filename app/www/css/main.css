@@ -83,15 +83,18 @@ nav.eventsources{
     height: 100%;
     z-index: 1;
     left: -50%;
+    top: 0;
+    bottom: 0;
 }
 
 .menu ul{
+    margin-top: 20%;
     padding: 0;
 }
 
 #social-media {
     position: absolute;
-    font-size: 2em;
+    font-size: 2.5em;
     bottom: 0;
     margin-left: 5%;
 }
@@ -101,24 +104,16 @@ nav.eventsources{
     text-decoration: none;    
 }
 
-.fa-facebook-official:hover {
+.fa-facebook-official {
     color: #3b5998;
 }
 
-.fa-twitter-square:hover{
+.fa-twitter-square{
     color: #00aced;
 }
 
-.fa-instagram:hover {
+.fa-instagram {
     color: #9b6954;
-}
-
-#filter-icon{
-    position: absolute;
-    background-color: #003865;
-    color: white;
-    font-size: 0.85em;
-    display: none;
 }
 
 .fa-calendar-plus-o {
