@@ -29,7 +29,9 @@ function takePhoto(){
     localStorage.setItem('idPic', imageURI);
     }, 
   function(message) {
-    alert('Failed because: ' + message);
+    if (message != "Camera canceled"){
+      alert('Failed because: ' + message);
+    }
     }, { quality: 50, 
     allowEdit: false, saveToPhotoAlbum: true,
     destinationType: Camera.DestinationType.FILE_URI,
