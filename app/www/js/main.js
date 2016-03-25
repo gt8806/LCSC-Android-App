@@ -29,7 +29,7 @@ function takePhoto(){
     localStorage.setItem('idPic', imageURI);
     }, 
   function(message) {
-    if (message != "Camera canceled"){
+    if (message != "Camera cancelled."){
       alert('Failed because: ' + message);
     }
     }, { quality: 50, 
