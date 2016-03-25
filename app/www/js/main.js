@@ -12,7 +12,7 @@ $("#calendar").on('click', 'a', function() {
 	}
   if(localStorage.getItem('idPic')) {
     $('#idPicItem').html('<img id="idPic">');
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+localStorage.getItem('idPic'));
+    $('#idPic').attr('src', localStorage.getItem('idPic'));
  	}
 });
 
