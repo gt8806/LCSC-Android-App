@@ -1,9 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget android-versioncode="10003" id="edu.lcsc.LCSC" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <preference name="loglevel" value="DEBUG" />
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
+    <name>LCSC</name>
+    <description>
+        The official LCSC app.
+    </description>
+    <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
+        Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access launch-external="yes" origin="tel:*" />
+    <access launch-external="yes" origin="http://*" />
+    <access launch-external="yes" origin="https://*" />
     <splash density="land-hdpi" src="www/images/res-long-land-hdpi/default.png" />
     <splash density="land-ldpi" src="www/images/res-long-land-ldpi/default.png" />
     <splash density="land-mdpi" src="www/images/res-long-land-mdpi/default.png" />
@@ -22,18 +33,7 @@
     <icon density="xhdpi" src="www/images/drawable-xhdpi/icon.png" />
     <icon density="xxhdpi" src="www/images/drawable-xxhdpi/icon.png" />
     <icon density="xxxhdpi" src="www/images/drawable-xxxhdpi/icon.png" />
-    <name>LCSC</name>
-    <description>
-        The official LCSC app.
-    </description>
-    <author email="lcsccampuslife@gmail.com" href="http://www.lcsc.edu/">
-        Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
-    </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <access launch-external="yes" origin="tel:*" />
-    <access launch-external="yes" origin="http://*" />
-    <access launch-external="yes" origin="https://*" />
+    <preference name="loglevel" value="DEBUG" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="5000" />
 </widget>

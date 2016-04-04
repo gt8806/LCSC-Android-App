@@ -12,7 +12,7 @@ $("#calendar").on('click', 'a', function() {
 	}
   if(localStorage.getItem('idPic')) {
     $('#idPicItem').html('<img id="idPic">');
-    $('#idPic', this.$el).attr('src', "data:image/jpeg;base64,"+localStorage.getItem('idPic'));
+    $('#idPic').attr('src', localStorage.getItem('idPic'));
  	}
 });
 
@@ -29,7 +29,9 @@ function takePhoto(){
     localStorage.setItem('idPic', imageURI);
     }, 
   function(message) {
-    alert('Failed because: ' + message);
+    if (message != "Camera cancelled."){
+      alert('Failed because: ' + message);
+    }
     }, { quality: 50, 
     allowEdit: false, saveToPhotoAlbum: true,
     destinationType: Camera.DestinationType.FILE_URI,
@@ -39,7 +41,7 @@ function getPhoto(){
   source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#idPicItem').innnerHTML='<img id="idPic">';
+    $('#idPicItem').html('<img id="idPic">');
     $('#idPic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
   }, 
@@ -228,6 +230,8 @@ function campusM() {
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
 }
 
 function front() {
@@ -250,6 +254,8 @@ function front() {
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');  
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
  }
 
 function AllEvents() {
@@ -270,6 +276,8 @@ function AllEvents() {
     $(".eventsources").addClass("show");
     $(".eventsources").removeClass("hide");
     $("#filter-icon").css('display', 'block');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
 }
 function Resources() {
     $("#twitter").addClass("hide");
@@ -291,6 +299,8 @@ function Resources() {
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
 }
 function Emergency() {
     $("#twitter").addClass("hide");
@@ -305,6 +315,32 @@ function Emergency() {
     $("#calendar").removeClass("show");
     $("#emergency").addClass("show");
     $("#emergency").removeClass("hide");
+    $("#resource").addClass("hide");
+    $("#resource").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+}
+
+function Profile() {
+    $("#profile").addClass("show");
+    $("#profile").removeClass("hide");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
     $("#resource").addClass("hide");
     $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
