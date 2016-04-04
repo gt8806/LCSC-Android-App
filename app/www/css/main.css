@@ -237,6 +237,14 @@ nav.Navigation li {
     
 }
 
+#filter-icon{
+    position: absolute;
+    background-color: #003865;
+    color: white;
+    font-size: 0.85em;
+    display: none;
+}
+
 #header {
     background-color: white !important;    
 }
@@ -296,6 +304,27 @@ nav.Navigation li {
 #campusM img{
     height:100%;
     width: 100%;
+}
+
+
+#profile{
+    position: fixed;
+    height:100%;
+    width: 100%;
+    background-image: url(../images/pattern.jpg);
+}
+
+#profile a {
+    width: 35%; 
+    margin-left: 25%;
+}
+
+#profile #profile-pic {
+    border-radius: 10%;
+    border: 5px solid #003864;
+    width: 80%;
+    height: 25%;
+    margin-left: 10%;  
 }
 
 @media screen and (orientation:landscape){
