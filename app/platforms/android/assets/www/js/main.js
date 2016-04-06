@@ -11,8 +11,8 @@ $("#calendar").on('click', 'a', function() {
 	$(item).css("display","none");
 	}
   if(localStorage.getItem('idPic')) {
-    $('#idPicItem').html('<img id="idPic">');
-    $('#idPic').attr('src', localStorage.getItem('idPic'));
+    $('#idPicItem').html('');
+    $('#profile-pic').attr('src', localStorage.getItem('idPic'));
  	}
 });
 
@@ -24,8 +24,8 @@ function takePhoto(){
   source = navigator.camera.PictureSourceType.CAMERA;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#idPicItem').html('<img id="idPic">');
-    $('#idPic').attr('src', imageURI);
+    $('#idPicItem').html('');
+    $('#profile-pic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
     }, 
   function(message) {
@@ -41,8 +41,8 @@ function getPhoto(){
   source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#idPicItem').html('<img id="idPic">');
-    $('#idPic').attr('src', imageURI);
+    $('#idPicItem').html('');
+    $('#profile-pic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
   }, 
   function(message) {

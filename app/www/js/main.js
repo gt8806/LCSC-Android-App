@@ -11,7 +11,6 @@ $("#calendar").on('click', 'a', function() {
 	$(item).css("display","none");
 	}
   if(localStorage.getItem('idPic')) {
-    $('#idPicItem').html('');
     $('#profile-pic').attr('src', localStorage.getItem('idPic'));
  	}
 });
@@ -24,7 +23,6 @@ function takePhoto(){
   source = navigator.camera.PictureSourceType.CAMERA;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#idPicItem').html('');
     $('#profile-pic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
     }, 
@@ -41,7 +39,6 @@ function getPhoto(){
   source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#idPicItem').html('');
     $('#profile-pic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
   }, 
