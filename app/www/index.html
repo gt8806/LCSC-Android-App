@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -47,10 +47,6 @@
         <h3>Menu</h3>
         <ul>
             <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="Profile();">Profile</a></li>
-            <li id='idPicItem'>
-                <li><a data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a></li>
-                <li><a data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a></li>
-            </li>
             <li class="AllEvents"><a data-role="button" data-icon="arrow-r" data-mini="true" onclick="AllEvents();">Event List</a></li>
             <li class="AllEvents"><a href="https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2fPlanning" data-role="button"
                 data-mini="true" data-icon="navigation" rel="external" target="_top">Warrior Web</a></li>
@@ -96,6 +92,8 @@
     <div id="profile" class="ui-body hide">
         <h2 style="text-align:center">Profile</h2>
         <img id="profile-pic" src="images/profilepic.jpg">
+        <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a>
+        <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a>
         <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">Check your balance</a>
         <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">LCMail</a>
         <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">WarriorWeb</a>

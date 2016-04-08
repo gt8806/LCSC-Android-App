@@ -12,6 +12,7 @@ $("#calendar").on('click', 'a', function() {
 	}
   if(localStorage.getItem('idPic')) {
     $('#profile-pic').attr('src', localStorage.getItem('idPic'));
+    $(".cameraButton").hide();
  	}
 });
 
@@ -25,6 +26,7 @@ function takePhoto(){
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
+    $(".cameraButton").hide();
     }, 
   function(message) {
     if (message != "Camera cancelled."){
@@ -41,6 +43,7 @@ function getPhoto(){
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
     localStorage.setItem('idPic', imageURI);
+    $(".cameraButton").hide();
   }, 
   function(message) {
     alert('Failed because: ' + message);
