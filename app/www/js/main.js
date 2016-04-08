@@ -223,8 +223,6 @@ function campusM() {
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
@@ -247,8 +245,6 @@ function front() {
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
@@ -269,8 +265,6 @@ function AllEvents() {
     $('#calendar').fullCalendar('render');
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("show");
@@ -279,29 +273,7 @@ function AllEvents() {
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
 }
-function Resources() {
-    $("#twitter").addClass("hide");
-    $("#twitter").removeClass("show");
-    $("#campusM").addClass("hide");
-    $("#campusM").removeClass("show");
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
-    $('#noCal').addClass('hide');
-    $('#noCal').removeClass('show');
-    $("#calendar").addClass("hide");
-    $("#calendar").removeClass("show");
-    $("#emergency").addClass("hide");
-    $("#emergency").removeClass("show");
-    $("#resource").addClass("show");
-    $("#resource").removeClass("hide");
-    $("#fullCalendar").addClass("hide");
-    $("#fullCalendar").removeClass("show");
-    $(".eventsources").addClass("hide");
-    $(".eventsources").removeClass("show");
-    $("#filter-icon").css('display', 'none');
-    $("#profile").addClass("hide");
-    $("#profile").removeClass("show");
-}
+
 function Emergency() {
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
@@ -315,8 +287,6 @@ function Emergency() {
     $("#calendar").removeClass("show");
     $("#emergency").addClass("show");
     $("#emergency").removeClass("hide");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
@@ -341,8 +311,6 @@ function Profile() {
     $("#calendar").removeClass("show");
     $("#emergency").addClass("hide");
     $("#emergency").removeClass("show");
-    $("#resource").addClass("hide");
-    $("#resource").removeClass("show");
     $("#fullCalendar").addClass("hide");
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
