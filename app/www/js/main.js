@@ -67,7 +67,7 @@ function readFromFile(fileName, cb) {
 	}, errorHandler.bind(null, fileName));
 }
 function writeToFile(fileName, data) {
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
+	window.resolveLocalFileSystemURL(cordova.file.applicationStorageDirectory, function (directoryEntry) {
 		directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
 			fileEntry.createWriter(function (fileWriter) {
 				fileWriter.onwriteend = function (e) {
