@@ -9,7 +9,7 @@
     <link href='css/agendalist.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -52,15 +52,24 @@
             <li class="AllEvents"><a href="http://www.lcsc.edu/news/" data-role="button" data-mini="true" data-icon="info" rel="external" target="_top">Campus News</a></li>
             <li class="AllEvents"><a href="http://www.lcsc.edu/lcmail" data-role="button" data-mini="true" data-icon="mail" rel="external" target="_top">LCMail</a></li>
             <li class="AllEvents"><a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a></li>
+            <li class="AllEvents"><a href="javascript: BB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a></li>
+            <li class="AllEvents"><a href="javascript: LCmail()" data-role="button" data-mini="true" data-icon="shop" rel="external" target="_top">WarriorOne</a></li>
             <li class="AllEvents"><a href="http://stream.lcsc.edu/iphone.htm" data-role="button" data-mini="true" data-icon="audio" rel="external" target="_top">KLCZ</a></li>
             <li class="AllEvents"><a href="http://livestream.com/accounts/8399277" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Sport Stream</a></li>
             <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="Emergency();">Emergency</a></li>
             <li class="Emergency"><a data-role="button" data-icon="location" data-mini="true" onclick="campusM();">Campus Map</a></li>
+
+
+            <div id="hangout">
+                <div id="placeholder-div1"></div>
+            </div>
         </ul>
-        <div id="social-media">
-            <a href="https://www.facebook.com/LewisClarkState"><i class="fa fa-facebook-official"></i></a>
-            <a href="https://twitter.com/lcsc"><i class="fa fa-twitter-square"></i></a>
-            <a href="https://www.instagram.com/lewisclarkstate/"><i class="fa fa-instagram"></i></a>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div id="social-media">
+                <a href="https://www.facebook.com/LewisClarkState"><i class="fa fa-facebook-official"></i></a>
+                <a href="https://twitter.com/lcsc"><i class="fa fa-twitter-square"></i></a>
+                <a href="https://www.instagram.com/lewisclarkstate/"><i class="fa fa-instagram"></i></a>
+            </div>
         </div>
     </nav>
 
@@ -88,13 +97,53 @@
         <img id="profile-pic" src="images/profilepic.jpg">
         <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a>
         <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a>
-        <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">Check your balance</a>
-        <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">LCMail</a>
-        <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">WarriorWeb</a>
-        <a href="#" data-role="button" data-icon="navigation" rel="external" target="_top" style="text-align:center">LCMail</a>
     </div>
     <div id="campusM" class="ui-body hide">
         <img src="images/CampusMap.jpg">
+    </div>
+
+    <div id="bbForm" class="hide">
+        <form action="https://lcsc.blackboard.com/webapps/login/" onsubmit="saveCred(); return validate_form(this, false, true); " method="POST" name="login">
+
+            <div id="loginFormTitle">
+                <h2>Have an account?</h2>
+            </div>
+            <div id="loginFormFields" class="clearfix">
+                <label for="user_id">Username:</label>
+                <input type="text" name="user_id" id="user_id" size="25" maxlength="50">
+                <label for="password">Password:</label>
+                <input size="25" name="password" id="password" type="password" autocomplete="off">
+                <input id="entry-login" type="submit" value="Login" name="login" class="button expand success submit button-1">
+            </div>  <input type="hidden" name="action" value="login">
+            <input type="hidden" name="new_loc" value="">
+        </form>
+    </div>
+    <div id="lcmail" class="hide">
+        <form onsubmit="saveCred();" method="post" action="http://connect.lcsc.edu/ecc/warrioronecard.aspx" id="form1">
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNDgxNjI0MzU5D2QWAgIBD2QWDAIFDw9kDxAWAWYWARYCHg5QYXJhbWV0ZXJWYWx1ZWUWAWZkZAIHDzwrABEDAA8WBB4LXyFEYXRhQm91bmRnHgtfIUl0ZW1Db3VudGZkARAWABYAFgAMFCsAAGQCCQ8PZA8QFgFmFgEWAh8AZRYBZmRkAgsPPCsAEQMADxYEHwFnHwJmZAEQFgAWABYADBQrAABkAg0PD2QPEBYBZhYBFgIfAGUWAWZkZAIPDzwrABEDAA8WBB8BZx8CZmQBEBYAFgAWAAwUKwAAZBgDBQlHcmlkVmlldzMPPCsADAEIZmQFCUdyaWRWaWV3Mg88KwAMAQhmZAUJR3JpZFZpZXcxDzwrAAwBCGZk9ITFcHHlNfKzvLfeaGNzzwYrXYJpOGE5Gvh3h4CvoHc=">
+            </div>
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="0AF908E4">
+                <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAMcfZVzOekU7d2DSrYu3BpzGhLNxQEizxRckG7VRddzUc34O/GfAV4V4n0wgFZHr3egF650RV7THrVqcqyegYjK4CUqVbQHpu/nddq9lCJGSQ==">
+            </div>
+            <p class="auto-style1">
+                <img alt="WarriorOne Card" height="115" src="./WarriorOne Card Balance_files/warrioroneheader.jpg" width="552">
+            </p>
+            <p class="auto-style1">
+                <strong>
+                    WarriorOne Card Balance - Updated Weekly -
+                    Call 208-792-2060
+                </strong>
+            </p>
+            <p>
+                <span class="auto-style1"><strong>Enter your ID#:&nbsp; </strong></span>
+                <strong>
+                    <input name="Field1" type="text" id="Field1" style="font-family:Arial,Helvetica,sans-serif;font-size:Medium;">
+                    <input type="submit" name="Button1" value="Search" id="Button1" style="font-family:Arial,Helvetica,sans-serif;font-size:Medium;">
+                </strong>&nbsp;
+            </p>
+        </form>
     </div>
 
     <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>

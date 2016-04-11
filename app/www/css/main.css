@@ -91,6 +91,7 @@ nav.eventsources{
 .menu ul{
     margin-top: 40%;
     padding: 0;
+    padding-bottom: 35%;
 }
 
 #social-media {
@@ -325,6 +326,10 @@ nav.Navigation li {
     width: 80%;
     height: 25%;
     margin-left: 10%;  
+}
+
+#hangout {
+    margin-left:.6em;
 }
 
 @media screen and (orientation:landscape){

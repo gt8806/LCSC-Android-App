@@ -210,7 +210,33 @@ $(document).on('click', function(event) {
 
 $("[data-role=header]").toolbar({ tapToggle: false });
 
+function LCmail() {
+    $("#lcmail").addClass("show");
+    $("#lcmail").removeClass("hide");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+}
+
 function campusM() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("show");
@@ -232,7 +258,37 @@ function campusM() {
     $("#profile").removeClass("show");
 }
 
+function BB() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("show");
+    $("#bbForm").removeClass("hide");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+}
+
 function front() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
     $("#twitter").addClass("show");
     $("#twitter").removeClass("hide");
     $("#front").addClass("show");
@@ -249,12 +305,16 @@ function front() {
     $("#fullCalendar").removeClass("show");
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
-    $("#filter-icon").css('display', 'none');  
+    $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
- }
+}
 
 function AllEvents() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#front").addClass("hide");
@@ -273,8 +333,11 @@ function AllEvents() {
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
 }
-
 function Emergency() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("hide");
@@ -297,6 +360,10 @@ function Emergency() {
 }
 
 function Profile() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
     $("#profile").addClass("show");
     $("#profile").removeClass("hide");
     $("#twitter").addClass("hide");
@@ -347,4 +414,35 @@ $(window).on("pagebeforechange", function () {
     else {
         $(".tower").attr("src", "images/frontpage2.jpg");
     }
+});
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+$(document).ready(function (e) {;
+    $("#user_id").val(getCookie('username'));
+    $("#password").val(getCookie('password'));
+    $("#Field1").val(getCookie('idcard'));
+});
+
+function saveCred() {
+    var d = new Date();
+    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = 'username' + "=" + $("#user_id").val() + "; " + expires;
+    document.cookie = 'password' + "=" + $("#password").val() + "; " + expires;
+    document.cookie = 'idcard' + "=" + $("#Field1").val() + "; " + expires;
+}
+
+gapi.hangout.render('placeholder-div1', {
+    'render': 'createhangout',
+    'initial_apps': [{ 'app_id': '184219133185', 'start_data': 'dQw4w9WgXcQ', 'app_type': 'ROOM_APP' }]
 });
