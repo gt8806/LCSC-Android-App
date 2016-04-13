@@ -17,4 +17,5 @@
     <access launch-external="yes" origin="https://*" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="5000" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 </widget>

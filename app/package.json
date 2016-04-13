@@ -8,7 +8,8 @@
   "author": "",
   "license": "ISC",
   "cordovaPlugins": [
-    "cordova-plugin-camera"
+    "cordova-plugin-camera",
+    "cordova-plugin-file"
   ],
   "description": ""
 }

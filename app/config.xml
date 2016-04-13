@@ -8,6 +8,7 @@
         Lewis-Clark State College: CS360(FA2014)/CS480(SP2014)
     </author>
     <plugin spec="https://github.com/apache/cordova-plugin-camera.git" source="git" />
+    <plugin spec="https://github.com/apache/cordova-plugin-file.git" source="git" />
     <content src="index.html" />
 	<access origin="*" />
 	<access origin="tel:*" launch-external="yes" />
