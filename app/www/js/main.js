@@ -67,7 +67,7 @@ function readFromFile(fileName, cb) {
 	}, errorHandler.bind(null, fileName));
 }
 function writeToFile(fileName, data) {
-	window.resolveLocalFileSystemURL(cordova.file.applicationStorageDirectory, function (directoryEntry) {
+	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
 		directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
 			fileEntry.createWriter(function (fileWriter) {
 				fileWriter.onwriteend = function (e) {
@@ -266,6 +266,8 @@ function LCmail() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
 }
 
 function campusM() {
@@ -290,6 +292,8 @@ function campusM() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
 }
 
 function BB() {
@@ -462,18 +466,15 @@ function getCookie(cname) {
 }
 
 $(document).ready(function (e) {;
-    $("#user_id").val(getCookie('username'));
-    $("#password").val(getCookie('password'));
-    $("#Field1").val(getCookie('idcard'));
+    $("#user_id").val(window.localStorage.getItem("user"));
+    $("#password").val(window.localStorage.getItem("pass"));
+    $("#Field1").val(window.localStorage.getItem("field"));
 });
 
 function saveCred() {
-    var d = new Date();
-    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = 'username' + "=" + $("#user_id").val() + "; " + expires;
-    document.cookie = 'password' + "=" + $("#password").val() + "; " + expires;
-    document.cookie = 'idcard' + "=" + $("#Field1").val() + "; " + expires;
+    window.localStorage.setItem("user", $("#user_id").val());
+    window.localStorage.setItem("pass", $("#password").val());
+    window.localStorage.setItem("field", $("#Field1").val());
 }
 
 gapi.hangout.render('placeholder-div1', {
