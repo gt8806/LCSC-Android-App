@@ -435,7 +435,7 @@ function Profile() {
 }(document, "script", "twitter-wjs");
 
 $(window).on("orientationchange", function () {
-    if (window.orientation == 0)
+    if (window.orientation === 0)
     {
         $(".tower").attr("src","images/frontpage.jpg");
     }
@@ -446,7 +446,7 @@ $(window).on("orientationchange", function () {
 });
 
 $(window).on("pagebeforechange", function () {
-    if (window.orientation == 0) {
+    if (window.orientation === 0) {
         $(".tower").attr("src", "images/frontpage.jpg");
     }
     else {
@@ -460,12 +460,12 @@ function getCookie(cname) {
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
     }
     return "";
 }
 
-$(document).ready(function (e) {;
+$(document).ready(function (e) {
     $("#user_id").val(window.localStorage.getItem("user"));
     $("#password").val(window.localStorage.getItem("pass"));
     $("#Field1").val(window.localStorage.getItem("field"));
