@@ -58,7 +58,7 @@ function getPhoto(){
     sourceType: source});
 }
 function readFromFile(fileName, cb) {
-	var pathToFile = cordova.file.applicationStorageDirectory + fileName;
+	var pathToFile = cordova.file.dataDirectory + fileName;
 	window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
 		fileEntry.file(function (file) {
 			var reader = new FileReader();
