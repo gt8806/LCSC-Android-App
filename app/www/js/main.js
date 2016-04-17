@@ -1,6 +1,7 @@
 $(document).ready(function() {
 $("#calendar").on('click', 'a', function() {
     var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
+
 	if ($(item).css('display')=='none'){
 		$(item).css("display","");
 		}
@@ -8,6 +9,17 @@ $("#calendar").on('click', 'a', function() {
 		$(item).css("display","none");
 //new var a# ...
 	}
+});
+$("#calendar").on('click', 'a', function() {
+	//var item ='a#'+ $(this).attr('id')+' div.fc-eventlist-desc'.text();
+	var item1 = document.getElementsByClassName('fc-event-start-time')[0].innerHTML;
+	var item3 = document.getElementsByClassName('fc-eventlist-desc')[0].innerHTML;
+	var item2 = document.getElementsByClassName('fc-eventlist-desc')[4].innerHTML;
+	console.log(item1);
+	console.log(item3);
+	console.log(item2);
+	console.log('ID: ' + $('div.fc-eventlist-desc').text());
+
 });
 
 if(localStorage.getItem('idPic')) {
@@ -21,6 +33,7 @@ FastClick.attach(document.body);
 
 //for event additions to local calendar
 function addEvent() {
+var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
 var startDate = new Date(2016,3,23,0,0,0,0,0);
   var endDate = new Date(2016,3,25,0,0,0,0,0);
     var r = confirm("Add this event to your personal calendar?");
