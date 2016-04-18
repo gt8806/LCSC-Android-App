@@ -8559,7 +8559,7 @@ $.extend(ListView.prototype, {
 			"<tr><td><img src='images/time.png' class='icon'/></td>"+
 			"<td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
 			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
-			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			"<div class='fc-eventlist-location' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
 			"<td><div ID='EventAdd' class= 'EventAdd'>"+
@@ -8579,7 +8579,7 @@ eventdisplay = $(
 			"<tr><td><img src='images/time.png' class='icon'/></td>"+
 			"<td><span class='fc-event-start-time'>"+ startDate + " - "+( endDate ? endDate : "") +"</span></td></tr>"+
 			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
-			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			"<div class='fc-eventlist-location' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+
 			"<td><div ID='EventAdd' class= 'EventAdd'>"+

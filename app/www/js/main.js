@@ -7,6 +7,11 @@ $("#calendar").on('click', 'a', function() {
 		}
 	else{
 		$(item).css("display","none");
+	console.log('ID: ' + $(item + ' span.fc-event-all-day').text());
+	console.log('ID: ' + $(item + ' div.fc-eventlist-location').text());
+	console.log('ID: ' + $(item + ' div.fc-eventlist-desc').text());
+	
+	
 //new var a# ...
 	}
 });
@@ -15,10 +20,10 @@ $("#calendar").on('click', 'a', function() {
 	var item1 = document.getElementsByClassName('fc-event-start-time')[0].innerHTML;
 	var item3 = document.getElementsByClassName('fc-eventlist-desc')[0].innerHTML;
 	var item2 = document.getElementsByClassName('fc-eventlist-desc')[4].innerHTML;
-	console.log(item1);
-	console.log(item3);
-	console.log(item2);
-	console.log('ID: ' + $('div.fc-eventlist-desc').text());
+	//console.log(item1);
+	//console.log(item3);
+	//console.log(item2);
+	//console.log('ID: ' + $('div.fc-eventlist-desc').text());//prints all events desc list
 
 });
 
@@ -33,12 +38,13 @@ FastClick.attach(document.body);
 
 //for event additions to local calendar
 function addEvent() {
-var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
+var item ='a#'+ $(this).attr('id')+' div.fc-eventlist-desc';
 var startDate = new Date(2016,3,23,0,0,0,0,0);
   var endDate = new Date(2016,3,25,0,0,0,0,0);
     var r = confirm("Add this event to your personal calendar?");
     if (r == true) {
-        window.plugins.calendar.createEvent('title','eventLocation','notes',startDate,endDate,'success','error');
+        //window.plugins.calendar.createEvent('title','eventLocation','notes',startDate,endDate,'success','error');
+	//console.log(item);
     } else {
         alert("You pressed Cancel!");
     }
@@ -219,15 +225,6 @@ $(document).on('click', function(event) {
         $(".eventsources ul").css("display", "block");
     } else {
         $(".eventsources ul").css("display", "none");
-    }
-});
-
-$(document).on('click', function(event) {
-    var target = $(event.target);
-    if(target.is("#eventAdder")){
- 	confirm("Add this event to your personal calendar?");
-    } else {
-
     }
 });
 
