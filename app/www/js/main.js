@@ -1,6 +1,7 @@
 $(document).ready(function() {
 $("#calendar").on('click', 'a', function() {
-    var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
+	var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
+	var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
 
 	if ($(item).css('display')=='none'){
 		$(item).css("display","");
@@ -8,13 +9,19 @@ $("#calendar").on('click', 'a', function() {
 	else{
 		$(item).css("display","none");
 	console.log('ID: ' + $(item + ' span.fc-event-all-day').text());
+	console.log('ID: ' + $(item + ' span.fc-event-start-time').text());
 	console.log('ID: ' + $(item + ' div.fc-eventlist-location').text());
 	console.log('ID: ' + $(item + ' div.fc-eventlist-desc').text());
+	
+	var item1 = 'a#'+ $(this).attr('id')+' div.fc-eventlist-title';
+	console.log('ID: ' + $(item1).text());
 	
 	
 //new var a# ...
 	}
 });
+
+//was used for testing serves no pupose ~MK 
 $("#calendar").on('click', 'a', function() {
 	//var item ='a#'+ $(this).attr('id')+' div.fc-eventlist-desc'.text();
 	var item1 = document.getElementsByClassName('fc-event-start-time')[0].innerHTML;
