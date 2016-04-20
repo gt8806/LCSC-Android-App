@@ -48,7 +48,11 @@
   display: block;
   padding: 6px;
   margin: 1px;
+/*
   border-left: 4px solid #FFF;
+adds funky white space to the left of the events list... 04/20/2016 ~MK
+*/
+
 }
 /* Event Link */
 a.fc-agendaList-event {
