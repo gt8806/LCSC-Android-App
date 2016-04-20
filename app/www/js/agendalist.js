@@ -8463,6 +8463,7 @@ $.extend(ListView.prototype, {
                 if(events[i].allDay){
                   events[i].start.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
                   events[i].end.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
+			
                 }
               displayeventlist[j] = Object.create(events[i]);
               tstart = events[i].start.clone();
@@ -8476,6 +8477,7 @@ $.extend(ListView.prototype, {
                 displayeventlist[j] = Object.create(events[i]);
                 tstart = tstart.add(1, 'day');
                 displayeventlist[j].displayDay  = tstart.clone();
+		console.log(events[i].title + ' ' + events[i].start)
               }
               j = j + 1;
             }
@@ -8496,8 +8498,7 @@ $.extend(ListView.prototype, {
 			var x = new Date();
 			visDay = x.getDate(); 
             visMonth = formatDate(t.intervalStart, 'MM');     // current view month
-            visYear  = formatDate(t.intervalStart, 'YYYY');
-				// current view year
+            visYear  = formatDate(t.intervalStart, 'YYYY'); // current view year
 			var currentDate = visMonth+"-"+visDay+"-"+visYear;
 			var xcurrentDate =new Date(currentDate);
 			
