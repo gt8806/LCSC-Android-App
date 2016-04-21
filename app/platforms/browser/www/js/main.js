@@ -58,7 +58,7 @@ function getPhoto(){
     sourceType: source});
 }
 function readFromFile(fileName, cb) {
-	var pathToFile = cordova.file.applicationStorageDirectory + fileName;
+	var pathToFile = cordova.file.dataDirectory + fileName;
 	window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
 		fileEntry.file(function (file) {
 			var reader = new FileReader();
@@ -266,6 +266,8 @@ function LCmail() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
 }
 
 function campusM() {
@@ -290,6 +292,8 @@ function campusM() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
 }
 
 function BB() {
@@ -431,7 +435,7 @@ function Profile() {
 }(document, "script", "twitter-wjs");
 
 $(window).on("orientationchange", function () {
-    if (window.orientation == 0)
+    if (window.orientation === 0)
     {
         $(".tower").attr("src","images/frontpage.jpg");
     }
@@ -442,7 +446,7 @@ $(window).on("orientationchange", function () {
 });
 
 $(window).on("pagebeforechange", function () {
-    if (window.orientation == 0) {
+    if (window.orientation === 0) {
         $(".tower").attr("src", "images/frontpage.jpg");
     }
     else {
@@ -456,24 +460,21 @@ function getCookie(cname) {
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
     }
     return "";
 }
 
-$(document).ready(function (e) {;
-    $("#user_id").val(getCookie('username'));
-    $("#password").val(getCookie('password'));
-    $("#Field1").val(getCookie('idcard'));
+$(document).ready(function (e) {
+    $("#user_id").val(window.localStorage.getItem("user"));
+    $("#password").val(window.localStorage.getItem("pass"));
+    $("#Field1").val(window.localStorage.getItem("field"));
 });
 
 function saveCred() {
-    var d = new Date();
-    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = 'username' + "=" + $("#user_id").val() + "; " + expires;
-    document.cookie = 'password' + "=" + $("#password").val() + "; " + expires;
-    document.cookie = 'idcard' + "=" + $("#Field1").val() + "; " + expires;
+    window.localStorage.setItem("user", $("#user_id").val());
+    window.localStorage.setItem("pass", $("#password").val());
+    window.localStorage.setItem("field", $("#Field1").val());
 }
 
 gapi.hangout.render('placeholder-div1', {

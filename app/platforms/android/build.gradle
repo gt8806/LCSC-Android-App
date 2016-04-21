@@ -19,8 +19,6 @@
 
 // GENERATED FILE! DO NOT EDIT!
 
-ant.importBuild 'build.xml'
-
 apply plugin: 'android'
 
 buildscript {

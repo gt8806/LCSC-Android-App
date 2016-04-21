@@ -324,8 +324,8 @@ nav.Navigation li {
     border-radius: 10%;
     border: 5px solid #003864;
     width: 80%;
-    height: 25%;
-    margin-left: 10%;  
+    height: auto;
+    margin-left:10%;
 }
 
 #hangout {
@@ -350,6 +350,16 @@ nav.Navigation li {
         position:absolute;
         z-index: 2;
     }
+
+    #profile{
+        overflow-y: auto;
+    }
+
+    #profile #profile-pic {
+    width: 50%;
+    height: auto; 
+    margin-left:22%;
+}
 }
 
 @media screen and (orientation:portrait){
