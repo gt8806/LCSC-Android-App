@@ -246,6 +246,17 @@ nav.Navigation li {
     display: none;
 }
 
+#filter-icon2{
+    right:0;
+    top:-0.4em;
+    position: fixed;
+    background-color: #003865;
+    color: white;
+    font-size: 0.85em;
+    display: none;
+}
+
+
 #header {
     background-color: white !important;    
 }
