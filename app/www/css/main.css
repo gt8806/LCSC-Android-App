@@ -216,11 +216,11 @@ nav.Navigation li {
 }
 
 #lclog{
-    height: 3.5em;
-    width: 3em;
-    position: absolute; 
-    top: 0;
-    left: 45%;
+    height: 1.5em;
+    width: 50%;
+    position: absolute;
+    top: .5em;
+    left: 27%;
     z-index: 1 !important;
 }
 
@@ -349,6 +349,15 @@ nav.Navigation li {
         width: 40%;
         position:absolute;
         z-index: 2;
+    }
+
+    #lclog{
+            height: 2em;
+            width: 35%;
+            position: absolute;
+            top: .2em;
+            left: 34%;
+            z-index: 1 !important;
     }
 
     #profile{
