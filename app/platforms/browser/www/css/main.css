@@ -12,11 +12,15 @@ width:100%!important
 	text-shadow:none;
 	font-weight:100;
 	font-size:12px;
-	padding-top:10px;
-	padding-bottom:10px;
+
 	width:100%;
 	height:auto;
 	color:#4e4e4e !important;
+}
+.EventAdd{
+	width:100%;
+	height:auto;
+	color:red !important;;
 }
 .warrior_athletics_hidden{
     color:#069;
@@ -50,6 +54,10 @@ width:100%!important
 	margin-right:10px;
 	border-radius:15px;
 }
+.addButton{
+	margin-right:10px;
+	display:none;
+}
 .academic-event .ball{
 	background-color:#666 !important;
 }
@@ -70,7 +78,6 @@ width:100%!important
 }
 nav.eventsources{
 	float: right;
-	padding: 20px;
 	margin-top:-20px;
 }
 
@@ -111,13 +118,12 @@ nav.eventsources{
     color: #9b6954;
 }
 
-nav.eventsources #filter-icon{
-    display:inline-block;
-    border: none !important;
-    margin-right: 10px;
-    margin-top: 3px;
-    color: #003865;
-    font-size: 1.8em;
+#filter-icon{
+    position: absolute;
+    background-color: #003865;
+    color: white;
+    font-size: 0.85em;
+    display: none;
 }
 
 .fa-calendar-plus-o {
@@ -129,7 +135,7 @@ nav.eventsources li a{
 }
 nav.eventsources ul {
     list-style: none;
-    margin-right: 4%;
+    position: fixed;
 }
 nav.eventsources li {
 	display: inline-block;
@@ -141,13 +147,13 @@ nav.eventsources .current {
 
 nav.eventsources ul, nav.eventsources:active ul{
 	display: none;
-	position: absolute;
 	padding: 0px;
 	background: #f6f6f6;
 	border: 1px solid #E0E0E0;
 	right: 0px;
 	top: 24px;
 	width: 130px;
+    z-index: 2; 
 }
 nav.eventsources li {
     text-align: center;
@@ -156,6 +162,23 @@ nav.eventsources li {
 	border-bottom: 1px solid #E0E0E0;
 	margin: 0;
 	}
+#noCal{
+    height:100%;
+    width:100%;
+    position: fixed;
+}
+#noCal h3{
+    position: absolute;
+    top:40%;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: auto;
+    width:100%;
+    height: auto;
+    text-align:center;
+    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
+}
 
 .nav{
     display:table-row;
@@ -184,7 +207,7 @@ nav.Navigation li {
         border-left: 1px solid #E0E0E0;
         padding-top: 15px;
 }
-div.header{
+/*div.header{
 		background-image:url("images/lcsc.png");
 		background-size:22px;
 		background-position:10px 5px;
@@ -195,44 +218,49 @@ div.header{
 		height:40px;
         position:fixed;
         z-index:9999;
+}*/
+
+.ui-header .ui-title{
+    text-align: left !important;
 }
+
 #lclog{
-    margin-left: 39%;
     height: 3.5em;
     width: 3em;
-    position: absolute;
-    background-color: none;
+    position: absolute; 
+    top: 0;
+    left: 45%;
+    z-index: 1 !important;
 }
+
 #lclog img{
     height: 100%;
     width: 100%;
-	position:center;
+    top: 0;
 }
 
 #menu-icon {
     position: absolute;
     background-color: #003865;
     color: white;
-    padding-top: 3px;
-    padding-right: 6px;
-    padding-left: 6px;
-    padding-bottom: 3px;
-    border-radius: 75%;
-    font-size: 0.95em;
-    margin-top: 1.85%;
-    margin-left: -2.2%;
+    font-size: 0.85em;
     
 }
 
+#header {
+    background-color: white !important;    
+}
+
+
 #front, #calendar,#emergency,#resource,#fullCalendar{
-    margin-top:2em;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
 }
 
 #front{
-    height:100%;
     width:100%;
+    height:70%;
+    position: absolute;
 }
 
 #front .tower{
@@ -241,22 +269,80 @@ div.header{
     opacity:0.75;
 }
 
-#front .logon{
-    top:35%;
-    left:15%;
-    height: 18%;
-    width: 70%;
-    position:absolute;
-    z-index: 999;
+#twitter{
+    background-image: url(../images/pattern.jpg);
+    position:absolute !important;
+    top:65%;
+    width:100%;
+    border-radius: 7px;
 }
 
-#front h4{
-    top:50%;
-    left:21%;
-    font-family: 'Footlight MT', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    position:absolute;
-    z-index: 1;
+#feed{
+    width:100%;
+    max-width:520px;
+    margin:0 auto;
+}
+
+#twitter-widget-0 { 
+    background-color: white;
+    width: 200% !important; 
+}
+
+#twitter body{
+    background-color: white;
+    width:100% !important;
+}
+
+.ui-btn-left {
+    left: 0 !important;
+    top: 0 !important;
+}
+
+.ui-btn-right {
+    right: 0 !important;
+    top: 0 !important;
+}
+
+#campusM img{
+    height:100%;
+    width: 100%;
+}
+
+@media screen and (orientation:landscape){
+    #front{
+        height: 70%;
+    }
+    #twitter{
+        top:70%;
+    }
+    #front .logon{
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        height: auto;
+        width: 40%;
+        position:absolute;
+        z-index: 2;
+    }
+}
+
+@media screen and (orientation:portrait){
+
+    #front .logon{
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin: auto;
+        height: auto;
+        width: 70%;
+        position:absolute;
+        z-index: 2;
+    }
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }

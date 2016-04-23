@@ -8463,6 +8463,7 @@ $.extend(ListView.prototype, {
                 if(events[i].allDay){
                   events[i].start.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
                   events[i].end.add(8,'hour');//accounts for offset of 8 hours, also works for offset of 7 hours
+			
                 }
               displayeventlist[j] = Object.create(events[i]);
               tstart = events[i].start.clone();
@@ -8476,6 +8477,7 @@ $.extend(ListView.prototype, {
                 displayeventlist[j] = Object.create(events[i]);
                 tstart = tstart.add(1, 'day');
                 displayeventlist[j].displayDay  = tstart.clone();
+		console.log(events[i].title + ' ' + events[i].start)
               }
               j = j + 1;
             }
@@ -8496,8 +8498,7 @@ $.extend(ListView.prototype, {
 			var x = new Date();
 			visDay = x.getDate(); 
             visMonth = formatDate(t.intervalStart, 'MM');     // current view month
-            visYear  = formatDate(t.intervalStart, 'YYYY');
-				// current view year
+            visYear  = formatDate(t.intervalStart, 'YYYY'); // current view year
 			var currentDate = visMonth+"-"+visDay+"-"+visYear;
 			var xcurrentDate =new Date(currentDate);
 			
@@ -8559,7 +8560,7 @@ $.extend(ListView.prototype, {
 			"<tr><td><img src='images/time.png' class='icon'/></td>"+
 			"<td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
 			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
-			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			"<div class='fc-eventlist-location' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
 			"<td><div ID='EventAdd' class= 'EventAdd'>"+
@@ -8579,7 +8580,7 @@ eventdisplay = $(
 			"<tr><td><img src='images/time.png' class='icon'/></td>"+
 			"<td><span class='fc-event-start-time'>"+ startDate + " - "+( endDate ? endDate : "") +"</span></td></tr>"+
 			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
-			"<div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			"<div class='fc-eventlist-location' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
 			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
 			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+
 			"<td><div ID='EventAdd' class= 'EventAdd'>"+
