@@ -184,7 +184,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-camera": "2.1.1",
-    "cordova-plugin-file": "4.1.1"
+    "cordova-plugin-file": "4.1.1",
+    "cordova-plugin-whitelist": "1.2.2"
 };
 // BOTTOM OF METADATA
 });

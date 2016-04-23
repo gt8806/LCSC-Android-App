@@ -268,6 +268,7 @@ function LCmail() {
     $("#profile").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
+    $("#filter-icon2").css('display', 'block');
 }
 
 function campusM() {
@@ -294,6 +295,7 @@ function campusM() {
     $("#profile").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
+    $("#filter-icon2").css('display', 'block');
 }
 
 function BB() {
@@ -320,6 +322,7 @@ function BB() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'block');
 }
 
 function front() {
@@ -346,6 +349,7 @@ function front() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
 }
 
 function AllEvents() {
@@ -370,6 +374,7 @@ function AllEvents() {
     $("#filter-icon").css('display', 'block');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
 }
 function Emergency() {
     $("#lcmail").addClass("hide");
@@ -421,6 +426,7 @@ function Profile() {
     $(".eventsources").addClass("hide");
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
+    $("#filter-icon2").css('display', 'block');
 }
 
 !function (d, s, id) {

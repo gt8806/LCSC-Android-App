@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -36,6 +40,9 @@
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         }
     },
@@ -223,6 +230,7 @@
     ],
     "plugin_metadata": {
         "cordova-plugin-camera": "2.1.1",
-        "cordova-plugin-file": "4.1.1"
+        "cordova-plugin-file": "4.1.1",
+        "cordova-plugin-whitelist": "1.2.2"
     }
 }

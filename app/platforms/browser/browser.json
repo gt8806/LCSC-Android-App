@@ -23,6 +23,9 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
         }
     },
     "dependent_plugins": {},
@@ -239,6 +242,7 @@
     ],
     "plugin_metadata": {
         "cordova-plugin-camera": "2.1.1",
-        "cordova-plugin-file": "4.1.1"
+        "cordova-plugin-file": "4.1.1",
+        "cordova-plugin-whitelist": "1.2.2"
     }
 }

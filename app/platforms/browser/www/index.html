@@ -17,6 +17,7 @@
         <a href="#" id="menu-icon"><i class="fa fa-bars"></i></a>
         <h1><a href="#" id="lclog" onclick="front();"><img src="images/lcsc.gif"></a></h1>
         <a href="#" id="filter-icon"><i class="fa fa-chevron-circle-down"></i></a>
+        <a href="javascript:takePhoto();" id="filter-icon2"><i class="fa fa-camera"></i></a>
     </div>
 
     <nav class="eventsources hide">
@@ -41,7 +42,6 @@
             </li>
         </ul>
     </nav>
-
 
     <nav class="menu">
         <ul>
@@ -71,7 +71,6 @@
 
     <div id='front' class="show">
         <img class="tower" src="images/frontpage.jpg">
-        <img class="logon" src="images/logo.png">
     </div>
     <div id="twitter" class="show">
         <div id="feed">
@@ -93,6 +92,9 @@
         <img id="profile-pic" src="images/squirrelCard.png">
         <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a>
         <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a>
+        <a class="cameraButton" href="javascript: BB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a>
+        <a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a>
+
     </div>
     <div id="campusM" class="ui-body hide">
         <img src="images/CampusMap.jpg">
