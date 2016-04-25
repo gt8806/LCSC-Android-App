@@ -51,14 +51,21 @@ function addEvent() {
     var r = confirm("Add this event to your personal calendar?\n" + xCalAlDyE + "\n " + xEventDesc + "\n" + xCalEvtLctn);
     if (r == true) {
         if(xCalAlDyE == "all-day"){
+		console.log(xCalAlDyE);
             //also need to grab all the events accuring for that day. if all day event last's more than one
             //day.
             end = '';
-            start = xCalAlDyE;
+            start = "all-day";
             cal.createEventInteractively(title, loc, notes, start, end, success, error);
         }else{
             //regular start and end time.
-            cal.createEventInteractively(title, loc, notes, start, end, success, error);
+	        //console.log(xCalEvntStr);
+		var tempEv = xCalEvntStr.split("-");
+		//var startTime = tempEv[0];
+		//var endTime = tempEv[1];
+		console.log(tempEv[0]);
+		console.log(tempEv[1]);
+            cal.createEventInteractively(title, loc, notes, tempEv[0], tempEv[1], success, error);
         }
         
         //window.plugins.calendar.createEvent('title','eventLocation','notes',startDate,endDate,'success','error');

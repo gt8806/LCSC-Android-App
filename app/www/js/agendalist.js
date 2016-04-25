@@ -8612,13 +8612,13 @@ eventdisplay = $(
 }
 //temp testing for calendar event add ~MK 
 var tempCounter =0;
-for(i=0;i<tempStore.length;i++){
+/*for(i=0;i<tempStore.length;i++){
 	console.log(tempStore[i]);
 	if (tempStore[i] == 'ASLCSC Graduation Banquet Tickets On Sale'){
 		tempCounter ++;
 	}
 	
-}
+}*/
 console.log(tempCounter);
 
 View.prototype.renderEvents.call(this, events);
