@@ -1,37 +1,28 @@
+//global variables for calendar event add
+var xCalAlDyE;
+var xCalEvntStr;
+var xCalEvtLctn;
+var xEventDesc;
+var xEvntTitle;
 $(document).ready(function() {
 $("#calendar").on('click', 'a', function() {
 	var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
-	var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
+	var item1 = 'a#'+ $(this).attr('id')+' div.fc-eventlist-title';   
 
 	if ($(item).css('display')=='none'){
 		$(item).css("display","");
-		}
-	else{
+        
+        //store globals for calendar event add 
+        xCalAlDyE = $(item + ' span.fc-event-all-day').text();
+        xCalEvntStr = $(item + ' span.fc-event-start-time').text();
+        xCalEvtLctn = $(item + ' div.fc-eventlist-location').text();
+        xEventDesc = $(item + ' div.fc-eventlist-desc').text();
+	    xEvntTitle = $(item1).text();
+        
+	}else{
 		$(item).css("display","none");
-	console.log('ID: ' + $(item + ' span.fc-event-all-day').text());
-	console.log('ID: ' + $(item + ' span.fc-event-start-time').text());
-	console.log('ID: ' + $(item + ' div.fc-eventlist-location').text());
-	console.log('ID: ' + $(item + ' div.fc-eventlist-desc').text());
-	
-	var item1 = 'a#'+ $(this).attr('id')+' div.fc-eventlist-title';
-	console.log('ID: ' + $(item1).text());
-	
-	
-//new var a# ...
+        
 	}
-});
-
-//was used for testing serves no pupose ~MK 
-$("#calendar").on('click', 'a', function() {
-	//var item ='a#'+ $(this).attr('id')+' div.fc-eventlist-desc'.text();
-	var item1 = document.getElementsByClassName('fc-event-start-time')[0].innerHTML;
-	var item3 = document.getElementsByClassName('fc-eventlist-desc')[0].innerHTML;
-	var item2 = document.getElementsByClassName('fc-eventlist-desc')[4].innerHTML;
-	//console.log(item1);
-	//console.log(item3);
-	//console.log(item2);
-	//console.log('ID: ' + $('div.fc-eventlist-desc').text());//prints all events desc list
-
 });
 
 if(localStorage.getItem('idPic')) {
@@ -45,11 +36,31 @@ FastClick.attach(document.body);
 
 //for event additions to local calendar
 function addEvent() {
-var item ='a#'+ $(this).attr('id')+' div.fc-eventlist-desc';
-var startDate = new Date(2016,3,23,0,0,0,0,0);
-  var endDate = new Date(2016,3,25,0,0,0,0,0);
-    var r = confirm("Add this event to your personal calendar?");
+//var item ='a#'+ $(this).attr('id')+' div.fc-eventlist-desc';
+//var startDate = new Date(2016,3,23,0,0,0,0,0);
+//var endDate = new Date(2016,3,25,0,0,0,0,0);
+    var cal = window.plugins.calendar;
+    var title = xEvntTitle;
+    var loc = xCalEvtLctn;
+    var notes = xEventDesc;
+    var start = new Date(2016,0,24,20,0,0,0,0); // April 24th, 2015 20:00
+    var end = new Date(2016,  0,24,22,0,0,0,0);   // April 24th, 2015 22:00
+    var success = function(message) {alert("Success: " + JSON.stringify(message))};
+    var error   = function(message) {alert("Error: " + message)};
+    
+    var r = confirm("Add this event to your personal calendar?\n" + xCalAlDyE + "\n " + xEventDesc + "\n" + xCalEvtLctn);
     if (r == true) {
+        if(xCalAlDyE == "all-day"){
+            //also need to grab all the events accuring for that day. if all day event last's more than one
+            //day.
+            end = '';
+            start = xCalAlDyE;
+            cal.createEventInteractively(title, loc, notes, start, end, success, error);
+        }else{
+            //regular start and end time.
+            cal.createEventInteractively(title, loc, notes, start, end, success, error);
+        }
+        
         //window.plugins.calendar.createEvent('title','eventLocation','notes',startDate,endDate,'success','error');
 	//console.log(item);
     } else {

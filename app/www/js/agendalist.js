@@ -8477,7 +8477,7 @@ $.extend(ListView.prototype, {
                 displayeventlist[j] = Object.create(events[i]);
                 tstart = tstart.add(1, 'day');
                 displayeventlist[j].displayDay  = tstart.clone();
-		console.log(events[i].title + ' ' + events[i].start)
+		//console.log(events[i].title + ' ' + events[i].dayDate)
               }
               j = j + 1;
             }
@@ -8502,7 +8502,10 @@ $.extend(ListView.prototype, {
 			var currentDate = visMonth+"-"+visDay+"-"+visYear;
 			var xcurrentDate =new Date(currentDate);
 			
-			
+			//temp counter 
+			var tempCount = 0;
+			var tempName = 'ASLCSC Graduation Banquet Tickets On Sale';
+			var tempStore = new Array();
             for (i in displayeventlist) {
                 // display current month events only ** this might change later if we decide to scroll up down
                 // make sure to check current view month and year
@@ -8512,12 +8515,14 @@ $.extend(ListView.prototype, {
 				var evDate= evMonth+"-"+evDay+"-"+evYear;
 				var xevDate = new Date(evDate);
 				    disDay          = (formatDate(displayeventlist[i].displayDay, 'dddd'));
+					disDay1          = (formatDate(displayeventlist[i].displayDay, 'ddMMyy'));
                     disDate         = (formatDate(displayeventlist[i].displayDay, this.opt('columnFormat')));
                     ltitle          = htmlEscape(displayeventlist[i].title);
                     allDay          = displayeventlist[i].allDay;
 					
 				var xy = evMonth +"-"+evDay+"-"+evYear;
 				var xxy = new Date(xy);
+				
 				
                //if ( evMonth >= visMonth && evYear == visYear) {
 				  if (xxy >= xcurrentDate) {	
@@ -8549,7 +8554,10 @@ $.extend(ListView.prototype, {
                     if (allDay) {
                     // if the event is all day , make sure you print that and not date and time
                     // otherwise do the opposite ( description ? "<div class='fc-eventlist-desc'>"+ htmlEscape(description) +"</div>" : "")+
+					
+					
                         eventdisplay = $(
+							
 			"<li class='fc-agendaList-item'>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
 			"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
 			"<div class='fc-agendaList-eventDetails'>"+
@@ -8568,6 +8576,12 @@ $.extend(ListView.prototype, {
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
+			
+			//temp testing calendar event add ~MK 
+			//console.log(ltitle + " " + evMonth + " " + evDay + " " + evYear + " " + location);
+			var tempStringG = ltitle //+ " " + evMonth + " " + evDay + " " + evYear + " " + location;
+			tempStore[tempStore.length] = tempStringG;
+			
                     } else {
 eventdisplay = $(
 			"<li class='fc-agendaList-item '>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div")+
@@ -8588,14 +8602,32 @@ eventdisplay = $(
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
+
+			
+					
 }
+
 }
+
 }
+//temp testing for calendar event add ~MK 
+var tempCounter =0;
+for(i=0;i<tempStore.length;i++){
+	console.log(tempStore[i]);
+	if (tempStore[i] == 'ASLCSC Graduation Banquet Tickets On Sale'){
+		tempCounter ++;
+	}
+	
+}
+console.log(tempCounter);
+
 View.prototype.renderEvents.call(this, events);
 this.trigger('eventRender', event, event);
 this.el.find('.fc-agendaList').html(html);
 this.trigger('eventAfterAllRender');
+
 }
+
 });
 
     
