@@ -8502,21 +8502,32 @@ $.extend(ListView.prototype, {
 			var xcurrentDate =new Date(currentDate);
 			
 			
+			//temp counter 
+			var tempCount = 0;
+			var tempName = 'ASLCSC Graduation Banquet Tickets On Sale';
+			var xAllDayStringG = new Array();
+			var xSpecialTimeDay = new Array();
+			
             for (i in displayeventlist) {
                 // display current month events only ** this might change later if we decide to scroll up down
                 // make sure to check current view month and year
                 evMonth = formatDate(displayeventlist[i].start, 'MM');
+				window.evMonth = evMonth;
 				evDay = formatDate(displayeventlist[i].start, 'DD');
+				window.evDay = evDay;
                 evYear  = formatDate(displayeventlist[i].start, 'YYYY');
+				window.evYear = evYear;
 				var evDate= evMonth+"-"+evDay+"-"+evYear;
 				var xevDate = new Date(evDate);
 				    disDay          = (formatDate(displayeventlist[i].displayDay, 'dddd'));
+					disDay1          = (formatDate(displayeventlist[i].displayDay, 'ddMMyy'));
                     disDate         = (formatDate(displayeventlist[i].displayDay, this.opt('columnFormat')));
                     ltitle          = htmlEscape(displayeventlist[i].title);
                     allDay          = displayeventlist[i].allDay;
 					
 				var xy = evMonth +"-"+evDay+"-"+evYear;
 				var xxy = new Date(xy);
+				
 				
                //if ( evMonth >= visMonth && evYear == visYear) {
 				  if (xxy >= xcurrentDate) {	
@@ -8538,49 +8549,75 @@ $.extend(ListView.prototype, {
                     
 
                     if (disDate != temp) {
-                        $("<li class='fc-agendaList-dayHeader ui-widget-header'>" +
-                            "<span class='fc-agendaList-day'>"+ disDay +",&nbsp;</span>" + 
-                            "<span class='fc-agendaList-date'>"+ disDate +"</span>" +
-                        "</li>").appendTo(html);
+                        $(
+			"<li class='fc-agendaList-dayHeader ui-widget-header'>" +
+			"<span class='fc-agendaList-day'>"+ disDay +",&nbsp;</span>" + 
+			"<span class='fc-agendaList-date'>"+ disDate +"</span>" +
+			"</li>").appendTo(html);
                         temp = disDate;
                     }
                     if (allDay) {
                     // if the event is all day , make sure you print that and not date and time
                     // otherwise do the opposite ( description ? "<div class='fc-eventlist-desc'>"+ htmlEscape(description) +"</div>" : "")+
-                        eventdisplay = $("<li class='fc-agendaList-item'>"+
-                                            "<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
-                                             " class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
-                                           
-                                            "<div class='fc-agendaList-eventDetails'>"+
-                                              "<div class='fc-eventlist-title' style='font-size:14px;' ><div class='ball'></div>"+ ltitle+"</div>"+
-                                              
-                                            "</div>"+
-											 "<div class='fc-event-time'><table style='display:none'>"+
-                                                "<tr><td><img src='images/time.png' class='icon'/></td><td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
-												( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
-												( description ? "<tr><td><img src='images/description.png'  class='icon'/></td><td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
-                                            "</table></div>"+
-                                          "</" + (lurl ? "a" : "div") + ">"+
-                                        "</li>").appendTo(html);
+					
+					
+                        eventdisplay = $(
+							
+			"<li class='fc-agendaList-item'>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
+			"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
+			"<div class='fc-agendaList-eventDetails'>"+
+			"<div class='fc-eventlist-title' style='font-size:14px;' >"+
+			"<div class='ball'></div>"+ ltitle+"</div>"+
+			"</div>"+
+			"<div class='fc-event-time'><table style='display:none'>"+
+			"<tr><td><img src='images/time.png' class='icon'/></td>"+
+			"<td><span class='fc-event-all-day'>"+ this.opt('allDayText') +"</span></td></tr>"+
+			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
+			"<div class='fc-eventlist-location' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			( description ? "<tr><td><img src='images/description.png'  class='icon'/></td>"+
+			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
+			"<td><div ID='EventAdd' class= 'EventAdd'>"+
+			"<i id='addEvent' class='fa fa-calendar-plus-o' data-mini='true' onclick='addEvent();'></i>"+		
+			"</div>"+"</td></table></div>"+
+			"</" + (lurl ? "a" : "div") + ">"+
+			"</li>").appendTo(html);
+			
+			//temp testing calendar event add ~MK 
+			//console.log(ltitle + " " + evMonth + " " + evDay + " " + evYear + " " + location);
+			var xAllDayStringString = ltitle + "-" + disDate + "-" + startDate + "-" + endDate;
+			xAllDayStringG[xAllDayStringG.length] = xAllDayStringString;
+			
                     } else {
-                        eventdisplay = $("<li class='fc-agendaList-item '>"+
-                                        "<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div") + 
-                                        " class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
-                                           
-                                            "<div class='fc-agendaList-eventDetails'>"+
-                                              "<div class='fc-eventlist-title' style='font-size:14px;' ><div class='ball'></div>"+ ltitle +"</div>"+
-													
-                                            "</div>"+
-											 "<div class='fc-event-time'><table style='display:none'>"+
-                                                "<tr><td><img src='images/time.png' class='icon'/></td><td><span class='fc-event-start-time'>"+ startDate + " - "+( endDate ? endDate : "") +"</span></td></tr>"+
-												( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
-												( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td><td><div class='fc-eventlist-desc' style='font-size:12px;'>"+ htmlEscape(description) +"</div><td><tr/>" : "")+
-                                            "</table></div>"+
-                                          "</" + (lurl ? "a" : "div") + ">"+
-                                        "</li>").appendTo(html);
-                    }
-                }
-			}
+eventdisplay = $(
+			"<li class='fc-agendaList-item '>"+"<"+ (lurl ? "a id='"+ (lurl+i) +"'" : "div")+
+			"class='fc-agendaList-event fc-eventlist fc-day-grid-event fc-h-event fc-event"+ classes.join(' ') +"'>"+
+			"<div class='fc-agendaList-eventDetails'>"+
+			"<div class='fc-eventlist-title' style='font-size:14px;' >"+
+			"<div class='ball'></div>"+ ltitle +"</div>"+
+			"</div>"+
+			"<div class='fc-event-time'><table style='display:none'>"+
+			"<tr><td><img src='images/time.png' class='icon'/></td>"+
+			"<td><span class='fc-event-start-time'>"+ startDate + " - "+( endDate ? endDate : "") +"</span></td></tr>"+
+			( location ? "<tr><td><img src='images/location.png'  class='icon'/></td><td>"+
+			"<div class='fc-eventlist-location' style='font-size:12px;'>"+ htmlEscape(location) +"</div><td><tr/>" : "")+
+			( description ? "<tr><td><img src='images/description.png' style='vertical-align:top' class='icon'/></td>"+
+			"<td><div class='fc-eventlist-desc' style='font-size:12px;'>"+htmlEscape(description) +"</div><td><tr/>" : "")+
+			"<td><div ID='EventAdd' class= 'EventAdd'>"+
+			"<i id='addEvent' class='fa fa-calendar-plus-o' data-mini='true' onclick='addEvent();'></i>"+				
+			"</div>"+"</td></table></div>"+
+			"</" + (lurl ? "a" : "div") + ">"+
+			"</li>").appendTo(html);
+			var xSpecialTimeDayString = ltitle + "-" + disDate + "-" + startDate + "-" + endDate;
+			xSpecialTimeDay[xSpecialTimeDay.length] = xSpecialTimeDayString;
+			
+					
+}
+
+}
+
+}
+window.xAllDayStringG = xAllDayStringG;
+window.xSpecialTimeDay = xSpecialTimeDay;
 			View.prototype.renderEvents.call(this, events);
             this.trigger('eventRender', event, event);
 		    this.el.find('.fc-agendaList').html(html);

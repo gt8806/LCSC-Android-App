@@ -17,6 +17,11 @@ width:100%!important
 	height:auto;
 	color:#4e4e4e !important;
 }
+.EventAdd{
+	width:100%;
+	height:auto;
+	color:red !important;;
+}
 .warrior_athletics_hidden{
     color:#069;
     background-color:white;
@@ -118,7 +123,8 @@ nav.eventsources{
 }
 
 .fa-calendar-plus-o {
-   color: white;    
+   color: blue;
+   width: 20px;    
 }
 
 nav.eventsources li a{
