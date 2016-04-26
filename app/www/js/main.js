@@ -4,8 +4,23 @@ var xCalEvntStr;
 var xCalEvtLctn;
 var xEventDesc;
 var xEvntTitle;
+
+var xHashID = 0;
+
 $(document).ready(function() {
 $("#calendar").on('click', 'a', function() {
+    var currentHash = $(this).attr('id');
+    if(xHashID == 0){
+        xHashID = $(this).attr('id');
+    }
+    if (currentHash != xHashID){
+        var xCloseOldDesc = 'a#' + xHashID + ' div.fc-event-time table';
+        $(xCloseOldDesc).css("display","none");
+        console.log('slicked something new');
+        xHashID = currentHash;
+        
+        
+    }
 	var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
 	var item1 = 'a#'+ $(this).attr('id')+' div.fc-eventlist-title';   
 
@@ -18,6 +33,7 @@ $("#calendar").on('click', 'a', function() {
         xCalEvtLctn = $(item + ' div.fc-eventlist-location').text();
         xEventDesc = $(item + ' div.fc-eventlist-desc').text();
 	    xEvntTitle = $(item1).text();
+        console.log(xCalEvntStr);
         
 	}else{
 		$(item).css("display","none");
@@ -43,33 +59,63 @@ function addEvent() {
     var title = xEvntTitle;
     var loc = xCalEvtLctn;
     var notes = xEventDesc;
+    //var xMonth = window.evMonth;
+    //window.globalStuffs Yea!!! 
+    //console.log(xMonth);
     var start = new Date(2016,0,24,20,0,0,0,0); // April 24th, 2015 20:00
     var end = new Date(2016,  0,24,22,0,0,0,0);   // April 24th, 2015 22:00
     var success = function(message) {alert("Success: " + JSON.stringify(message))};
     var error   = function(message) {alert("Error: " + message)};
     
+   
+    
+    
+    //console.log(res[0]);       
     var r = confirm("Add this event to your personal calendar?\n" + xCalAlDyE + "\n " + xEventDesc + "\n" + xCalEvtLctn);
     if (r == true) {
         if(xCalAlDyE == "all-day"){
-		console.log(xCalAlDyE);
+            for (i=0;i<window.xAllDayStringG.length;i++){
+                var xCurrentString = xAllDayStringG[i];
+                var res = xCurrentString.split("-");
+                var xPotential = res[0];
+                if(xPotential == xEvntTitle){
+                var currentEvent =window.xAllDayStringG[i];
+                var res = currentEvent.split("-");
+                console.log(res[0]);//title
+                console.log(res[1]);//==disDate from agendaList
+                console.log(res[2]);//startDate
+                console.log(res[3]);//endDate
+                var startEnd = new Date(res[1]); // April 24th, 2015 20:00
+                //console.log(startEnd);
+                
+                cal.createEvent(title,loc,notes,startEnd,startEnd,success,error);
+                }
+            }
+        
             //also need to grab all the events accuring for that day. if all day event last's more than one
             //day.
-            end = '';
-            start = "all-day";
             cal.createEventInteractively(title, loc, notes, start, end, success, error);
         }else{
-            //regular start and end time.
-	        //console.log(xCalEvntStr);
-		var tempEv = xCalEvntStr.split("-");
-		//var startTime = tempEv[0];
-		//var endTime = tempEv[1];
-		console.log(tempEv[0]);
-		console.log(tempEv[1]);
-            cal.createEventInteractively(title, loc, notes, tempEv[0], tempEv[1], success, error);
+            for(i=0;i<window.xSpecialTimeDay.length;i++){
+                var xCurrentString = xSpecialTimeDay[i];
+                var res =xCurrentString.split("-");
+                var xPotential = res[0];
+                if(xPotential == xEvntTitle){
+                    var currentEvent =window.xSpecialTimeDay[i];
+                    var res = currentEvent.split("-");
+                    console.log(res[0]);//title
+                    console.log(res[1]);//==disDate from agendaList
+                    console.log(res[2]);//startDate
+                    console.log(res[3]);//endDate
+                    var startTimeEvent = res[1]+ " " + res[2];
+                    var endTimeEvent = res[1] + " " + res[3];
+                    var startOfEvent = new Date(startTimeEvent);
+                    var endTimeofEvent = new Date(endTimeEvent);
+                    cal.createEvent(title,loc,notes,startOfEvent,endTimeofEvent,success,error);
+                        }
+                        
+                    }
         }
-        
-        //window.plugins.calendar.createEvent('title','eventLocation','notes',startDate,endDate,'success','error');
-	//console.log(item);
     } else {
         alert("You pressed Cancel!");
     }

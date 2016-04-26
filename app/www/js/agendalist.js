@@ -4,6 +4,7 @@
  * (c) 2013 Adam Shaw
  */
 
+
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
 		define([ 'jquery', 'moment' ], factory);
@@ -8505,13 +8506,18 @@ $.extend(ListView.prototype, {
 			//temp counter 
 			var tempCount = 0;
 			var tempName = 'ASLCSC Graduation Banquet Tickets On Sale';
-			var tempStore = new Array();
+			var xAllDayStringG = new Array();
+			var xSpecialTimeDay = new Array();
+			
             for (i in displayeventlist) {
                 // display current month events only ** this might change later if we decide to scroll up down
                 // make sure to check current view month and year
                 evMonth = formatDate(displayeventlist[i].start, 'MM');
+				window.evMonth = evMonth;
 				evDay = formatDate(displayeventlist[i].start, 'DD');
+				window.evDay = evDay;
                 evYear  = formatDate(displayeventlist[i].start, 'YYYY');
+				window.evYear = evYear;
 				var evDate= evMonth+"-"+evDay+"-"+evYear;
 				var xevDate = new Date(evDate);
 				    disDay          = (formatDate(displayeventlist[i].displayDay, 'dddd'));
@@ -8579,8 +8585,8 @@ $.extend(ListView.prototype, {
 			
 			//temp testing calendar event add ~MK 
 			//console.log(ltitle + " " + evMonth + " " + evDay + " " + evYear + " " + location);
-			var tempStringG = ltitle //+ " " + evMonth + " " + evDay + " " + evYear + " " + location;
-			tempStore[tempStore.length] = tempStringG;
+			var xAllDayStringString = ltitle + "-" + disDate + "-" + startDate + "-" + endDate;
+			xAllDayStringG[xAllDayStringG.length] = xAllDayStringString;
 			
                     } else {
 eventdisplay = $(
@@ -8602,7 +8608,8 @@ eventdisplay = $(
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
-
+			var xSpecialTimeDayString = ltitle + "-" + disDate + "-" + startDate + "-" + endDate;
+			xSpecialTimeDay[xSpecialTimeDay.length] = xSpecialTimeDayString;
 			
 					
 }
@@ -8610,16 +8617,17 @@ eventdisplay = $(
 }
 
 }
+window.xAllDayStringG = xAllDayStringG;
+window.xSpecialTimeDay = xSpecialTimeDay;
 //temp testing for calendar event add ~MK 
-var tempCounter =0;
-/*for(i=0;i<tempStore.length;i++){
-	console.log(tempStore[i]);
-	if (tempStore[i] == 'ASLCSC Graduation Banquet Tickets On Sale'){
-		tempCounter ++;
-	}
-	
-}*/
-console.log(tempCounter);
+//var tempCounter =0;
+//for(i=0;i<xAllDayStringG.length;i++){
+//	var xCurrentString = xAllDayStringG[i];
+//	var res = xCurrentString.split("-")
+//	console.log(res[0]);
+//	//if(res[0])
+//}
+//console.log(tempCounter);
 
 View.prototype.renderEvents.call(this, events);
 this.trigger('eventRender', event, event);
