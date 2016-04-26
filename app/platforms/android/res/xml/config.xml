@@ -12,6 +12,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Calendar">
+        <param name="android-package" value="nl.xservices.plugins.Calendar" />
+    </feature>
     <splash density="land-hdpi" src="www/images/res-long-land-hdpi/default.png" />
     <splash density="land-ldpi" src="www/images/res-long-land-ldpi/default.png" />
     <splash density="land-mdpi" src="www/images/res-long-land-mdpi/default.png" />

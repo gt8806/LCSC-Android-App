@@ -9,10 +9,10 @@
     <link href='css/agendalist.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
 </head>
 
-<body class="platform-android platform-cordova platform-webview">
+<body>
     <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
         <a href="#" id="menu-icon"><i class="fa fa-bars"></i></a>
         <h1><a href="#" id="lclog" onclick="front();"><img src="images/lcsc.gif"></a></h1>
@@ -45,20 +45,21 @@
 
     <nav class="menu">
         <ul>
-            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="Profile();">Profile</a></li>
-            <li class="AllEvents"><a data-role="button" data-icon="calendar" data-mini="true" onclick="AllEvents();">Event List</a></li>
-            <li class="AllEvents"><a href="http://www.lcsc.edu/" data-role="button" data-mini="true" data-icon="home" rel="external" target="_top">LCSC</a></li>
-            <li class="AllEvents"><a href="http://www.lcwarriors.com/" data-role="button" data-mini="true" data-icon="star" rel="external" target="_top">Athletics</a></li>
-            <li class="AllEvents"><a href="http://www.lcsc.edu/news/" data-role="button" data-mini="true" data-icon="info" rel="external" target="_top">Campus News</a></li>
+            <li class="Athletics"><a data-role="button" data-icon="home" data-mini="true" onclick="front();">Home</a></li>
+            <li class="AllEvents"><a data-role="button" data-icon="calendar" data-mini="true" onclick="AllEvents();">Calendar</a></li>
+            <li class="AllEvents"><a href="http://www.lcsc.edu/" data-role="button" data-mini="true" data-icon="home" rel="external" target="_top">LCSC Website</a></li>
+            <li class="AllEvents"><a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Athletics Web</a></li>
             <li class="AllEvents"><a href="http://www.lcsc.edu/lcmail" data-role="button" data-mini="true" data-icon="mail" rel="external" target="_top">LCMail</a></li>
-            <li class="AllEvents"><a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a></li>
             <li class="AllEvents"><a href="javascript: BB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a></li>
+            <li class="AllEvents"><a href="https://hangouts.google.com/" target="_blank" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Hangouts</a></li>
+            <li class="AllEvents"><a href="http://www.lcwarriors.com/" data-role="button" data-mini="true" data-icon="star" rel="external" target="_top">Warrior Web</a></li>
+            <li class="AllEvents"><a href="http://www.lcsc.edu/news/" data-role="button" data-mini="true" data-icon="info" rel="external" target="_top">Campus News</a></li>
             <li class="AllEvents"><a href="javascript: LCmail()" data-role="button" data-mini="true" data-icon="shop" rel="external" target="_top">WarriorOne</a></li>
-            <li class="AllEvents"><a href="http://stream.lcsc.edu/iphone.htm" data-role="button" data-mini="true" data-icon="audio" rel="external" target="_top">KLCZ</a></li>
-            <li class="AllEvents"><a href="http://livestream.com/accounts/8399277" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Sport Stream</a></li>
-            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="Emergency();">Emergency</a></li>
             <li class="Emergency"><a data-role="button" data-icon="location" data-mini="true" onclick="campusM();">Campus Map</a></li>
-            <li class="AllEvents"><a href="https://hangouts.google.com/" target="_blank" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Hangout</a></li>
+            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="Profile();">Profile</a></li>
+            <li class="AllEvents"><a href="http://livestream.com/accounts/8399277" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Livestream</a></li>
+            <li class="AllEvents"><a href="http://stream.lcsc.edu/iphone.htm" data-role="button" data-mini="true" data-icon="audio" rel="external" target="_top">Radio</a></li>
+            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="Emergency();">Emergency</a></li>      
         </ul>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div id="social-media">
@@ -143,11 +144,11 @@
             </p>
         </form>
     </div>
-
+    
+    <script src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
-
-    <script src="cordova.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src='js/moment.min.js'></script>
     <script src='js/agendalist.js'></script>
     <script src='js/gcal.js'></script>
@@ -156,5 +157,4 @@
     <script type="text/javascript" src="js/Calendar.js"></script>
     <script type="text/javascript" src="js/Camera.js"></script>
 </body>
-
 </html>

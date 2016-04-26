@@ -1,15 +1,46 @@
+//global variables for calendar event add ~MK 04/20/2016
+var xCalAlDyE;
+var xCalEvntStr;
+var xCalEvtLctn;
+var xEventDesc;
+var xEvntTitle;
+
+var xHashID = 0;
+
 $(document).ready(function() {
 
 $("#calendar").on('click', 'a', function() {
+    //ensures only one description is visible at any given time. Also helps with the calendar event local storage.
+    var currentHash = $(this).attr('id');
+    if(xHashID == 0){
+        xHashID = $(this).attr('id');
+    }
+    if (currentHash != xHashID){
+        var xCloseOldDesc = 'a#' + xHashID + ' div.fc-event-time table';
+        $(xCloseOldDesc).css("display","none");
+        //console.log('clicked something new');
+        xHashID = currentHash; 
+    }
+    
     var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
-	if ($(item).css('display')=='none')
-	{
-	$(item).css("display","");
+    var item1 = 'a#'+ $(this).attr('id')+' div.fc-eventlist-title'; 
+	if ($(item).css('display')=='none'){
+	    $(item).css("display","");
+        
+        //store globals for calendar event add 
+        xCalAlDyE = $(item + ' span.fc-event-all-day').text();
+        xCalEvntStr = $(item + ' span.fc-event-start-time').text();
+        xCalEvtLctn = $(item + ' div.fc-eventlist-location').text();
+        xEventDesc = $(item + ' div.fc-eventlist-desc').text();
+	    xEvntTitle = $(item1).text();
+        console.log(xEvntTitle);
+        //console.log(encodeURIComponent(xEvntTitle));
 	}
-	else
-	{
-	$(item).css("display","none");
+	else{
+	    $(item).css("display","none");
 	}
+    
+ 
   try{
     var imgPath;
   	readFromFile('pathProfPic.txt', function (data) {
@@ -24,6 +55,74 @@ $("#calendar").on('click', 'a', function() {
 FastClick.attach(document.body);
 
 });
+var decodeHtmlEntity = function(str) {
+  return str.replace(/&#(\d+);/g, function(match, dec) {
+    return String.fromCharCode(dec);
+  });
+};
+function decodeEntities(encodedString) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = encodedString;
+    return textArea.value;
+}
+//for event additions to local calendar
+function addEvent() {
+    var cal = window.plugins.calendar;
+    var title = xEvntTitle;
+    var loc = xCalEvtLctn;
+    var notes = xEventDesc;
+    var success = function(message) {alert("Success: " + JSON.stringify(message))};
+    var error   = function(message) {alert("Error: " + message)};
+    //console.log(res[0]);       
+    var r = confirm("Add this event to your personal calendar?\n" + xCalAlDyE + "\n " + xEventDesc + "\n" + xCalEvtLctn);
+    if (r == true) {
+        if(xCalAlDyE == "all-day"){
+            for (i=0;i<window.xAllDayStringG.length;i++){
+                var xCurrentString = xAllDayStringG[i];
+                //console.log(xCurrentString);
+                var xDec_CurrentString = decodeEntities(xCurrentString);
+                var res = xDec_CurrentString.split("--");
+                var xPotential = res[0];
+                //console.log(xPotential);
+                if(xPotential == xEvntTitle){
+                console.log('made it');
+                console.log(res[0]);//title
+                console.log(res[1]);//==disDate from agendaList
+                console.log(res[2]);//startDate
+                console.log(res[3]);//endDate
+                var startEnd = new Date(res[1]);
+                //console.log(startEnd);
+                cal.createEvent(title,loc,notes,startEnd,startEnd,success,error);
+                }
+            }
+        }else{
+            for(i=0;i<window.xSpecialTimeDay.length;i++){
+                var xCurrentString = xSpecialTimeDay[i];
+                var xDec_CurrentString = decodeEntities(xCurrentString);
+                var res =xDec_CurrentString.split("--");
+                var xPotential = res[0];
+                if(xPotential == xEvntTitle){
+                    console.log('made it');
+                    console.log(res[0]);//title
+                    console.log(res[1]);//==disDate from agendaList
+                    console.log(res[2]);//startDate
+                    console.log(res[3]);//endDate
+                    var startTimeEvent = res[1]+ " " + res[2];
+                    var endTimeEvent = res[1] + " " + res[3];
+                    var startOfEvent = new Date(startTimeEvent);
+                    var endTimeofEvent = new Date(endTimeEvent);
+                    cal.createEvent(title,loc,notes,startOfEvent,endTimeofEvent,success,error);
+                        }
+                        
+                    }
+        }
+    } else {
+        alert("You pressed Cancel!");
+    }
+
+}
+//end of additionals to lcal
+
 
 function takePhoto(){
   source = navigator.camera.PictureSourceType.CAMERA;
@@ -235,9 +334,11 @@ var menu = $(".menu");
 $(document).on('click', function(event) {
     var target = $(event.target);
     if(target.is('#menu-icon') || target.is('.fa-bars') || target.is(menu)){
-        menu.animate({left: '0'});
+        menu.animate({ left: '0' });
+        $("#social-media").css('display', 'block');
     } else {
-        menu.animate({left: '-50%'});
+        menu.animate({ left: '-50%' });
+        $("#social-media").css('display', 'none');
     }
 });
 
