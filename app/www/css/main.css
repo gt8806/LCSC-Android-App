@@ -89,8 +89,8 @@ nav.eventsources{
 }
 
 .menu ul{
-    margin-top: 40%;
-    padding: 0;
+    padding-top: 20%;
+    padding-left: 0;
     padding-bottom: 35%;
 }
 
@@ -217,10 +217,10 @@ nav.Navigation li {
 
 #lclog{
     height: 1.5em;
-    width: 50%;
+    width: 45%;
     position: absolute;
     top: .5em;
-    left: 27%;
+    left: 30%;
     z-index: 1 !important;
 }
 
