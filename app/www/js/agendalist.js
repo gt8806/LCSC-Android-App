@@ -8584,7 +8584,7 @@ $.extend(ListView.prototype, {
 			
 			//temp testing calendar event add ~MK 
 			//console.log(ltitle + " " + evMonth + " " + evDay + " " + evYear + " " + location);
-			var xAllDayStringString = ltitle + "-" + disDate + "-" + startDate + "-" + endDate;
+			var xAllDayStringString = ltitle + "--" + disDate + "--" + startDate + "--" + endDate;
 			xAllDayStringG[xAllDayStringG.length] = xAllDayStringString;
 			
                     } else {
@@ -8607,7 +8607,7 @@ eventdisplay = $(
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
-			var xSpecialTimeDayString = ltitle + "-" + disDate + "-" + startDate + "-" + endDate;
+			var xSpecialTimeDayString = ltitle + "--" + disDate + "--" + startDate + "--" + endDate;
 			xSpecialTimeDay[xSpecialTimeDay.length] = xSpecialTimeDayString;
 			
 					

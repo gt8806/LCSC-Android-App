@@ -33,7 +33,8 @@ $("#calendar").on('click', 'a', function() {
         xCalEvtLctn = $(item + ' div.fc-eventlist-location').text();
         xEventDesc = $(item + ' div.fc-eventlist-desc').text();
 	    xEvntTitle = $(item1).text();
-        //console.log(xCalEvntStr);
+        console.log(xEvntTitle);
+        //console.log(encodeURIComponent(xEvntTitle));
 	}
 	else{
 	    $(item).css("display","none");
@@ -54,7 +55,16 @@ $("#calendar").on('click', 'a', function() {
 FastClick.attach(document.body);
 
 });
-
+var decodeHtmlEntity = function(str) {
+  return str.replace(/&#(\d+);/g, function(match, dec) {
+    return String.fromCharCode(dec);
+  });
+};
+function decodeEntities(encodedString) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = encodedString;
+    return textArea.value;
+}
 //for event additions to local calendar
 function addEvent() {
     var cal = window.plugins.calendar;
@@ -69,11 +79,13 @@ function addEvent() {
         if(xCalAlDyE == "all-day"){
             for (i=0;i<window.xAllDayStringG.length;i++){
                 var xCurrentString = xAllDayStringG[i];
-                var res = xCurrentString.split("-");
+                //console.log(xCurrentString);
+                var xDec_CurrentString = decodeEntities(xCurrentString);
+                var res = xDec_CurrentString.split("--");
                 var xPotential = res[0];
+                //console.log(xPotential);
                 if(xPotential == xEvntTitle){
-                var currentEvent =window.xAllDayStringG[i];
-                var res = currentEvent.split("-");
+                console.log('made it');
                 console.log(res[0]);//title
                 console.log(res[1]);//==disDate from agendaList
                 console.log(res[2]);//startDate
@@ -86,11 +98,11 @@ function addEvent() {
         }else{
             for(i=0;i<window.xSpecialTimeDay.length;i++){
                 var xCurrentString = xSpecialTimeDay[i];
-                var res =xCurrentString.split("-");
+                var xDec_CurrentString = decodeEntities(xCurrentString);
+                var res =xDec_CurrentString.split("--");
                 var xPotential = res[0];
                 if(xPotential == xEvntTitle){
-                    var currentEvent =window.xSpecialTimeDay[i];
-                    var res = currentEvent.split("-");
+                    console.log('made it');
                     console.log(res[0]);//title
                     console.log(res[1]);//==disDate from agendaList
                     console.log(res[2]);//startDate
