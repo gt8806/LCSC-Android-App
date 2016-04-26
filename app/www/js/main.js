@@ -235,9 +235,11 @@ var menu = $(".menu");
 $(document).on('click', function(event) {
     var target = $(event.target);
     if(target.is('#menu-icon') || target.is('.fa-bars') || target.is(menu)){
-        menu.animate({left: '0'});
+        menu.animate({ left: '0' });
+        $("#social-media").css('display', 'block');
     } else {
-        menu.animate({left: '-50%'});
+        menu.animate({ left: '-50%' });
+        $("#social-media").css('display', 'none');
     }
 });
 
@@ -269,7 +271,6 @@ function LCmail() {
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#filter-icon2").css('display', 'block');
-    $("#social-media").css('display', 'none');
 }
 
 function campusM() {
@@ -297,7 +298,6 @@ function campusM() {
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#filter-icon2").css('display', 'block');
-    $("#social-media").css('display', 'none');
 }
 
 function BB() {
@@ -325,7 +325,6 @@ function BB() {
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
     $("#filter-icon2").css('display', 'block');
-    $("#social-media").css('display', 'none');
 }
 
 function front() {
@@ -353,7 +352,6 @@ function front() {
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
     $("#filter-icon2").css('display', 'none');
-    $("#social-media").css('display', 'none');
 }
 
 function AllEvents() {
@@ -379,7 +377,6 @@ function AllEvents() {
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
     $("#filter-icon2").css('display', 'none');
-    $("#social-media").css('display', 'none');
 }
 function Emergency() {
     $("#lcmail").addClass("hide");
@@ -405,7 +402,6 @@ function Emergency() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
-    $("#social-media").css('display', 'none');
 }
 
 function Profile() {
@@ -433,7 +429,6 @@ function Profile() {
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
     $("#filter-icon2").css('display', 'block');
-    $("#social-media").css('display', 'none');
 }
 
 !function (d, s, id) {
