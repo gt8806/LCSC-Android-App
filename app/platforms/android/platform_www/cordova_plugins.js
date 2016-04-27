@@ -189,6 +189,14 @@ module.exports = [
     {
         "file": "plugins/cordova-plugin-calendar/test/tests.js",
         "id": "cordova-plugin-calendar.tests"
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -197,7 +205,8 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-file": "4.1.1",
     "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-calendar": "4.4.7"
+    "cordova-plugin-calendar": "4.4.7",
+    "cordova-plugin-inappbrowser": "1.4.0"
 };
 // BOTTOM OF METADATA
 });

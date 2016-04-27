@@ -41,15 +41,7 @@ $("#calendar").on('click', 'a', function() {
 	}
     
  
-  try{
-    var imgPath;
-  	readFromFile('pathProfPic.txt', function (data) {
-		  imgPath = data;
-	  });
-    $('#profile-pic').attr('src', imgPath);
-    $(".cameraButton").hide();
-  }
- 	catch(all){}
+  
 });
 
 FastClick.attach(document.body);
@@ -130,7 +122,6 @@ function takePhoto(){
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
     writeToFile('pathProfPic.txt', imageURI);
-    $(".cameraButton").hide();
     }, 
   function(message) {
     if (message != "Camera cancelled."){
@@ -147,7 +138,6 @@ function getPhoto(){
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
     writeToFile('pathProfPic.txt', imageURI);
-    $(".cameraButton").hide();
   }, 
   function(message) {
     alert('Failed because: ' + message);
@@ -369,7 +359,7 @@ function LCmail() {
     $("#profile").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
-    $("#filter-icon2").css('display', 'block');
+    $("#filter-icon2").css('display', 'none');
 }
 
 function campusM() {
@@ -396,7 +386,7 @@ function campusM() {
     $("#profile").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
-    $("#filter-icon2").css('display', 'block');
+    $("#filter-icon2").css('display', 'none');
 }
 
 function BB() {
@@ -423,7 +413,7 @@ function BB() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
-    $("#filter-icon2").css('display', 'block');
+    $("#filter-icon2").css('display', 'none');
 }
 
 function front() {
@@ -501,6 +491,7 @@ function Emergency() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
 }
 
 function Profile() {
@@ -528,6 +519,14 @@ function Profile() {
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
     $("#filter-icon2").css('display', 'block');
+    try{
+      var imgPath;
+    	readFromFile('pathProfPic.txt', function (data) {
+  		  imgPath = data;
+  	  });
+      $('#profile-pic').attr('src', imgPath);
+    }
+   	catch(all){}
 }
 
 !function (d, s, id) {
