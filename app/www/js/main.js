@@ -369,7 +369,7 @@ function LCmail() {
     $("#profile").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
-    $("#filter-icon2").css('display', 'block');
+    $("#filter-icon2").css('display', 'none');
 }
 
 function campusM() {
@@ -396,7 +396,7 @@ function campusM() {
     $("#profile").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
-    $("#filter-icon2").css('display', 'block');
+    $("#filter-icon2").css('display', 'none');
 }
 
 function BB() {
@@ -423,7 +423,7 @@ function BB() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
-    $("#filter-icon2").css('display', 'block');
+    $("#filter-icon2").css('display', 'none');
 }
 
 function front() {
@@ -501,6 +501,7 @@ function Emergency() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
 }
 
 function Profile() {
