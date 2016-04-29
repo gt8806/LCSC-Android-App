@@ -522,7 +522,7 @@ function Profile() {
     $("#filter-icon").css('display', 'none');
     $("#filter-icon2").css('display', 'block');
     if(window.localStorage.getItem("picPath")){
-       $('#profile-pic', this.$el).attr('src', window.localStorage.getItem('picPath'));
+       $('#profile-pic').attr('src', window.localStorage.getItem('picPath'));
     }
 //    try{
 //      var imgPath;
