@@ -121,7 +121,8 @@ function takePhoto(){
   navigator.camera.getPicture(
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
-    writeToFile('pathProfPic.txt', imageURI);
+//    writeToFile('pathProfPic.txt', imageURI);
+    window.localStorage.setItem("picPath", imageURI);
     }, 
   function(message) {
     if (message != "Camera cancelled."){
@@ -137,7 +138,8 @@ function getPhoto(){
   navigator.camera.getPicture(
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
-    writeToFile('pathProfPic.txt', imageURI);
+//    writeToFile('pathProfPic.txt', imageURI);
+    window.localStorage.setItem("picPath", imageURI);
   }, 
   function(message) {
     alert('Failed because: ' + message);
@@ -146,35 +148,35 @@ function getPhoto(){
     destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
-function readFromFile(fileName, cb) {
-	var pathToFile = cordova.file.dataDirectory + fileName;
-	window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
-		fileEntry.file(function (file) {
-			var reader = new FileReader();
-			reader.readAsText(file);
-		}, errorHandler.bind(null, fileName));
-	}, errorHandler.bind(null, fileName));
-}
-function writeToFile(fileName, data) {
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
-		directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
-			fileEntry.createWriter(function (fileWriter) {
-				fileWriter.onwriteend = function (e) {
-					// for real-world usage, you might consider passing a success callback
-					console.log('Write of file "' + fileName + '"" completed.');
-				};
-
-				fileWriter.onerror = function (e) {
-					// you could hook this up with our global error handler, or pass in an error callback
-					console.log('Write failed: ' + e.toString());
-				};
-
-				var blob = new Blob([data], { type: 'text/plain' });
-				fileWriter.write(blob);
-			}, errorHandler.bind(null, fileName));
-		}, errorHandler.bind(null, fileName));
-	}, errorHandler.bind(null, fileName));
-}
+//function readFromFile(fileName, cb) {
+//	var pathToFile = cordova.file.dataDirectory + fileName;
+//	window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
+//		fileEntry.file(function (file) {
+//			var reader = new FileReader();
+//			reader.readAsText(file);
+//		}, errorHandler.bind(null, fileName));
+//	}, errorHandler.bind(null, fileName));
+//}
+//function writeToFile(fileName, data) {
+//	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
+//		directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+//			fileEntry.createWriter(function (fileWriter) {
+//				fileWriter.onwriteend = function (e) {
+//					// for real-world usage, you might consider passing a success callback
+//					console.log('Write of file "' + fileName + '"" completed.');
+//				};
+//
+//				fileWriter.onerror = function (e) {
+//					// you could hook this up with our global error handler, or pass in an error callback
+//					console.log('Write failed: ' + e.toString());
+//				};
+//
+//				var blob = new Blob([data], { type: 'text/plain' });
+//				fileWriter.write(blob);
+//			}, errorHandler.bind(null, fileName));
+//		}, errorHandler.bind(null, fileName));
+//	}, errorHandler.bind(null, fileName));
+//}
 
 var counter = 0;
 
@@ -519,14 +521,17 @@ function Profile() {
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
     $("#filter-icon2").css('display', 'block');
-    try{
-      var imgPath;
-    	readFromFile('pathProfPic.txt', function (data) {
-  		  imgPath = data;
-  	  });
-      $('#profile-pic').attr('src', imgPath);
+    if(window.localStorage.getItem("picPath")){
+       $('#profile-pic', this.$el).attr('src', window.localStorage.getItem('picPath'));
     }
-   	catch(all){}
+//    try{
+//      var imgPath;
+//    	readFromFile('pathProfPic.txt', function (data) {
+//  		  imgPath = data;
+//  	  });
+//      $('#profile-pic').attr('src', imgPath);
+//    }
+//   	catch(all){}
 }
 
 !function (d, s, id) {
