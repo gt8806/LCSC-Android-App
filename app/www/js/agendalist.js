@@ -421,6 +421,7 @@ function Calendar(element, instanceOptions) {
 		var _week = createObject(localeData._week); // _week: { dow: # }
 		_week.dow = options.firstDay;
 		localeData._week = _week;
+
 	}
 
 
@@ -867,6 +868,7 @@ function Calendar(element, instanceOptions) {
 
 
 
+
 	/* Header Updating
 	-----------------------------------------------------------------------------*/
 
@@ -1310,6 +1312,7 @@ function EventManager(options) { // assumed to be a calendar
 	// imports
 	var trigger = t.trigger;
 	var getView = t.getView;
+
 	var reportEvents = t.reportEvents;
 	var getEventEnd = t.getEventEnd;
 	
@@ -1703,6 +1706,7 @@ function EventManager(options) { // assumed to be a calendar
 	
 	/* Loading State
 	-----------------------------------------------------------------------------*/
+
 	
 	
 	function pushLoading() {
@@ -2107,6 +2111,7 @@ function undistributeHeight(els) {
 // PREREQUISITE: if you want a cell to take up width, it needs to have a single inner element w/ display:inline
 function matchCellWidths(els) {
 	var maxInnerWidth = 0;
+
 
 	els.find('> *').each(function(i, innerEl) {
 		var innerWidth = $(innerEl).outerWidth();
@@ -2518,6 +2523,7 @@ FCMoment.prototype.time = function(time) {
 	}
 	else { // setter
 
+
 		delete this._ambigTime; // mark that the moment now has a time
 
 		if (!moment.isDuration(time) && !moment.isMoment(time)) {
@@ -2887,6 +2893,7 @@ function formatRangeWithChunks(date1, date2, chunks, separator, isRTL) {
 	for (middleI=leftI; middleI<=rightI; middleI++) {
 		middleStr1 += formatDateWithChunk(date1, chunks[middleI]);
 		middleStr2 += formatDateWithChunk(date2, chunks[middleI]);
+
 	}
 
 	if (middleStr1 || middleStr2) {
@@ -3275,6 +3282,7 @@ ComboCoordMap.prototype = {
 
 		for (i = 0; i < coordMaps.length; i++) {
 			coordMaps[i].build();
+
 		}
 	},
 
@@ -3653,6 +3661,7 @@ DragListener.prototype = {
 		}
 		else if (this.scrollLeftVel > 0) { // scrolling right?
 			if (el.scrollLeft() + el[0].clientWidth >= el[0].scrollWidth) { // already scrolled all the way right?
+
 				this.scrollLeftVel = 0;
 			}
 		}
@@ -4835,6 +4844,7 @@ $.extend(DayGrid.prototype, {
 					'</table>' +
 				'</div>' +
 			'</div>';
+
 	},
 
 
@@ -5221,6 +5231,7 @@ $.extend(DayGrid.prototype, {
 		}
 
 		for (i = 0; i < levelCnt; i++) { // iterate through all levels
+
 			levelSegs = segLevels[i];
 			col = 0;
 			tr = $('<tr/>');
@@ -6324,6 +6335,7 @@ $.extend(TimeGrid.prototype, {
 						'</div>' :
 						''
 						) +
+
 					(event.title ?
 						'<div class="fc-title">' +
 							htmlEscape(event.title) +
@@ -6720,6 +6732,7 @@ View.prototype = {
 		both.css({ position: '', left: '' }); // undo hack
 
 		return totalHeight - otherHeight;
+
 	},
 
 
@@ -7947,6 +7960,7 @@ $.extend(AgendaView.prototype, {
 		this.scrollerEl = this.el.find('.fc-time-grid-container');
 		this.timeGrid.coordMap.containerEl = this.scrollerEl; // don't accept clicks/etc outside of this
 
+
 		this.timeGrid.el = this.el.find('.fc-time-grid');
 		this.timeGrid.render();
 
@@ -8504,16 +8518,16 @@ $.extend(ListView.prototype, {
 			
 			//temp counter 
 			var tempCount = 0;
-			var tempName = 'ASLCSC Graduation Banquet Tickets On Sale';
+			//var tempName = 'ASLCSC Graduation Banquet Tickets On Sale';
 			var xAllDayStringG = new Array();
-			var xSpecialTimeDay = new Array();
-			
+			var xSpecialTimeDay = new Array();			
             for (i in displayeventlist) {
                 // display current month events only ** this might change later if we decide to scroll up down
                 // make sure to check current view month and year
                 evMonth = formatDate(displayeventlist[i].start, 'MM');
 				window.evMonth = evMonth;
 				evDay = formatDate(displayeventlist[i].start, 'DD');
+		evDayEnd = formatDate(displayeventlist[i].end, 'DD');
 				window.evDay = evDay;
                 evYear  = formatDate(displayeventlist[i].start, 'YYYY');
 				window.evYear = evYear;
@@ -8524,13 +8538,20 @@ $.extend(ListView.prototype, {
                     disDate         = (formatDate(displayeventlist[i].displayDay, this.opt('columnFormat')));
                     ltitle          = htmlEscape(displayeventlist[i].title);
                     allDay          = displayeventlist[i].allDay;
-					
-				var xy = evMonth +"-"+evDay+"-"+evYear;
-				var xxy = new Date(xy);
+
+	
+		if(evMonth >= visMonth && evYear == visYear){	
+			var xy = evMonth +"-"+evDay+"-"+evYear;
+			var xyEnd = evMonth +"-"+evDayEnd+"-"+evYear;
+			var xxy = new Date(xy);
+			var xyEnd1 = new Date(xyEnd);
+
+			if(xxy <= xcurrentDate && xyEnd1 >= xcurrentDate){
 				
-				
-               //if ( evMonth >= visMonth && evYear == visYear) {
-				  if (xxy >= xcurrentDate) {	
+				xcurrentDate = xxy;
+			}
+			}
+			if (xxy >= xcurrentDate) {	
                     count++;
 
 					
