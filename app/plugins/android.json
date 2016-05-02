@@ -10,9 +10,6 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "edu.lcsc.LCSC"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         },

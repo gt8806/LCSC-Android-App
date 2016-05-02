@@ -121,14 +121,14 @@ function takePhoto(){
   navigator.camera.getPicture(
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
-    writeToFile('pathProfPic.txt', imageURI);
+    window.localStorage.setItem("picPath", imageURI);
     }, 
   function(message) {
     if (message != "Camera cancelled."){
       alert('Failed because: ' + message);
     }
     }, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: true,
+    allowEdit: true, saveToPhotoAlbum: true,
     destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
@@ -137,43 +137,14 @@ function getPhoto(){
   navigator.camera.getPicture(
   function(imageURI) {
     $('#profile-pic').attr('src', imageURI);
-    writeToFile('pathProfPic.txt', imageURI);
+    window.localStorage.setItem("picPath", imageURI);
   }, 
   function(message) {
     alert('Failed because: ' + message);
     }, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: false,
+    allowEdit: true, saveToPhotoAlbum: true,
     destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
-}
-function readFromFile(fileName, cb) {
-	var pathToFile = cordova.file.dataDirectory + fileName;
-	window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
-		fileEntry.file(function (file) {
-			var reader = new FileReader();
-			reader.readAsText(file);
-		}, errorHandler.bind(null, fileName));
-	}, errorHandler.bind(null, fileName));
-}
-function writeToFile(fileName, data) {
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
-		directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
-			fileEntry.createWriter(function (fileWriter) {
-				fileWriter.onwriteend = function (e) {
-					// for real-world usage, you might consider passing a success callback
-					console.log('Write of file "' + fileName + '"" completed.');
-				};
-
-				fileWriter.onerror = function (e) {
-					// you could hook this up with our global error handler, or pass in an error callback
-					console.log('Write failed: ' + e.toString());
-				};
-
-				var blob = new Blob([data], { type: 'text/plain' });
-				fileWriter.write(blob);
-			}, errorHandler.bind(null, fileName));
-		}, errorHandler.bind(null, fileName));
-	}, errorHandler.bind(null, fileName));
 }
 
 var counter = 0;
@@ -338,6 +309,8 @@ $("[data-role=header]").toolbar({ tapToggle: false });
 function LCmail() {
     $("#lcmail").addClass("show");
     $("#lcmail").removeClass("hide");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("hide");
@@ -365,6 +338,8 @@ function LCmail() {
 function campusM() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("show");
@@ -389,9 +364,40 @@ function campusM() {
     $("#filter-icon2").css('display', 'none');
 }
 
+function WW(){
+    $("#WWeb").addClass('show');
+    $('#WWeb').removeClass('hide');
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
+}
+
 function BB() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("show");
     $("#bbForm").removeClass("hide");
     $("#twitter").addClass("hide");
@@ -419,6 +425,8 @@ function BB() {
 function front() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#twitter").addClass("show");
@@ -446,6 +454,8 @@ function front() {
 function AllEvents() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
@@ -470,6 +480,8 @@ function AllEvents() {
 function Emergency() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
@@ -497,6 +509,8 @@ function Emergency() {
 function Profile() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#profile").addClass("show");
@@ -519,14 +533,17 @@ function Profile() {
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
     $("#filter-icon2").css('display', 'block');
-    try{
-      var imgPath;
-    	readFromFile('pathProfPic.txt', function (data) {
-  		  imgPath = data;
-  	  });
-      $('#profile-pic').attr('src', imgPath);
+    if(window.localStorage.getItem("picPath")){
+       $('#profile-pic').attr('src', window.localStorage.getItem('picPath'));
     }
-   	catch(all){}
+//    try{
+//      var imgPath;
+//    	readFromFile('pathProfPic.txt', function (data) {
+//  		  imgPath = data;
+//  	  });
+//      $('#profile-pic').attr('src', imgPath);
+//    }
+//   	catch(all){}
 }
 
 !function (d, s, id) {
@@ -573,6 +590,8 @@ function getCookie(cname) {
 
 $(document).ready(function (e) {
     $("#user_id").val(window.localStorage.getItem("user"));
+    $("#username").val(window.localStorage.getItem("user1"));
+    $("#password1").val(window.localStorage.getItem("pass1"));
     $("#password").val(window.localStorage.getItem("pass"));
     $("#Field1").val(window.localStorage.getItem("field"));
 });
@@ -581,9 +600,25 @@ function saveCred() {
     window.localStorage.setItem("user", $("#user_id").val());
     window.localStorage.setItem("pass", $("#password").val());
     window.localStorage.setItem("field", $("#Field1").val());
+    window.localStorage.setItem("pass1", $("#password1").val());
+    window.localStorage.setItem("user1", $("#username").val());
 }
 
 gapi.hangout.render('placeholder-div1', {
     'render': 'createhangout',
     'initial_apps': [{ 'app_id': '184219133185', 'start_data': 'dQw4w9WgXcQ', 'app_type': 'ROOM_APP' }]
 });
+
+function openBB() {
+var ref = window.open('https://lcsc.blackboard.com/', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({code: "document.getElementById('user_id').value = a;document.getElementById('password').value = window.localStorage.getItem('pass');"});
+});
+}
+
+function openWW(){
+var ref = window.open('https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2f', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({code: "document.getElementById('username').value = '';document.getElementById('password').value = '';"});
+});
+}
