@@ -129,7 +129,7 @@ function takePhoto(){
       alert('Failed because: ' + message);
     }
     }, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: true,
+    allowEdit: true, saveToPhotoAlbum: true,
     destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
@@ -144,7 +144,7 @@ function getPhoto(){
   function(message) {
     alert('Failed because: ' + message);
     }, { quality: 50, 
-    allowEdit: false, saveToPhotoAlbum: false,
+    allowEdit: true, saveToPhotoAlbum: true,
     destinationType: Camera.DestinationType.FILE_URI,
     sourceType: source});
 }
