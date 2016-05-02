@@ -340,6 +340,8 @@ $("[data-role=header]").toolbar({ tapToggle: false });
 function LCmail() {
     $("#lcmail").addClass("show");
     $("#lcmail").removeClass("hide");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("hide");
@@ -367,6 +369,8 @@ function LCmail() {
 function campusM() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("show");
@@ -391,9 +395,40 @@ function campusM() {
     $("#filter-icon2").css('display', 'none');
 }
 
+function WW(){
+    $("#WWeb").addClass('show');
+    $('#WWeb').removeClass('hide');
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
+}
+
 function BB() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("show");
     $("#bbForm").removeClass("hide");
     $("#twitter").addClass("hide");
@@ -421,6 +456,8 @@ function BB() {
 function front() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#twitter").addClass("show");
@@ -448,6 +485,8 @@ function front() {
 function AllEvents() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
@@ -472,6 +511,8 @@ function AllEvents() {
 function Emergency() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
@@ -499,6 +540,8 @@ function Emergency() {
 function Profile() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#profile").addClass("show");
@@ -578,6 +621,8 @@ function getCookie(cname) {
 
 $(document).ready(function (e) {
     $("#user_id").val(window.localStorage.getItem("user"));
+    $("#username").val(window.localStorage.getItem("user1"));
+    $("#password1").val(window.localStorage.getItem("pass1"));
     $("#password").val(window.localStorage.getItem("pass"));
     $("#Field1").val(window.localStorage.getItem("field"));
 });
@@ -586,9 +631,25 @@ function saveCred() {
     window.localStorage.setItem("user", $("#user_id").val());
     window.localStorage.setItem("pass", $("#password").val());
     window.localStorage.setItem("field", $("#Field1").val());
+    window.localStorage.setItem("pass1", $("#password1").val());
+    window.localStorage.setItem("user1", $("#username").val());
 }
 
 gapi.hangout.render('placeholder-div1', {
     'render': 'createhangout',
     'initial_apps': [{ 'app_id': '184219133185', 'start_data': 'dQw4w9WgXcQ', 'app_type': 'ROOM_APP' }]
 });
+
+function openBB() {
+var ref = window.open('https://lcsc.blackboard.com/', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({code: "document.getElementById('user_id').value = a;document.getElementById('password').value = window.localStorage.getItem('pass');"});
+});
+}
+
+function openWW(){
+var ref = window.open('https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2f', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({code: "document.getElementById('username').value = '';document.getElementById('password').value = '';"});
+});
+}
