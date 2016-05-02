@@ -51,9 +51,9 @@
             <li class="AllEvents"><a href="http://www.lcsc.edu/" data-role="button" data-mini="true" data-icon="home" rel="external" target="_top">LCSC Website</a></li>
             <li class="AllEvents"><a href="http://www.lcwarriors.com/" data-role="button" data-mini="true" data-icon="star" rel="external" target="_top">Athletics Web</a></li>
             <li class="AllEvents"><a href="https://accounts.google.com/ServiceLogin?service=mail&continue=https://mail.google.com/mail/#identifier" data-role="button" data-mini="true" data-icon="mail" rel="external" target="_top">LCMail</a></li>
-            <li class="AllEvents"><a href="javascript: BB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a></li>
+            <li class="AllEvents"><a href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a></li>
             <li class="AllEvents"><a href="https://hangouts.google.com/" target="_blank" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Hangouts</a></li>
-            <li class="AllEvents"><a href="https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2f" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a></li>
+            <li class="AllEvents"><a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a></li>
             <li class="AllEvents"><a href="http://www.lcsc.edu/news/" data-role="button" data-mini="true" data-icon="info" rel="external" target="_top">Campus News</a></li>
             <li class="AllEvents"><a href="javascript: LCmail()" data-role="button" data-mini="true" data-icon="shop" rel="external" target="_top">WarriorOne</a></li>
             <li class="Emergency"><a data-role="button" data-icon="location" data-mini="true" onclick="campusM();">Campus Map</a></li>
@@ -93,16 +93,45 @@
         <img id="profile-pic" src="images/squirrelCard.png">
         <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a>
         <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a>
-        <a class="cameraButton" href="javascript: BB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a>
-        <a href="https://warriorweb.lcsc.edu/WebAdvisor/WebAdvisor" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a>
+        <a class="cameraButton" href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a>
+        <a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a>
 
     </div>
     <div id="campusM" class="ui-body hide">
         <img src="images/CampusMap.jpg">
     </div>
 
+<div id="WWeb" class="hide">
+        <form action="" onsubmit="saveCred(); openWW(); " id="loginForm" method="post" novalidate="novalidate">
+<input name="__RequestVerificationToken" type="hidden" value="FbMMRnHPlSqHjlrD5El2Ofa0dGDhHb78N7QZ_bGdjc8j19pY_BPtPhHyiGmOJJBJMgTFFgs7rak6WU-Lm6KHWO3tn1Mwdb-9WYZ5mEDgnvs1">           
+<div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div>           
+            <fieldset class="login-partial-fieldset">
+                <ol>
+                    <li class="login-partial-input">
+                        <div>
+                            <label class="ui-helper-hidden-accessible" for="UserName">User name</label>
+                            <input data-val="true" data-val-required="The User name field is required." id="UserName" name="UserName" type="text" value="" placeholder="UserName">
+                        </div>
+                    </li>
+                    <li class="login-partial-input">
+                        <div>
+                            <label class="ui-helper-hidden-accessible" for="Password">Password</label>
+                            <input data-val="true" data-val-required="The Password field is required." id="Password1" name="Password" type="password" placeholder="Password">
+                        </div>
+                    </li>
+                    <li class="login-partial-input">
+                        <div>
+                            <input type="submit" value="Sign in" class="login-partial-input form">
+                        </div>
+                    </li>
+                </ol>
+            </fieldset>
+</form>
+    </div>
+
     <div id="bbForm" class="hide">
-        <form action="https://lcsc.blackboard.com/webapps/login/" onsubmit="saveCred(); return validate_form(this, false, true); " method="POST" name="login">
+        <form action="" onsubmit="saveCred(); openBB(); " method="POST" name="login">
 
             <div id="loginFormTitle">
                 <h2>Have an account?</h2>
