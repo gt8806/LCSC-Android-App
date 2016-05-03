@@ -16,7 +16,7 @@
 	<access origin="https://*" launch-external="yes" />
   <preference name="android-build-tool" value="ant" />
 	<preference name="SplashScreen" value="screen" />
-	<preference name="SplashScreenDelay" value="5000" />
+	<preference name="SplashScreenDelay" value="8000" />
 	<preference name="AndroidPersistentFileLocation" value="Compatibility" />
 	<platform name="android">
 		<!-- you can use any density that exists in the Android project -->
