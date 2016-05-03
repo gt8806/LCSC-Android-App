@@ -18,6 +18,9 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
         }
     },
     "dependent_plugins": {}
