@@ -44,21 +44,18 @@ module.exports = [
         "pluginId": "cordova-plugin-calendar"
     },
     {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "pluginId": "cordova-plugin-inappbrowser",
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
+        "pluginId": "cordova-plugin-splashscreen",
         "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
+            "navigator.splashscreen"
         ]
     },
     {
-        "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
-        "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
-        "pluginId": "cordova-plugin-inappbrowser",
-        "merges": [
-            ""
-        ]
+        "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
+        "id": "cordova-plugin-splashscreen.SplashScreenProxy",
+        "pluginId": "cordova-plugin-splashscreen",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -67,7 +64,8 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-calendar": "4.4.7",
-    "cordova-plugin-inappbrowser": "1.4.0"
+    "cordova-plugin-splashscreen": "3.2.2",
+    "cordova-plugin-themeablebrowser": "0.2.15"
 }
 // BOTTOM OF METADATA
 });

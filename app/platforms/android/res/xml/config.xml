@@ -11,8 +11,13 @@
     <feature name="Calendar">
         <param name="android-package" value="nl.xservices.plugins.Calendar" />
     </feature>
-    <feature name="InAppBrowser">
-        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    <preference name="SplashScreenDelay" value="5000" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="ThemeableBrowser">
+        <param name="android-package" value="com.initialxy.cordova.themeablebrowser.ThemeableBrowser" />
     </feature>
     <splash density="land-hdpi" src="www/images/res-long-land-hdpi/default.png" />
     <splash density="land-ldpi" src="www/images/res-long-land-ldpi/default.png" />
@@ -46,6 +51,6 @@
     <access launch-external="yes" origin="https://*" />
     <preference name="android-build-tool" value="ant" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="SplashScreenDelay" value="8000" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 </widget>

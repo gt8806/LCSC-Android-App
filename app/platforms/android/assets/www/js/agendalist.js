@@ -8605,6 +8605,8 @@ $.extend(ListView.prototype, {
 			
 			//temp testing calendar event add ~MK 
 			//console.log(ltitle + " " + evMonth + " " + evDay + " " + evYear + " " + location);
+			
+			//concat string objects && concat each string to xAllDayStringG array ~MK
 			var xAllDayStringString = ltitle + "--" + disDate + "--" + startDate + "--" + endDate;
 			xAllDayStringG[xAllDayStringG.length] = xAllDayStringString;
 			
@@ -8628,17 +8630,19 @@ eventdisplay = $(
 			"</div>"+"</td></table></div>"+
 			"</" + (lurl ? "a" : "div") + ">"+
 			"</li>").appendTo(html);
+			
+			//concat string objects && concat each string to xSpecialTimeDay array ~MK 
 			var xSpecialTimeDayString = ltitle + "--" + disDate + "--" + startDate + "--" + endDate;
 			xSpecialTimeDay[xSpecialTimeDay.length] = xSpecialTimeDayString;
-			
-					
-}
+			}
+		}
+	}
 
-}
-
-}
+//instantiate some global arrays to access in main.js ~MK 4/20/2016
 window.xAllDayStringG = xAllDayStringG;
 window.xSpecialTimeDay = xSpecialTimeDay;
+//--> end of globals for event add to local calendar 
+
 			View.prototype.renderEvents.call(this, events);
             this.trigger('eventRender', event, event);
 		    this.el.find('.fc-agendaList').html(html);

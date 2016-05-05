@@ -16,10 +16,10 @@
         "cordova-plugin-calendar": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         },
-        "cordova-plugin-inappbrowser": {
+        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         },
-        "cordova-plugin-splashscreen": {
+        "cordova-plugin-themeablebrowser": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
         }
     },

@@ -23,18 +23,18 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-inappbrowser"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
             "id": "cordova-plugin-splashscreen"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-themeablebrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-themeablebrowser"
         },
         "is_top_level": true,
         "variables": {}

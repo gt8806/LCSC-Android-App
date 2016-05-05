@@ -10,7 +10,7 @@ var xHashID = 0;
 $(document).ready(function() {
 
 $("#calendar").on('click', 'a', function() {
-    //ensures only one description is visible at any given time. Also helps with the calendar event local storage.
+    //ensures only one description is visible at any given time. Also helps with the calendar event local storage. 4/20/2016 ~MK 
     var currentHash = $(this).attr('id');
     if(xHashID == 0){
         xHashID = $(this).attr('id');
@@ -18,12 +18,15 @@ $("#calendar").on('click', 'a', function() {
     if (currentHash != xHashID){
         var xCloseOldDesc = 'a#' + xHashID + ' div.fc-event-time table';
         $(xCloseOldDesc).css("display","none");
-        //console.log('clicked something new');
         xHashID = currentHash; 
     }
     
     var item ='a#'+ $(this).attr('id')+' div.fc-event-time table';
+    
+    //used to grab the event title name.
     var item1 = 'a#'+ $(this).attr('id')+' div.fc-eventlist-title'; 
+    
+    //renders table visible or not. 
 	if ($(item).css('display')=='none'){
 	    $(item).css("display","");
         
@@ -33,7 +36,7 @@ $("#calendar").on('click', 'a', function() {
         xCalEvtLctn = $(item + ' div.fc-eventlist-location').text();
         xEventDesc = $(item + ' div.fc-eventlist-desc').text();
 	    xEvntTitle = $(item1).text();
-        console.log(xEvntTitle);
+        //console.log(xEvntTitle);
         //console.log(encodeURIComponent(xEvntTitle));
 	}
 	else{
@@ -57,16 +60,17 @@ function decodeEntities(encodedString) {
     textArea.innerHTML = encodedString;
     return textArea.value;
 }
-//for event additions to local calendar
+
+//for event additions to local calendar ~MK 
 function addEvent() {
     var cal = window.plugins.calendar;
     var title = xEvntTitle;
     var loc = xCalEvtLctn;
     var notes = xEventDesc;
-    var success = function(message) {alert("Success: " + JSON.stringify(message))};
-    var error   = function(message) {alert("Error: " + message)};
+    var success = function(message) {alert("Success adding event:\n" + title /* + JSON.stringify(message)*/)};
+    var error   = function(message) {alert("Error there was a problem adding the event " + title + "." /*+ message*/)};
     //console.log(res[0]);       
-    var r = confirm("Add this event to your personal calendar?\n" + xCalAlDyE + "\n " + xEventDesc + "\n" + xCalEvtLctn);
+    var r = confirm("Add this event to your personal calendar?\n" + title + "\n " + xEventDesc);
     if (r == true) {
         if(xCalAlDyE == "all-day"){
             for (i=0;i<window.xAllDayStringG.length;i++){
@@ -77,14 +81,16 @@ function addEvent() {
                 var xPotential = res[0];
                 //console.log(xPotential);
                 if(xPotential == xEvntTitle){
-                console.log('made it');
-                console.log(res[0]);//title
-                console.log(res[1]);//==disDate from agendaList
-                console.log(res[2]);//startDate
-                console.log(res[3]);//endDate
-                var startEnd = new Date(res[1]);
-                //console.log(startEnd);
-                cal.createEvent(title,loc,notes,startEnd,startEnd,success,error);
+                
+                    //console.log(res[0]);//title
+                    //console.log(res[1]);//==disDate from agendaList
+                    //console.log(res[2]);//startDate
+                    //console.log(res[3]);//endDate
+                    var startEnd = new Date(res[1]);
+                    //console.log(startEnd);
+                    
+                    //store the event to local calendar
+                    cal.createEvent(title,loc,notes,startEnd,startEnd,success,error);
                 }
             }
         }else{
@@ -94,26 +100,28 @@ function addEvent() {
                 var res =xDec_CurrentString.split("--");
                 var xPotential = res[0];
                 if(xPotential == xEvntTitle){
-                    console.log('made it');
-                    console.log(res[0]);//title
-                    console.log(res[1]);//==disDate from agendaList
-                    console.log(res[2]);//startDate
-                    console.log(res[3]);//endDate
+                    //console.log('made it');
+                    //console.log(res[0]);//title
+                    //console.log(res[1]);//==disDate from agendaList
+                    //console.log(res[2]);//startDate
+                    //console.log(res[3]);//endDate
                     var startTimeEvent = res[1]+ " " + res[2];
                     var endTimeEvent = res[1] + " " + res[3];
                     var startOfEvent = new Date(startTimeEvent);
                     var endTimeofEvent = new Date(endTimeEvent);
+                    
+                    //store the event to local calendar
                     cal.createEvent(title,loc,notes,startOfEvent,endTimeofEvent,success,error);
                         }
                         
                     }
         }
     } else {
-        alert("You pressed Cancel!");
+        alert("The action was cancelled.");
     }
 
 }
-//end of additionals to lcal
+//end of additionals to lcal event add feature ~MK 4/20/2016
 
 
 function takePhoto(){

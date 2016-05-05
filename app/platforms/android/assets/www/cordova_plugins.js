@@ -40,11 +40,17 @@ module.exports = [
         "id": "cordova-plugin-calendar.tests"
     },
     {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
         "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
+            "navigator.splashscreen"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js",
+        "id": "cordova-plugin-themeablebrowser.themeablebrowser",
+        "clobbers": [
+            "cordova.ThemeableBrowser"
         ]
     }
 ];
@@ -54,7 +60,8 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-calendar": "4.4.7",
-    "cordova-plugin-inappbrowser": "1.4.0"
+    "cordova-plugin-splashscreen": "3.2.2",
+    "cordova-plugin-themeablebrowser": "0.2.15"
 };
 // BOTTOM OF METADATA
 });
