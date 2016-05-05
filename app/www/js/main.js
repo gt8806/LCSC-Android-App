@@ -627,7 +627,11 @@ function Profile() {
 //   	catch(all){}
 }
 
-!function (d, s, id) {
+$(document).ready(function () {
+	twttr.widgets.load()
+});
+
+window.twttr = (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
     p = /^http:/.test(d.location) ? 'http' : 'https';
     if (!d.getElementById(id)) {
@@ -636,7 +640,7 @@ function Profile() {
         js.src = p + "://platform.twitter.com/widgets.js";
         fjs.parentNode.insertBefore(js, fjs);
     }
-}(document, "script", "twitter-wjs");
+}(document, "script", "twitter-wjs"));
 
 $(window).on("orientationchange", function () {
     if (window.orientation === 0)
