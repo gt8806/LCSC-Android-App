@@ -21,7 +21,20 @@
         },
         "cordova-plugin-themeablebrowser": {
             "PACKAGE_NAME": "edu.lcsc.LCSC"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "edu.lcsc.LCSC"
+        }
+    }
 }
