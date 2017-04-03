@@ -474,13 +474,44 @@ function WW(){
     $("#filter-icon2").css('display', 'none');
 }
 
-function BB() {
+function WW(){
+    $("#WWeb").addClass('show');
+    $('#WWeb').removeClass('hide');
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+    $("#filter-icon2").css('display', 'none');
+}
+
+function Wallet(){
+    $("#Wallet").addClass('hide');
+    $('#Wallet').removeClass('show');
     $("#WWeb").addClass('hide');
     $('#WWeb').removeClass('show');
-    $("#bbForm").addClass("show");
-    $("#bbForm").removeClass("hide");
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("hide");
@@ -705,5 +736,12 @@ function openWW(){
 var ref = window.open('https://warriorwebss.lcsc.edu/Student/Account/Login?ReturnUrl=%2fStudent%2f', '_blank', 'location=yes');
 ref.addEventListener('loadstop', function() {
     ref.executeScript({code: "document.getElementById('username').value = '';document.getElementById('password').value = '';"});
+});
+}
+
+function openWallet() {
+var ref = window.open('https://isoptera.lcsc.edu:5196', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({code: "document.getElementById('user_id').value = a;document.getElementById('password').value = window.localStorage.getItem('pass');"});
 });
 }

@@ -52,7 +52,7 @@
             <li class="AllEvents"><a href="http://www.lcwarriors.com/" data-role="button" data-mini="true" data-icon="star" rel="external" target="_top">Athletics Web</a></li>
             <li class="AllEvents"><a href="https://accounts.google.com/ServiceLogin?service=mail&continue=https://mail.google.com/mail/#identifier" data-role="button" data-mini="true" data-icon="mail" rel="external" target="_top">LCMail</a></li>
             <li class="AllEvents"><a href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a></li>
-            <li class="AllEvents"><a href="https://hangouts.google.com/" target="_blank" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Hangouts</a></li>
+            <li class="AllEvents"><a href="javascript: openWallet()" data-role="button" data-mini="true" data-icon="wallet" rel="external" target="_top">Warrior Wallet</a></li>
             <li class="AllEvents"><a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a></li>
             <li class="AllEvents"><a href="http://www.lcsc.edu/news/" data-role="button" data-mini="true" data-icon="info" rel="external" target="_top">Campus News</a></li>
             <li class="AllEvents"><a href="javascript: LCmail()" data-role="button" data-mini="true" data-icon="shop" rel="external" target="_top">WarriorOne</a></li>
@@ -173,7 +173,42 @@
             </p>
         </form>
     </div>
+
+
+    <div id="QR" class="hide">
+        <div data-role="header" class="hide">
+            <h1>QR Scanner</h1>
+        </div>
+
+        <div class="hide">
+            <p>
+                <a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Scan</button></a>
+                <a target="_blank" href="#display" style="text-decoration: none"><button>Display Scanned Data</button></a>
+            </p>
+        </div>
+    </div>
     
+    <div class="hide">
+        <div data-role="header" class="hide">
+            <a target="_blank" href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+                <h1>Display</h1>
+         </div>
+
+         <div data-role="main" class="hide">
+             <table data-role="table" data-mode="column" id="allTable" class="ui-responsive table-stroke">
+                 <thead>
+                     <tr>
+                         <th>Name</th>
+                         <th>Value</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
+          </div>
+       </div>
+
+
     <script src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5/Ajquery.mobile-1.4.5.min.js"></script>
@@ -185,5 +220,61 @@
     <script src='js/fastclick.js'></script>
     <script type="text/javascript" src="js/Calendar.js"></script>
     <script type="text/javascript" src="js/Camera.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script>
+	function scan()
+        {
+        	cordova.plugins.barcodeScanner.scan(
+                    function (result) {
+                        if(!result.cancelled)
+                        {
+                            if(result.format == "QR_CODE")
+                            {
+                                navigator.notification.prompt("Please enter name of data",  function(input){
+                                    var name = input.input1;
+                                    var value = result.text;
+                                    var data = localStorage.getItem("LocalData");
+                                    console.log(data);
+                                    data = JSON.parse(data);
+                                    data[data.length] = [name, value];
+                                    localStorage.setItem("LocalData", JSON.stringify(data));
+                                    alert("Done");
+                                });
+                            }
+                        }
+                    },
+                    function (error) {
+                        alert("Scanning failed: " + error);
+                    }
+               );
+            }
+            $(document).on("pagebeforeshow", "#display", function() {
+                $("table#allTable tbody").empty();
+                var data = localStorage.getItem("LocalData");
+                console.log(data);
+                data = JSON.parse(data);
+                var html = "";
+                for(var count = 0; count < data.length; count++)
+                {
+                    html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
+                }
+                $("table#allTable tbody").append(html).closest("table#allTable").table("refresh").trigger("create");
+            });
+            function openURL(url)
+            {
+                window.open(url, '_blank', 'location=yes');
+            }
+            //initialize
+            if(localStorage.getItem("LocalData") == null)
+            {
+                var data = [];
+                data = JSON.stringify(data);
+                localStorage.setItem("LocalData", data);
+            }
+    
+    </script>
+
 </body>
 </html>
