@@ -205,14 +205,14 @@ nav.Navigation li {
         padding-top: 15px;
 }
 /*div.header{
-		background-image:url("images/lcsc.png");
-		background-size:22px;
-		background-position:10px 5px;
-		background-repeat:no-repeat;
-		background-color:#ffffff;
-		width:100%;
-		padding-left:20px;
-		height:40px;
+	background-image:url("images/lcsc.png");
+	background-size:22px;
+	background-position:10px 5px;
+	background-repeat:no-repeat;
+	background-color:#ffffff;
+	width:100%;
+	padding-left:20px;
+	height:40px;
         position:fixed;
         z-index:9999;
 }*/
@@ -253,6 +253,16 @@ nav.Navigation li {
 }
 
 #filter-icon2{
+   right:0;
+    top:-0.4em;
+    position: fixed;
+    background-color: #003865;
+    color: white;
+    font-size: 0.85em;
+    display: none;
+}
+
+#h1{
     right:0;
     top:-0.4em;
     position: fixed;
@@ -262,6 +272,15 @@ nav.Navigation li {
     display: none;
 }
 
+#QR-filter{
+    right:0;
+    top:-0.4em;
+    position: fixed;
+    background-color: #003865;
+    color: white;
+    font-size: 0.85em;
+    display: none;
+}
 
 #header {
     background-color: white !important;    
@@ -271,6 +290,7 @@ nav.Navigation li {
 #front, #calendar,#emergency,#fullCalendar{
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
+    background-image: url(../images/backgroundColor.png);
 }
 
 #front{
@@ -285,7 +305,7 @@ nav.Navigation li {
 }
 
 #twitter{
-    background-image: url(../images/pattern.jpg);
+    background-image: url(../images/backgroundColor.png);
     position:absolute !important;
     top:65%;
     width:100%;
@@ -328,7 +348,7 @@ nav.Navigation li {
     position: fixed;
     height:100%;
     width: 100%;
-    background-image: url(../images/pattern.jpg);
+    background-image: url(../images/backgroundColor.png);
 }
 
 #profile a {
@@ -343,6 +363,31 @@ nav.Navigation li {
     height: auto;
     margin-left:10%;
 }
+
+
+#warriorCard{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/backgroundColor.png);
+}
+
+/*#WarriorCard a {
+    width: 35%; 
+    margin-left: 25%;
+}*/
+
+#warriorCard img {
+    /*border-radius: 10%;
+    border: 5px solid #003864;*/
+    /*width: 50%;
+    height: 50%;*/
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    /*margin-left:10%;*/
+}
+
 
 #hangout {
     margin-left:.6em;
@@ -385,6 +430,17 @@ nav.Navigation li {
     height: auto; 
     margin-left:22%;
 }
+
+#warriorCard{
+    overflow-y: auto;
+}
+
+#WarriorCard #warriorCard-pic {
+    width: 50%;
+    height: auto; 
+    margin-left:22%;
+}
+
 }
 
 @media screen and (orientation:portrait){
@@ -405,3 +461,4 @@ nav.Navigation li {
 ::-webkit-scrollbar { 
     display: none; 
 }
+

@@ -18,6 +18,7 @@
         <h1><a href="#" id="lclog" onclick="front();"><img src="images/lcsc.gif"></a></h1>
         <a href="#" id="filter-icon"><i class="fa fa-chevron-circle-down"></i></a>
         <a href="javascript:takePhoto();" id="filter-icon2"><i class="fa fa-camera"></i></a>
+        <a href="javascript:scan()" id="QR-filter"><i class="fa fa-qrcode"></i></a>
     </div>
 
     <nav class="eventsources hide">
@@ -46,20 +47,21 @@
     <nav class="menu">
         <ul>
             <li class="Athletics"><a data-role="button" data-icon="home" data-mini="true" onclick="front();">Home</a></li>
-            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="Profile();">Profile</a></li>
             <li class="AllEvents"><a data-role="button" data-icon="calendar" data-mini="true" onclick="AllEvents();">Calendar</a></li>
-            <li class="AllEvents"><a href="http://www.lcsc.edu/" data-role="button" data-mini="true" data-icon="home" rel="external" target="_top">LCSC Website</a></li>
+            <li class="AllEvents"><a href="http://www.lcsc.edu/" data-role="button" data-mini="true" data-icon="star" rel="external" target="_top">LCSC Website</a></li>
             <li class="AllEvents"><a href="http://www.lcwarriors.com/" data-role="button" data-mini="true" data-icon="star" rel="external" target="_top">Athletics Web</a></li>
             <li class="AllEvents"><a href="https://accounts.google.com/ServiceLogin?service=mail&continue=https://mail.google.com/mail/#identifier" data-role="button" data-mini="true" data-icon="mail" rel="external" target="_top">LCMail</a></li>
             <li class="AllEvents"><a href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a></li>
-            <li class="AllEvents"><a href="javascript: openWallet()" data-role="button" data-mini="true" data-icon="wallet" rel="external" target="_top">Warrior Wallet</a></li>
             <li class="AllEvents"><a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a></li>
+            <li class="AllEvents"><a href="javascript: Wallet()" data-role="button" data-mini="true" data-icon="wallet" rel="external" target="_top">Warrior Wallet</a></li>
+            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="warriorCard();">Warrior Card</a></li>
+            <li class="Athletics"><a data-role="button" data-icon="user" data-mini="true" onclick="Profile();">Profile</a></li>
             <li class="AllEvents"><a href="http://www.lcsc.edu/news/" data-role="button" data-mini="true" data-icon="info" rel="external" target="_top">Campus News</a></li>
-            <li class="AllEvents"><a href="javascript: LCmail()" data-role="button" data-mini="true" data-icon="shop" rel="external" target="_top">WarriorOne</a></li>
-            <li class="Emergency"><a data-role="button" data-icon="location" data-mini="true" onclick="campusM();">Campus Map</a></li>
+            <li class="AllEvents"><a href="http://connect.lcsc.edu/ecc/warrioronecard.aspx" data-role="button" data-mini="true" data-icon="shop" rel="external" target="_top">WarriorOne</a></li>
+            <li class="Emergency"><a data-role="button" data-icon="location" data-mini="true" onclick="openMap();">Campus Map</a></li>
             <li class="AllEvents"><a href="http://livestream.com/accounts/8399277" data-role="button" data-mini="true" data-icon="video" rel="external" target="_top">Livestream</a></li>
             <li class="AllEvents"><a href="http://stream.lcsc.edu/iphone.htm" data-role="button" data-mini="true" data-icon="audio" rel="external" target="_top">Radio</a></li>
-            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="Emergency();">Emergency</a></li>      
+            <li class="Emergency"><a data-role="button" data-icon="phone" data-mini="true" onclick="Emergency();">Emergency</a></li>     
         </ul>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div id="social-media">
@@ -88,17 +90,14 @@
         <a href="tel:2087922226" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Office</a>
         <a href="tel:2087922815" data-role="button" data-icon="phone" rel="external" style="text-align:left">Campus Security Mobile</a>
     </div>
+
     <div id="profile" class="ui-body hide">
         <h2 style="text-align:center">Profile</h2>
-        <img id="profile-pic" src="images/squirrelCard.png">
+        <img id="profile-pic" src="images/squirrelCard.jpg">
         <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a>
         <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a>
         <a class="cameraButton" href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a>
         <a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a>
-
-    </div>
-    <div id="campusM" class="ui-body hide">
-        <img src="images/CampusMap.jpg">
     </div>
 
 <div id="WWeb" class="hide">
@@ -174,40 +173,11 @@
         </form>
     </div>
 
+	<div id="warriorCard" class="ui-body hide">
+        <h2 style="text-align:center">Warrior Card</h2>
+        <img src="images/squirrelCard.jpg">
 
-    <div id="QR" class="hide">
-        <div data-role="header" class="hide">
-            <h1>QR Scanner</h1>
-        </div>
-
-        <div class="hide">
-            <p>
-                <a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Scan</button></a>
-                <a target="_blank" href="#display" style="text-decoration: none"><button>Display Scanned Data</button></a>
-            </p>
-        </div>
     </div>
-    
-    <div class="hide">
-        <div data-role="header" class="hide">
-            <a target="_blank" href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
-                <h1>Display</h1>
-         </div>
-
-         <div data-role="main" class="hide">
-             <table data-role="table" data-mode="column" id="allTable" class="ui-responsive table-stroke">
-                 <thead>
-                     <tr>
-                         <th>Name</th>
-                         <th>Value</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-              </table>
-          </div>
-       </div>
-
 
     <script src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.1/Ajquery-2.1.1.min.js"></script>
@@ -223,58 +193,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
-    <script>
-	function scan()
-        {
-        	cordova.plugins.barcodeScanner.scan(
-                    function (result) {
-                        if(!result.cancelled)
-                        {
-                            if(result.format == "QR_CODE")
-                            {
-                                navigator.notification.prompt("Please enter name of data",  function(input){
-                                    var name = input.input1;
-                                    var value = result.text;
-                                    var data = localStorage.getItem("LocalData");
-                                    console.log(data);
-                                    data = JSON.parse(data);
-                                    data[data.length] = [name, value];
-                                    localStorage.setItem("LocalData", JSON.stringify(data));
-                                    alert("Done");
-                                });
-                            }
-                        }
-                    },
-                    function (error) {
-                        alert("Scanning failed: " + error);
-                    }
-               );
-            }
-            $(document).on("pagebeforeshow", "#display", function() {
-                $("table#allTable tbody").empty();
-                var data = localStorage.getItem("LocalData");
-                console.log(data);
-                data = JSON.parse(data);
-                var html = "";
-                for(var count = 0; count < data.length; count++)
-                {
-                    html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
-                }
-                $("table#allTable tbody").append(html).closest("table#allTable").table("refresh").trigger("create");
-            });
-            function openURL(url)
-            {
-                window.open(url, '_blank', 'location=yes');
-            }
-            //initialize
-            if(localStorage.getItem("LocalData") == null)
-            {
-                var data = [];
-                data = JSON.stringify(data);
-                localStorage.setItem("LocalData", data);
-            }
-    
-    </script>
+   
 
 </body>
 </html>
