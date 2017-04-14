@@ -323,18 +323,22 @@ nav.Navigation li {
     width: 100%;
 }
 
-
 #profile{
     position: fixed;
     height:100%;
     width: 100%;
-    background-image: url(../images/pattern.jpg);
+    background-color: grey;
+}
+
+#profile figure {
+    width: 25%;
+    font-size: 4vw;
 }
 
 #profile a {
-    width: 35%; 
-    margin-left: 25%;
+    width: 25%;
 }
+
 
 #profile #profile-pic {
     border-radius: 10%;
@@ -343,6 +347,23 @@ nav.Navigation li {
     height: auto;
     margin-left:10%;
 }
+div.tb{
+    display: inline-block;
+    align: left;
+    padding: 0px;
+    border: 0px;
+    width: 25%;
+}
+
+div.tabs {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    position: fixed;
+    bottom: 0;
+}
+
 
 #hangout {
     margin-left:.6em;

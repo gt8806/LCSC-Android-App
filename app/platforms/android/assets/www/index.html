@@ -91,10 +91,29 @@
     <div id="profile" class="ui-body hide">
         <h2 style="text-align:center">Profile</h2>
         <img id="profile-pic" src="images/squirrelCard.png">
-        <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'>Take photo</a>
-        <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'>Picture from library</a>
-        <a class="cameraButton" href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top">Blackboard</a>
-        <a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top">Warrior Web</a>
+	<div class="tabs">
+	  <div class="tb">
+	    <figure>
+	      <a class="cameraButton" data-role="button" data-icon="camera" data-mini="true" onclick='takePhoto();'></a>
+	      <figcaption>Camera</figcaption>
+	      </figure>
+	  </div><div class="tb">
+	    <figure>
+	    <a class="cameraButton" data-role="button" data-icon="grid" data-mini="true" onclick='getPhoto();'></a>
+	    <figcaption>Library</figcaption>
+	    </figure>
+	  </div><div class="tb">
+	    <figure>
+            <a class="cameraButton" href="javascript: openBB()" data-role="button" data-mini="true" data-icon="edit" rel="external" target="_top"></a>
+	    <figcaption>Blackboard</figcaption>
+	    </figure>
+	  </div><div class="tb">
+	    <figure>
+	    <a href="javascript: openWW()" data-role="button" data-mini="true" data-icon="bullets" rel="external" target="_top"></a>
+	    <figcaption>Worrior Web</figcaption>
+	    </figure>
+	  </div>
+	</div>
 
     </div>
     <div id="campusM" class="ui-body hide">
