@@ -411,9 +411,14 @@ function LCmail() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
 }
 
 function campusM() {
@@ -440,9 +445,14 @@ function campusM() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
 }
 
 function WW(){
@@ -471,41 +481,20 @@ function WW(){
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
 }
 
-function WW(){
-    $("#WWeb").addClass('show');
-    $('#WWeb').removeClass('hide');
-    $("#lcmail").addClass("hide");
-    $("#lcmail").removeClass("show");
-    $("#bbForm").addClass("hide");
-    $("#bbForm").removeClass("show");
-    $("#twitter").addClass("hide");
-    $("#twitter").removeClass("show");
-    $("#campusM").addClass("hide");
-    $("#campusM").removeClass("show");
-    $("#front").addClass("hide");
-    $("#front").removeClass("show");
-    $('#noCal').addClass('hide');
-    $('#noCal').removeClass('show');
-    $("#calendar").addClass("hide");
-    $("#calendar").removeClass("show");
-    $("#emergency").addClass("hide");
-    $("#emergency").removeClass("show");
-    $("#fullCalendar").addClass("hide");
-    $("#fullCalendar").removeClass("show");
-    $(".eventsources").addClass("hide");
-    $(".eventsources").removeClass("show");
-    $("#filter-icon").css('display', 'none');
-    $("#profile").addClass("hide");
-    $("#profile").removeClass("show");
-    $("#filter-icon2").css('display', 'none');
-}
 
 function Wallet(){
-    $("#Wallet").addClass('hide');
-    $('#Wallet').removeClass('show');
+    $("#Wallet").addClass('show');
+    $('#Wallet').removeClass('hide');
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
     $("#WWeb").addClass('hide');
     $('#WWeb').removeClass('show');
     $("#lcmail").addClass("hide");
@@ -532,6 +521,7 @@ function Wallet(){
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'block');
 }
 
 function front() {
@@ -560,7 +550,12 @@ function front() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
 }
 
 function AllEvents() {
@@ -587,7 +582,12 @@ function AllEvents() {
     $("#filter-icon").css('display', 'block');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
 }
 function Emergency() {
     $("#lcmail").addClass("hide");
@@ -615,18 +615,27 @@ function Emergency() {
     $("#filter-icon").css('display', 'none');
     $("#profile").addClass("hide");
     $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
 }
 
-function Profile() {
+function warriorCard() {
     $("#lcmail").addClass("hide");
     $("#lcmail").removeClass("show");
     $("#WWeb").addClass('hide');
     $('#WWeb').removeClass('show');
     $("#bbForm").addClass("hide");
     $("#bbForm").removeClass("show");
-    $("#profile").addClass("show");
-    $("#profile").removeClass("hide");
+    $("#warriorCard").addClass("show");
+    $("#warriorCard").removeClass("hide");
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
     $("#twitter").addClass("hide");
     $("#twitter").removeClass("show");
     $("#campusM").addClass("hide");
@@ -645,6 +654,81 @@ function Profile() {
     $(".eventsources").removeClass("show");
     $("#filter-icon").css('display', 'none');
     $("#filter-icon2").css('display', 'block');
+    $("#QR-filter").css('display', 'none');
+    if(window.localStorage.getItem("picPath")){
+       $('#profile-pic').attr('src', window.localStorage.getItem('picPath'));
+    }
+}
+
+
+function LCSC() {
+    $("#LCSC").addClass("show");
+    $('#LCSC').removeClass("hide");
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
+    $("#profile").addClass("hide");
+    $("#profile").removeClass("show");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#filter-icon2").css('display', 'none');
+    $("#QR-filter").css('display', 'none');
+}
+
+function Profile() {
+    $("#lcmail").addClass("hide");
+    $("#lcmail").removeClass("show");
+    $("#WWeb").addClass('hide');
+    $('#WWeb').removeClass('show');
+    $("#bbForm").addClass("hide");
+    $("#bbForm").removeClass("show");
+    $("#profile").addClass("show");
+    $("#profile").removeClass("hide");
+    $("#warriorCard").addClass("hide");
+    $("#warriorCard").removeClass("show");
+    $("#Wallet").addClass("hide");
+    $("#Wallet").removeClass("show");
+    $("#twitter").addClass("hide");
+    $("#twitter").removeClass("show");
+    $("#campusM").addClass("hide");
+    $("#campusM").removeClass("show");
+    $("#front").addClass("hide");
+    $("#front").removeClass("show");
+    $('#noCal').addClass('hide');
+    $('#noCal').removeClass('show');
+    $("#calendar").addClass("hide");
+    $("#calendar").removeClass("show");
+    $("#emergency").addClass("hide");
+    $("#emergency").removeClass("show");
+    $("#fullCalendar").addClass("hide");
+    $("#fullCalendar").removeClass("show");
+    $(".eventsources").addClass("hide");
+    $(".eventsources").removeClass("show");
+    $("#filter-icon").css('display', 'none');
+    $("#filter-icon2").css('display', 'block');
+    $("#QR-filter").css('display', 'none');
     if(window.localStorage.getItem("picPath")){
        $('#profile-pic').attr('src', window.localStorage.getItem('picPath'));
     }
@@ -740,8 +824,67 @@ ref.addEventListener('loadstop', function() {
 }
 
 function openWallet() {
-var ref = window.open('https://isoptera.lcsc.edu:5196', '_blank', 'location=yes');
+var ref = window.open('https://www.google.com/', '_blank', 'location=yes');
 ref.addEventListener('loadstop', function() {
     ref.executeScript({code: "document.getElementById('user_id').value = a;document.getElementById('password').value = window.localStorage.getItem('pass');"});
 });
 }
+
+function openMap() {
+var ref = window.open('http://lcsc.college-tour.com/map.php', '_blank', 'location=yes');
+ref.addEventListener('loadstop', function() {
+    ref.executeScript({code: "document.getElementById('user_id').value = a;document.getElementById('password').value = window.localStorage.getItem('pass');"});
+});
+}
+
+
+function scan()
+        {
+            cordova.plugins.barcodeScanner.scan(
+                    function (result) {
+                        if(!result.cancelled)
+                        {
+                            if(result.format == "QR_CODE")
+                            {
+                                navigator.notification.prompt("Please enter name of data",  function(input){
+                                    var name = input.input1;
+                                    var value = result.text;
+                                    var data = localStorage.getItem("LocalData");
+                                    console.log(data);
+                                    data = JSON.parse(data);
+                                    data[data.length] = [name, value];
+                                    localStorage.setItem("LocalData", JSON.stringify(data));
+                                    alert("Done");
+                                });
+                            }
+                        }
+                    },
+                    function (error) {
+                        alert("Scanning failed: " + error);
+                    }
+               );
+            }
+            $(document).on("pagebeforeshow", "#display", function() {
+                $("table#allTable tbody").empty();
+                var data = localStorage.getItem("LocalData");
+                console.log(data);
+                data = JSON.parse(data);
+                var html = "";
+                for(var count = 0; count < data.length; count++)
+                {
+                    html = html + "<tr><td>" + data[count][0] + "</td><td><a href='javascript:openURL(\"" + data[count][1] + "\")'>" + data[count][1] + "</a></td></tr>";
+                }
+                $("table#allTable tbody").append(html).closest("table#allTable").table("refresh").trigger("create");
+            });
+            function openURL(url)
+            {
+                window.open(url, '_blank', 'location=yes');
+            }
+            //initialize
+            if(localStorage.getItem("LocalData") == null)
+            {
+                var data = [];
+                data = JSON.stringify(data);
+                localStorage.setItem("LocalData", data);
+            }
+
