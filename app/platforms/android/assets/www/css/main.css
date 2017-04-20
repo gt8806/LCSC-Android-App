@@ -343,33 +343,21 @@ nav.Navigation li {
     width: 100%;
 }
 
-#profile{
+#warriorCard{
     position: fixed;
     height:100%;
     width: 100%;
-<<<<<<< HEAD
-    background-color: grey;
-}
-
-#profile figure {
-    width: 25%;
-    font-size: 4vw;
-=======
     background-image: url(../images/backgroundColor.png);
->>>>>>> c44a8a0dc57d2c11655c1944b6a69b68ee01bc8a
-}
-
-#profile a {
-    width: 25%;
 }
 
 
-#profile #profile-pic {
-    border-radius: 10%;
-    border: 5px solid #003864;
-    width: 80%;
-    height: auto;
-    margin-left:10%;
+#warriorCard #warriorCard-pic {
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    object-fit:contain;
 }
 div.tb{
     display: inline-block;
@@ -386,31 +374,6 @@ div.tabs {
     background-color: #f1f1f1;
     position: fixed;
     bottom: 0;
-}
-
-
-
-#warriorCard{
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-image: url(../images/backgroundColor.png);
-}
-
-/*#WarriorCard a {
-    width: 35%; 
-    margin-left: 25%;
-}*/
-
-#warriorCard img {
-    /*border-radius: 10%;
-    border: 5px solid #003864;*/
-    /*width: 50%;
-    height: 50%;*/
-    position: absolute;
-    top: 0; bottom:0; left: 0; right:0;
-    margin: auto;
-    /*margin-left:10%;*/
 }
 
 
@@ -446,25 +409,16 @@ div.tabs {
             z-index: 1 !important;
     }
 
-    #profile{
+    #warriorCard{
         overflow-y: auto;
     }
 
-    #profile #profile-pic {
+    #warriorCard #warriorCard-pic {
     width: 50%;
     height: auto; 
     margin-left:22%;
 }
 
-#warriorCard{
-    overflow-y: auto;
-}
-
-#WarriorCard #warriorCard-pic {
-    width: 50%;
-    height: auto; 
-    margin-left:22%;
-}
 
 }
 

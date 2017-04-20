@@ -201,7 +201,7 @@ function takePhoto(){
   source = navigator.camera.PictureSourceType.CAMERA;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#warriorCard-pic').attr('src', imageURI);
+    $('#profile-pic').attr('src', imageURI);
     window.localStorage.setItem("picPath", imageURI);
     }, 
   function(message) {
@@ -217,7 +217,7 @@ function getPhoto(){
   source = navigator.camera.PictureSourceType.PHOTOLIBRARY;
   navigator.camera.getPicture(
   function(imageURI) {
-    $('#warriorCard-pic').attr('src', imageURI);
+    $('#profile-pic').attr('src', imageURI);
     window.localStorage.setItem("picPath", imageURI);
   }, 
   function(message) {
@@ -675,7 +675,7 @@ function warriorCard() {
     $("#filter-icon2").css('display', 'block');
     $("#QR-filter").css('display', 'none');
     if(window.localStorage.getItem("picPath")){
-       $('#warriorCard-pic').attr('src', window.localStorage.getItem('picPath'));
+       $('#profile-pic').attr('src', window.localStorage.getItem('picPath'));
     }
 //    try{
 //      var imgPath;
