@@ -287,7 +287,12 @@ nav.Navigation li {
 }
 
 
-#front, #calendar,#emergency,#fullCalendar{
+#front, #calendar,#fullCalendar{
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+#emergency{
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     background-image: url(../images/backgroundColor.png);
@@ -305,7 +310,6 @@ nav.Navigation li {
 }
 
 #twitter{
-    background-image: url(../images/backgroundColor.png);
     position:absolute !important;
     top:65%;
     width:100%;
@@ -350,14 +354,23 @@ nav.Navigation li {
     background-image: url(../images/backgroundColor.png);
 }
 
+#warriorCard figure {
+    width: 25%;
+    font-size: 4vw;
+    background-image: url(../images/backgroundColor.png);
+}
+
+#warriorCard a {
+    width: 25%;
+}
+
 
 #warriorCard #warriorCard-pic {
-    width: 90%;
-    height: 80%;
-    position: absolute;
-    top: 0; bottom:0; left: 0; right:0;
-    margin: auto;
-    object-fit:contain;
+    border-radius: 10%;
+    border: 5px solid #003864;
+    width: 80%;
+    height: auto;
+    margin-left:10%;
 }
 div.tb{
     display: inline-block;
